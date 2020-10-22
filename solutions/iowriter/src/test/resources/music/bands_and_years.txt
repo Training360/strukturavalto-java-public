@@ -1,0 +1,8 @@
+Metallica;1981
+Omega;1962
+Pearl Jam;1990
+Katy Perry;2001
+The Beatles;1957
+Edda;1974
+Justin Bieber;2010
+Michael Jackson;1966

@@ -1,0 +1,5 @@
+bin/
+bin/binfile.txt
+data/
+data/data1.dat
+data/data2.dat

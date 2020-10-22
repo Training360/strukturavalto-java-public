@@ -1,0 +1,8 @@
+Hungary 7
+Austria 7
+Slovakia 5
+Germany 8
+France 6
+Portugal 1
+Spain 3
+Finnland 3
