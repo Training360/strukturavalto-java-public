@@ -1,31 +1,26 @@
 package collectionsmap;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 
 public class LogParserTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
-
     @Test
     public void faultyLogShouldThrowException() {
-        // Given
+
         String log = "invalid_log_format";
 
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Incorrect log: incorrect number of fields");
-
-        // When
-        new LogParser().parseLog(log);
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> {
+            new LogParser().parseLog(log);
+        });
+        assertEquals("Incorrect log: incorrect number of fields", ex.getMessage());
     }
 
     @Test
@@ -33,11 +28,11 @@ public class LogParserTest {
         // Given
         String log = "176.121.45.124:20161202:derzsi\n";
 
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Incorrect log: incorrect date");
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> {
+            new LogParser().parseLog(log);
+        });
+        assertEquals("Incorrect log: incorrect date", ex.getMessage());
 
-        // When
-        new LogParser().parseLog(log);
     }
 
     @Test
@@ -50,10 +45,10 @@ public class LogParserTest {
         Map<String, List<Entry>> entries = new LogParser().parseLog(log);
 
         // Then
-        assertThat(entries.size(), equalTo(1));
-        assertThat(entries.get("176.121.45.124").size(), equalTo(2));
-        assertThat(entries.get("176.121.45.124").get(0).getLogin(), equalTo("derzsi"));
-        assertThat(entries.get("176.121.45.124").get(0).getIpAddress(), equalTo("176.121.45.124"));
-        assertThat(entries.get("176.121.45.124").get(0).getEntryDate(), equalTo(LocalDate.of(2016, 12, 2)));
+        assertEquals(1, entries.size());
+        assertEquals(2, entries.get("176.121.45.124").size());
+        assertEquals("derzsi", entries.get("176.121.45.124").get(0).getLogin());
+        assertEquals("176.121.45.124", entries.get("176.121.45.124").get(0).getIpAddress());
+        assertEquals(LocalDate.of(2016, 12, 2), entries.get("176.121.45.124").get(0).getEntryDate());
     }
 }

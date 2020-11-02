@@ -1,8 +1,9 @@
 package lambdacollectors;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -13,15 +14,14 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class CafeTest {
     private List<CoffeeOrder> orders = new ArrayList<>();
 
-    @Before
-    public void initializeOrders(){
+    @BeforeEach
+    public void initializeOrders() {
         Coffee espresso = new Coffee(CoffeeType.ESPRESSO, new BigDecimal(4.9));
         Coffee machiatto = new Coffee(CoffeeType.MACHIATTO, new BigDecimal(5.5));
         Coffee ristretto = new Coffee(CoffeeType.RISTRETTO, new BigDecimal(4.9));
@@ -35,14 +35,14 @@ public class CafeTest {
         LocalDate date3 = LocalDate.of(2018, 5, 5);
         LocalDate date4 = LocalDate.of(2018, 5, 6);
 
-        LocalTime time1 = LocalTime.of(9,10);
-        LocalTime time2 = LocalTime.of(9,19);
-        LocalTime time3 = LocalTime.of(9,37);
-        LocalTime time4 = LocalTime.of(10,3);
-        LocalTime time5 = LocalTime.of(11,20);
-        LocalTime time6 = LocalTime.of(11,58);
-        LocalTime time7 = LocalTime.of(12,29);
-        LocalTime time8 = LocalTime.of(14,1);
+        LocalTime time1 = LocalTime.of(9, 10);
+        LocalTime time2 = LocalTime.of(9, 19);
+        LocalTime time3 = LocalTime.of(9, 37);
+        LocalTime time4 = LocalTime.of(10, 3);
+        LocalTime time5 = LocalTime.of(11, 20);
+        LocalTime time6 = LocalTime.of(11, 58);
+        LocalTime time7 = LocalTime.of(12, 29);
+        LocalTime time8 = LocalTime.of(14, 1);
 
         orders.add(new CoffeeOrder(Arrays.asList(espresso, espresso, ristretto), LocalDateTime.of(date1, time3)));
         orders.add(new CoffeeOrder(Arrays.asList(cappuccino), LocalDateTime.of(date2, time1)));
@@ -58,25 +58,25 @@ public class CafeTest {
         orders.add(new CoffeeOrder(Arrays.asList(mocha, espresso, cappuccino), LocalDateTime.of(date1, time8)));
     }
 
-    @After
-    public void destroyOrders(){
+    @AfterEach
+    public void destroyOrders() {
         orders = null;
     }
 
     @Test
-    public void getCountByCoffeeType(){
+    public void getCountByCoffeeType() {
         Cafe cafe = new Cafe(orders);
 
         Map<CoffeeType, Long> map = cafe.getCountByCoffeeType();
 
-        assertThat(map.size(), is(7));
-        assertThat(map.get(CoffeeType.ESPRESSO), equalTo(7L));
+        assertEquals(7, map.size());
+        assertEquals(7L, map.get(CoffeeType.ESPRESSO));
     }
 
     @Test
     public void getAverageOrder() {
         Cafe cafe = new Cafe(orders);
 
-        assertThat(Math.round(cafe.getAverageOrder()*10000)/10000.0, equalTo(2.1667));
+        assertEquals(2.1667, Math.round(cafe.getAverageOrder() * 10000) / 10000.0);
     }
 }

@@ -1,14 +1,14 @@
 package collectionsautoboxing;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class AutoboxingTest {
 
@@ -18,12 +18,12 @@ public class AutoboxingTest {
         l.add(5);
 
         int i = l.get(0);
-        assertThat(i, equalTo(5));
+        assertEquals(5, i);
 
         l.add(8);
 
         l.add(null);
-        assertThat(l.get(2), equalTo(null));
+        assertNull(l.get(2));
     }
 
     @Test
@@ -34,6 +34,6 @@ public class AutoboxingTest {
 
         m.put('a', m.get('a') + 1);
 
-        assertThat(m.get('a'), equalTo(2));
+        assertEquals(2, m.get('a'));
     }
 }

@@ -1,13 +1,13 @@
 package collectionsequalshash;
 
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 public class BookCatalogTest {
 
@@ -20,19 +20,19 @@ public class BookCatalogTest {
     @Test
     public void findSelectedBookInBookList() {
         //When
-        Book foundBook = new BookCatalog().findBookByTitleAuthor(Arrays.asList(books),"Vuk", "Fekete István");
+        Book foundBook = new BookCatalog().findBookByTitleAuthor(Arrays.asList(books), "Vuk", "Fekete István");
         //Then
-        assertThat(foundBook.getRegNumber(),equalTo("2121"));
-        assertThat(foundBook.getAuthor(),equalTo("Fekete István"));
-        assertThat(foundBook.getTitle(),equalTo("Vuk"));
-        assertThat(foundBook.toString(), equalTo("Book{regNumber='2121', title='Vuk', author='Fekete István'}"));
+        assertEquals("2121", foundBook.getRegNumber());
+        assertEquals("Fekete István", foundBook.getAuthor());
+        assertEquals("Vuk", foundBook.getTitle());
+        assertEquals("Book{regNumber='2121', title='Vuk', author='Fekete István'}", foundBook.toString());
     }
 
     @Test
-    public void bookIsNotInBookList(){
-        Book foundBook = new BookCatalog().findBookByTitleAuthor(Arrays.asList(books),"Vuk", "");
+    public void bookIsNotInBookList() {
+        Book foundBook = new BookCatalog().findBookByTitleAuthor(Arrays.asList(books), "Vuk", "");
 
-        assertThat(foundBook,equalTo(null));
+        assertEquals(null, foundBook);
     }
 
     @Test
@@ -42,16 +42,16 @@ public class BookCatalogTest {
         //When
         Book foundBook = new BookCatalog().findBook(Arrays.asList(books), searchingFor);
         //Then
-        assertThat(searchingFor.equals(foundBook), is(true));
+        assertTrue(searchingFor.equals(foundBook));
     }
 
     @Test
-    public void selectedBookIsNotInBookList(){
+    public void selectedBookIsNotInBookList() {
         Book searchingFor = new Book("2121", "Vuk", "István");
 
         Book foundBook = new BookCatalog().findBook(Arrays.asList(books), searchingFor);
 
-        assertThat(foundBook,equalTo(null));
+        assertEquals(null, foundBook);
     }
 
     @Test
@@ -61,7 +61,7 @@ public class BookCatalogTest {
         //When
         Book foundBook = new BookCatalog().findBook(Arrays.asList(books), searchingFor);
         //Then
-        assertThat(searchingFor.equals(foundBook), is(true));
+        assertTrue(searchingFor.equals(foundBook));
     }
 
     @Test
@@ -75,6 +75,6 @@ public class BookCatalogTest {
         //When
         Set<Book> bookSet = new BookCatalog().addBooksToSet(sameBooks);
         //Then
-        assertThat(bookSet.size(), equalTo(1));
+        assertEquals(1, bookSet.size());
     }
 }

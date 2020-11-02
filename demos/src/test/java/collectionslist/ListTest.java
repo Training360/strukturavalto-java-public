@@ -1,11 +1,10 @@
 package collectionslist;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ListTest {
 
@@ -14,40 +13,40 @@ public class ListTest {
         List<String> l = new LinkedList<>();
         l.add("John");
         l.add("Jack");
-        assertThat(l, equalTo(Arrays.asList("John", "Jack")));
+        assertEquals(Arrays.asList("John", "Jack"), l);
 
         Collection<String> c = l;
         c.add("Jane");
-        assertThat(c, equalTo(Arrays.asList("John", "Jack", "Jane")));
+        assertEquals(Arrays.asList("John", "Jack", "Jane"), c);
 
         c.remove("Jack");
-        assertThat(c, equalTo(Arrays.asList("John", "Jane")));
+        assertEquals(Arrays.asList("John", "Jane"), c);
 
-        assertThat(c.isEmpty(), equalTo(false));
-        assertThat(c.size(), equalTo(2));
+        assertFalse(c.isEmpty());
+        assertEquals(2, c.size());
 
-        assertThat(c.contains("Jane"), equalTo(true));
-        assertThat(c.contains("Jack"), equalTo(false));
+        assertTrue(c.contains("Jane"));
+        assertFalse(c.contains("Jack"));
 
         c.clear();
-        assertThat(c.isEmpty(), equalTo(true));
+        assertTrue(c.isEmpty());
 
         l.add("John");
         l.add("Jane");
         l.add(0, "Jack");
-        assertThat(c, equalTo(Arrays.asList("Jack", "John", "Jane")));
+        assertEquals(Arrays.asList("Jack", "John", "Jane"), c);
 
-        assertThat(l.get(1), equalTo("John"));
-        assertThat(l.indexOf("Jane"), equalTo(2));
+        assertEquals("John", l.get(1));
+        assertEquals(2, l.indexOf("Jane"));
 
         l.add("Jack");
-        assertThat(l.indexOf("Jack"), equalTo(0));
-        assertThat(l.lastIndexOf("Jack"), equalTo(3));
+        assertEquals(0, l.indexOf("Jack"));
+        assertEquals(3, l.lastIndexOf("Jack"));
 
         l.remove(0);
-        assertThat(c, equalTo(Arrays.asList("John", "Jane", "Jack")));
+        assertEquals(Arrays.asList("John", "Jane", "Jack"), c);
 
         l.set(1, "Joe");
-        assertThat(c, equalTo(Arrays.asList("John", "Joe", "Jack")));
+        assertEquals(Arrays.asList("John", "Joe", "Jack"), c);
     }
 }

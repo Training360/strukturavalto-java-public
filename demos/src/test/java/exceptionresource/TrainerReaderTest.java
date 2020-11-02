@@ -1,55 +1,22 @@
 package exceptionresource;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TrainerReaderTest {
-
-    @Rule
-    public ExpectedException expectedException = ExpectedException.none();
-
-    @Test
-    public void testNull() {
-        expectedException.expect(NullPointerException.class);
-        TrainerReader trainerReader = new TrainerReader(null);
-        trainerReader.read();
-    }
-
-    @Test
-    public void testInvalidLine() {
-        expectedException.expect(IllegalArgumentException.class);
-        TrainerReader trainerReader = new TrainerReader("John Doe");
-        trainerReader.read();
-    }
-
-    @Test
-    public void testEmptyName() {
-        expectedException.expect(IllegalArgumentException.class);
-        TrainerReader trainerReader = new TrainerReader(";30");
-        trainerReader.read();
-    }
-
-    @Test
-    public void testInvalidNumber() {
-        expectedException.expect(IllegalArgumentException.class);
-        TrainerReader trainerReader = new TrainerReader("John Doe;abc");
-        trainerReader.read();
-    }
 
     @Test
     public void testValid() {
         TrainerReader trainerReader = new TrainerReader("John Doe;30");
         List<Trainer> trainers = trainerReader.read();
 
-        assertThat(trainers.size(), equalTo(1));
-        assertThat(trainers.get(0).getName(), equalTo("John Doe"));
-        assertThat(trainers.get(0).getAge(), equalTo(30));
+        assertEquals(1, trainers.size());
+        assertEquals("John Doe", trainers.get(0).getName());
+        assertEquals(30, trainers.get(0).getAge());
     }
 
     @Test
@@ -57,8 +24,40 @@ public class TrainerReaderTest {
         TrainerReader trainerReader = new TrainerReader("John Doe;30\nJane Doe;20");
         List<Trainer> trainers = trainerReader.read();
 
-        assertThat(trainers.size(), equalTo(2));
-        assertThat(trainers.get(0).getName(), equalTo("John Doe"));
-        assertThat(trainers.get(1).getAge(), equalTo(20));
+        assertEquals(2, trainers.size());
+        assertEquals("John Doe", trainers.get(0).getName());
+        assertEquals(20, trainers.get(1).getAge());
+    }
+
+    @Test
+    public void testNull() {
+        assertThrows(NullPointerException.class, () -> {
+            TrainerReader trainerReader = new TrainerReader(null);
+            trainerReader.read();
+        });
+    }
+
+    @Test
+    public void testInvalidLine() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            TrainerReader trainerReader = new TrainerReader("John Doe");
+            trainerReader.read();
+        });
+    }
+
+    @Test
+    public void testEmptyName() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            TrainerReader trainerReader = new TrainerReader(";30");
+            trainerReader.read();
+        });
+    }
+
+    @Test
+    public void testInvalidNumber() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            TrainerReader trainerReader = new TrainerReader("John Doe;abc");
+            trainerReader.read();
+        });
     }
 }

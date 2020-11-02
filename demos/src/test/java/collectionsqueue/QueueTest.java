@@ -1,13 +1,13 @@
 package collectionsqueue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class QueueTest {
 
@@ -17,18 +17,18 @@ public class QueueTest {
         q.add(1);
         q.add(2);
         int i = q.element();
-        assertThat(i, equalTo(1));
+        assertEquals(1, i);
 
         i = q.element();
-        assertThat(i, equalTo(1));
+        assertEquals(1, i);
 
         i = q.remove();
-        assertThat(i, equalTo(1));
+        assertEquals(1, i);
 
         i = q.remove();
-        assertThat(i, equalTo(2));
+        assertEquals(2, i);
 
-        assertThat(q.isEmpty(), equalTo(true));
+        assertTrue(q.isEmpty());
     }
 
     @Test
@@ -39,17 +39,17 @@ public class QueueTest {
         d.push(3);
 
         int i = d.peek();
-        assertThat(i, equalTo(3));
+        assertEquals(3, i);
         i = d.peek();
-        assertThat(i, equalTo(3));
+        assertEquals(3, i);
 
         i = d.pop();
-        assertThat(i, equalTo(3));
+        assertEquals(3, i);
 
         i = d.pop();
-        assertThat(i, equalTo(2));
+        assertEquals(2, i);
 
         d.pop();
-        assertThat(d.isEmpty(), equalTo(true));
+        assertTrue(d.isEmpty());
     }
 }

@@ -1,29 +1,32 @@
 package temperatures;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Random;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+
 
 public class TemperaturesReaderTest {
 
-    @Rule
-    public TemporaryFolder folder = new TemporaryFolder();
+
+    @TempDir
+    public File folder;
+
     private byte[] data = new byte[365];
     private String pathString;
 
-    @Before
+    @BeforeEach
     public void init() throws IOException {
         Random random = new Random(5);
         random.nextBytes(data);
-        Path path = folder.newFile("temperatures2019.dat").toPath();
+        Path path = new File(folder, "temperatures2019.dat").toPath();
         pathString = path.toString();
 
         Files.write(path, data);

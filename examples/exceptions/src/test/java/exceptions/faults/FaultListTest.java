@@ -1,15 +1,14 @@
 package exceptions.faults;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 
 public class FaultListTest {
 
@@ -23,14 +22,10 @@ public class FaultListTest {
             "a1,12a.4,1998.04.12.",
             "6,12a.4,1998.04a.12.");
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void processingNullParamShouldThrowException() throws Exception {
-        exception.expect(IllegalArgumentException.class);
-
-        new FaultList().processLines(null);
+        assertThrows(IllegalArgumentException.class, () -> new FaultList().processLines(null));
     }
 
     @Test
@@ -44,7 +39,7 @@ public class FaultListTest {
         expected.add("5," + ProcessingResult.DATE_ERROR.getCode());
         expected.add("6," + ProcessingResult.VALUE_AND_DATE_ERROR.getCode());
 
-        assertThat(faults, is(expected));
+        assertEquals(expected, faults);
     }
 
 }

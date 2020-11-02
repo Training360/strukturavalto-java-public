@@ -1,27 +1,24 @@
 package bank;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 
 public class BankTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     private double initialBalance;
     private List<Account> accounts;
     private Bank bank;
 
-    @Before
+    @BeforeEach
     public void createAccountList() {
         initialBalance = 100;
         accounts = new ArrayList<>();
@@ -35,22 +32,15 @@ public class BankTest {
 
     @Test
     public void constructorNullParamShouldThrowException() {
-        exception.expect(IllegalArgumentException.class);
-
-        new Bank(null);
+        assertThrows(IllegalArgumentException.class, () -> new Bank(null));
     }
 
     @Test
     public void paymentUnknownAccountNumberShouldThrowException() {
         String accountNumber = "unknownAccountNumber";
+        InvalidBankOperationException ex = assertThrows(InvalidBankOperationException.class, () -> bank.payment(accountNumber, 10));
+        assertEquals(ErrorCode.INVALID_ACCOUNTNUMBER, ex.getErrorCode());
 
-        try {
-            bank.payment(accountNumber, 10);
-            fail("InvalidBankOperationException should thrown");
-        }
-        catch (InvalidBankOperationException iboe) {
-            assertThat(iboe.getErrorCode(), equalTo(ErrorCode.INVALID_ACCOUNTNUMBER));
-        }
     }
 
     @Test
@@ -61,9 +51,9 @@ public class BankTest {
         bank.payment(accountNumber, amount);
         for (Account account : accounts) {
             if (account.getAccountNumber().equals(accountNumber)) {
-                assertThat(account.getBalance(), equalTo(initialBalance - amount));
+                assertEquals(initialBalance - amount, account.getBalance());
             } else {
-                assertThat(account.getBalance(), equalTo(initialBalance));
+                assertEquals(initialBalance, account.getBalance());
             }
         }
     }
@@ -72,13 +62,9 @@ public class BankTest {
     public void depositUnknownAccountNumberShouldThowException() {
         String accountNumber = "unknownaccountNumber";
 
-        try {
-            bank.deposit(accountNumber, 10);
-            fail("InvalidBankOperationException should thrown");
-        }
-        catch (InvalidBankOperationException iboe) {
-            assertThat(iboe.getErrorCode(), equalTo(ErrorCode.INVALID_ACCOUNTNUMBER));
-        }
+        InvalidBankOperationException ex = assertThrows(InvalidBankOperationException.class, () -> bank.deposit(accountNumber, 10));
+        assertEquals(ErrorCode.INVALID_ACCOUNTNUMBER, ex.getErrorCode());
+
     }
 
     @Test
@@ -89,9 +75,9 @@ public class BankTest {
         bank.deposit(accountNumber, amount);
         for (Account account : accounts) {
             if (account.getAccountNumber().equals(accountNumber)) {
-                assertThat(account.getBalance(), equalTo(initialBalance + amount));
+                assertEquals(initialBalance + amount,account.getBalance());
             } else {
-                assertThat(account.getBalance(), equalTo(initialBalance));
+                assertEquals(initialBalance,account.getBalance());
             }
         }
     }

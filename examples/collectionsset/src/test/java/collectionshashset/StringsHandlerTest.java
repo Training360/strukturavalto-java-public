@@ -1,15 +1,15 @@
 package collectionshashset;
 
+import org.junit.jupiter.api.Test;
 
 import helper.RandomStringGenerator;
-import org.junit.Test;
 
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 public class StringsHandlerTest {
 
@@ -21,7 +21,7 @@ public class StringsHandlerTest {
         Set<String> strings = new StringsHandler().filterUniqueStrings(testCollection);
 
         //Then
-        assertThat(strings.size() < testCollection.size(), is(true));
+        assertTrue(strings.size() < testCollection.size());
     }
 
     @Test
@@ -36,6 +36,6 @@ public class StringsHandlerTest {
         strings = new StringsHandler().selectIdenticalStrings(strings, anotherStrings);
 
         //Then
-        assertThat(strings.size() < (a + b), is(true));
+        assertTrue(strings.size() < (a + b));
     }
 }

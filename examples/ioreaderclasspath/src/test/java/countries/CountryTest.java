@@ -1,18 +1,18 @@
 package countries;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CountryTest {
 
-    private Country c = new Country("Hungary",7);
+    private Country c = new Country("Hungary", 7);
 
 
     @Test
-    public void createCountryTest(){
-        assertEquals("Hungary",c.getName());
-        assertEquals(7,c.getBorderCountries());
+    public void createCountryTest() {
+        assertEquals("Hungary", c.getName());
+        assertEquals(7, c.getBorderCountries());
     }
 
 }

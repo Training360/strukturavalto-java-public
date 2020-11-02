@@ -1,27 +1,27 @@
 package distjar;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class MainTest {
 
     private ByteArrayOutputStream out = new ByteArrayOutputStream();
     private ByteArrayOutputStream err = new ByteArrayOutputStream();
 
-    @Before
+    @BeforeEach
     public void setUpStreams() {
         System.setOut(new PrintStream(out));
         System.setErr(new PrintStream(err));
     }
 
-    @After
+    @AfterEach
     public void cleanUpStreams() {
         System.setOut(null);
         System.setErr(null);
@@ -30,6 +30,6 @@ public class MainTest {
     @Test
     public void withoutArgument() {
         Main.main(new String[]{});
-        assertThat(out.toString().trim(), equalTo("Hello User!"));
+        assertEquals("Hello User!",out.toString().trim());
     }
 }

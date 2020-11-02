@@ -1,9 +1,8 @@
 package methodchain;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TrainerBuilderTest {
 
@@ -14,7 +13,7 @@ public class TrainerBuilderTest {
                 .withAge(30)
                 .build();
 
-        assertThat(trainer.getName(), equalTo("John Doe"));
-        assertThat(trainer.getAge(), equalTo(30));
+        assertEquals("John Doe", trainer.getName());
+        assertEquals(30, trainer.getAge());
     }
 }

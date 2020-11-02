@@ -1,12 +1,11 @@
 package collectionscomp;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.text.Collator;
 import java.util.*;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TrainersTest {
 
@@ -16,7 +15,7 @@ public class TrainersTest {
 
         Collections.sort(names);
 
-        assertThat(names, equalTo(Arrays.asList("Jack", "Jane", "Joe")));
+        assertEquals(Arrays.asList("Jack", "Jane", "Joe"), names);
 
 
     }
@@ -29,7 +28,7 @@ public class TrainersTest {
                 new Trainer("Jane", 1)
         );
         Collections.sort(trainers);
-        assertThat(trainers.get(0).getName(), equalTo("Jack"));
+        assertEquals("Jack", trainers.get(0).getName());
 
         Collections.sort(trainers, new Comparator<Trainer>() {
             @Override
@@ -37,7 +36,7 @@ public class TrainersTest {
                 return o1.getSalary() - o2.getSalary();
             }
         });
-        assertThat(trainers.get(0).getName(), equalTo("Jane"));
+        assertEquals("Jane", trainers.get(0).getName());
 
         Collections.sort(trainers, new Comparator<Trainer>() {
             @Override
@@ -45,7 +44,7 @@ public class TrainersTest {
                 return o1.getName().length() - o2.getName().length();
             }
         });
-        assertThat(trainers.get(0).getName(), equalTo("Joe"));
+        assertEquals("Joe", trainers.get(0).getName());
     }
 
     public class SalaryComparator implements Comparator<Trainer> {
@@ -61,7 +60,7 @@ public class TrainersTest {
 
         Collections.sort(names, Collator.getInstance(new Locale("hu", "HU")));
 
-        assertThat(names, equalTo(Arrays.asList("Ábel", "éva", "jack", "Jack", "Jane", "Joe")));
+        assertEquals(Arrays.asList("Ábel", "éva", "jack", "Jack", "Jane", "Joe"), names);
 
 
     }

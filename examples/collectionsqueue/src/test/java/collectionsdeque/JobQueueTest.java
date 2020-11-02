@@ -1,29 +1,24 @@
 package collectionsdeque;
 
+import org.junit.jupiter.api.Test;
+
 import job.Job;
 import job.NoJobException;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class JobQueueTest {
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void emptyQueueShouldThrowException() throws NoJobException {
-        //Given
-        exception.expect(NoJobException.class);
-        exception.expectMessage("No job available");
-
-        //When
-        new JobQueue().dispatchUrgentJob(new ArrayDeque<>());
+        Exception ex = assertThrows(NoJobException.class, () -> {
+            new JobQueue().dispatchUrgentJob(new ArrayDeque<>());
+        });
+        assertEquals("No job available, get a rest!", ex.getMessage());
     }
 
     @Test
@@ -39,8 +34,8 @@ public class JobQueueTest {
         Job firstJob = jobQueue.dispatchUrgentJob(jobs);
 
         // Then
-        assertThat(firstJob.getJobDescription(), equalTo("urgent"));
-        assertThat(firstJob.isUrgent(), equalTo(true));
+        assertEquals("urgent", firstJob.getJobDescription());
+        assertTrue(firstJob.isUrgent());
     }
 
     @Test
@@ -56,7 +51,7 @@ public class JobQueueTest {
         Job lastJob = jobQueue.dispatchNotUrgentJob(jobs);
 
         // Then
-        assertThat(lastJob.getJobDescription(), equalTo("not urgent"));
-        assertThat(lastJob.isUrgent(), equalTo(false));
+        assertEquals("not urgent", lastJob.getJobDescription());
+        assertFalse(lastJob.isUrgent());
     }
 }

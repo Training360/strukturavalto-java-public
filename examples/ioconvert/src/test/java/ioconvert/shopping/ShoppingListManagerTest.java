@@ -1,24 +1,24 @@
 package ioconvert.shopping;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class ShoppingListManagerTest {
 
-    @Rule
-    public TemporaryFolder folder = new TemporaryFolder();
+    @TempDir
+    public File folder;
 
     @Test
     public void testSaveShoppingList() throws IOException {
-        File file = folder.newFile("shopping.txt");
+        File file = new File(folder, "shopping.txt");
         List<String> shoppingList = List.of("milk", "butter", "ham", "eggs");
         try (OutputStream os = new FileOutputStream(file)) {
             ShoppingListManager manager = new ShoppingListManager();

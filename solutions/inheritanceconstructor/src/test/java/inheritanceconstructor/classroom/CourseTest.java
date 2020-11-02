@@ -1,9 +1,8 @@
 package inheritanceconstructor.classroom;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CourseTest {
 
@@ -12,7 +11,7 @@ public class CourseTest {
         //Given
         Course course = new Course(20, Facility.COMPUTERS);
         //Then
-        assertThat(course.getParticipants(), equalTo(20));
-        assertThat(course.getFacilityNeeded(), equalTo(Facility.COMPUTERS));
+        assertEquals(20, course.getParticipants());
+        assertEquals(Facility.COMPUTERS, course.getFacilityNeeded());
     }
 }

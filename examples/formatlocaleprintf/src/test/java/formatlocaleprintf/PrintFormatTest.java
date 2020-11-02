@@ -1,28 +1,23 @@
 package formatlocaleprintf;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class PrintFormatTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void lessParameterThenInFormatStringShouldThrowException() throws IllegalArgumentException {
-        // Given
+
         int i = 6;
         int j = 7;
 
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Less objects then expected in format String!");
-
-        // When
-        new PrintFormat().formatMessageWithIntegerParameters("%d  %d  %d", i, j);
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> {
+            new PrintFormat().formatMessageWithIntegerParameters("%d  %d  %d", i, j);
+        });
+        assertEquals("Less objects then expected in format String!", ex.getMessage());
     }
 
 
@@ -32,7 +27,7 @@ public class PrintFormatTest {
         Double d = 561123.201;
 
         //Then
-        assertThat(new PrintFormat().printFormattedText(d), equalTo("Total is: 561 123,20 Ft"));
+        assertEquals("Total is: 561 123,20 Ft", new PrintFormat().printFormattedText(d));
     }
 
     @Test
@@ -42,7 +37,7 @@ public class PrintFormatTest {
         int count = 6;
 
         //Then
-        assertThat(new PrintFormat().printFormattedText(count, fruit), equalTo("We counted 6 APPLES in the basket"));
+        assertEquals("We counted 6 APPLES in the basket", new PrintFormat().printFormattedText(count, fruit));
     }
 
     @Test
@@ -53,9 +48,9 @@ public class PrintFormatTest {
         int k = 666666;   //overflow to the right expected!
 
         //Then
-        assertThat(new PrintFormat().printFormattedText(i), equalTo("Right edge of numbers set at 4 spaces from text:   " + i));
-        assertThat(new PrintFormat().printFormattedText(j), equalTo("Right edge of numbers set at 4 spaces from text:  " + j));
-        assertThat(new PrintFormat().printFormattedText(k), equalTo("Right edge of numbers set at 4 spaces from text:" + k));
+        assertEquals("Right edge of numbers set at 4 spaces from text:   " + i, new PrintFormat().printFormattedText(i));
+        assertEquals("Right edge of numbers set at 4 spaces from text:  " + j, new PrintFormat().printFormattedText(j));
+        assertEquals("Right edge of numbers set at 4 spaces from text:" + k, new PrintFormat().printFormattedText(k));
     }
 
     @Test
@@ -66,6 +61,6 @@ public class PrintFormatTest {
         int k = 8;
 
         //Then
-        assertThat(new PrintFormat().printFormattedText(i, j, k), equalTo("Multiple objects containing text:" + i + "\t" + j + "\t" + k));
+        assertEquals("Multiple objects containing text:" + i + "\t" + j + "\t" + k, new PrintFormat().printFormattedText(i, j, k));
     }
 }

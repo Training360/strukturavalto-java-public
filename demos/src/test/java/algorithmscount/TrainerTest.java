@@ -1,17 +1,16 @@
 package algorithmscount;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TrainerTest {
 
     @Test
     public void testCreate() {
         Trainer trainer = new Trainer("John Doe", 30);
-        assertThat(trainer.getName(), equalTo("John Doe"));
-        assertThat(trainer.getAge(), equalTo(30));
+        assertEquals("John Doe", trainer.getName());
+        assertEquals(30, trainer.getAge());
     }
 
 }

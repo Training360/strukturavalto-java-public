@@ -1,27 +1,29 @@
 package iozip.names;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+
 
 public class EmployeeFileManagerTest {
 
-    @Rule
-    public TemporaryFolder folder = new TemporaryFolder();
+    @TempDir
+    public Path folder;
 
     @Test
     public void testSaveEmployees() throws IOException {
         List<String> employees = List.of("John Doe", "Jack Doe", "Jane Doe");
-        Path path = folder.newFile("employees.zip").toPath();
+        Path path = Files.createFile(folder.resolve("employees.zip"));
 
         EmployeeFileManager manager = new EmployeeFileManager();
 

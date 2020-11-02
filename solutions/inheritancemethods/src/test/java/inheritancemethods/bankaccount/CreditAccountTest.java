@@ -1,10 +1,8 @@
 package inheritancemethods.bankaccount;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CreditAccountTest {
 
@@ -13,9 +11,9 @@ public class CreditAccountTest {
         //Given
         CreditAccount creditAccount = new CreditAccount("11111111-22222222", 100000, 50000);
         //Then
-        assertThat(creditAccount.getAccountNumber(), equalTo("11111111-22222222"));
-        assertThat(creditAccount.getBalance(), equalTo(100000L));
-        assertThat(creditAccount.getOverdraftLimit(), equalTo(50000L));
+        assertEquals("11111111-22222222", creditAccount.getAccountNumber());
+        assertEquals(100000L, creditAccount.getBalance());
+        assertEquals(50000L, creditAccount.getOverdraftLimit());
     }
 
     @Test
@@ -23,9 +21,9 @@ public class CreditAccountTest {
         //Given
         CreditAccount creditAccount = new CreditAccount("11111111-22222222", 100000, 50000);
         //Then
-        assertThat(creditAccount.transaction(40000), is(true));
-        assertThat(creditAccount.getBalance(), equalTo(58800L));
-        assertThat(creditAccount.getOverdraftLimit(), equalTo(50000L));
+        assertTrue(creditAccount.transaction(40000));
+        assertEquals(58800L, creditAccount.getBalance());
+        assertEquals(50000L, creditAccount.getOverdraftLimit());
     }
 
     @Test
@@ -33,9 +31,9 @@ public class CreditAccountTest {
         //Given
         CreditAccount creditAccount = new CreditAccount("11111111-22222222", 100000, 50000);
         //Then
-        assertThat(creditAccount.transaction(140000), is(true));
-        assertThat(creditAccount.getBalance(), equalTo(0L));
-        assertThat(creditAccount.getOverdraftLimit(), equalTo(5800L));
+        assertTrue(creditAccount.transaction(140000));
+        assertEquals(0L, creditAccount.getBalance());
+        assertEquals(5800L, creditAccount.getOverdraftLimit());
     }
 
     @Test
@@ -43,9 +41,9 @@ public class CreditAccountTest {
         //Given
         CreditAccount creditAccount = new CreditAccount("11111111-22222222", 100000, 50000);
         //Then
-        assertThat(creditAccount.transaction(1000), is(true));
-        assertThat(creditAccount.getBalance(), equalTo(98800L));
-        assertThat(creditAccount.getOverdraftLimit(), equalTo(50000L));
+        assertTrue(creditAccount.transaction(1000));
+        assertEquals(98800L, creditAccount.getBalance());
+        assertEquals(50000L, creditAccount.getOverdraftLimit());
     }
 
 
@@ -54,8 +52,8 @@ public class CreditAccountTest {
         //Given
         CreditAccount creditAccount = new CreditAccount("11111111-22222222", 100000, 50000);
         //Then
-        assertThat(creditAccount.transaction(160000), is(false));
-        assertThat(creditAccount.getBalance(), equalTo(100000L));
-        assertThat(creditAccount.getOverdraftLimit(), equalTo(50000L));
+        assertFalse(creditAccount.transaction(160000));
+        assertEquals(100000L, creditAccount.getBalance());
+        assertEquals(50000L, creditAccount.getOverdraftLimit());
     }
 }

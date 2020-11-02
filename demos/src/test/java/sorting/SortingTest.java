@@ -1,11 +1,10 @@
 package sorting;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SortingTest {
 
@@ -13,7 +12,7 @@ public class SortingTest {
     public void testSortArray() {
         int[] i = {3, 1, 6, 9, 5, 3};
         Arrays.sort(i);
-        assertThat(i, equalTo(new int[]{1, 3, 3, 5, 6, 9}));
+        assertArrayEquals(new int[]{1, 3, 3, 5, 6, 9}, i);
     }
 
     @Test
@@ -21,9 +20,10 @@ public class SortingTest {
         List<Integer> i = Arrays.asList(3, 1, 6, 9, 5, 3);
         Collections.sort(i);
 
-        assertThat(i, equalTo(Arrays.asList(1, 3, 3, 5, 6, 9)));
+        assertEquals(Arrays.asList(1, 3, 3, 5, 6, 9), i);
 
         i = Arrays.asList(3, 1, 6, 9, 5, 3);
+        //noinspection Convert2Lambda,Convert2Diamond
         i.sort(new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
@@ -31,11 +31,12 @@ public class SortingTest {
             }
         });
 
-        assertThat(i, equalTo(Arrays.asList(1, 3, 3, 5, 6, 9)));
+        assertEquals(Arrays.asList(1, 3, 3, 5, 6, 9), i);
     }
 
     @Test
     public void testSet() {
+        //noinspection Convert2Lambda,Convert2Diamond
         Set<Trainer> s = new TreeSet<>(new Comparator<Trainer>() {
             @Override
             public int compare(Trainer o1, Trainer o2) {

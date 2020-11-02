@@ -1,11 +1,11 @@
 package inheritancemethods.products;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class ProductTest {
 
@@ -15,9 +15,9 @@ public class ProductTest {
         BigDecimal unit = new BigDecimal("0.235");
         Product product = new Product("Ipad", unit, 3);
         //Then
-        assertThat(product.getName(), equalTo("Ipad"));
-        assertThat(product.getUnitWeight(), equalTo(unit));
-        assertThat(product.getNumberOfDecimals(), equalTo(3));
+        assertEquals("Ipad", product.getName());
+        assertEquals(unit, product.getUnitWeight());
+        assertEquals(3, product.getNumberOfDecimals());
     }
 
     @Test
@@ -26,9 +26,9 @@ public class ProductTest {
         BigDecimal unit = new BigDecimal("0.235");
         Product product = new Product("Ipad", unit);
         //Then
-        assertThat(product.getName(), equalTo("Ipad"));
-        assertThat(product.getUnitWeight(), equalTo(unit));
-        assertThat(product.getNumberOfDecimals(), equalTo(2));
+        assertEquals("Ipad", product.getName());
+        assertEquals(unit, product.getUnitWeight());
+        assertEquals(2, product.getNumberOfDecimals());
     }
 
     @Test
@@ -38,6 +38,6 @@ public class ProductTest {
         Product product = new Product("Ipad", unit, 3);
         BigDecimal total = new BigDecimal("0.705");
         //Then
-        assertThat(product.totalWeight(3), equalTo(total));
+        assertEquals(total, product.totalWeight(3));
     }
 }

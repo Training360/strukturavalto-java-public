@@ -1,17 +1,16 @@
 package algorithmssum.sales;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SalespersonTest {
 
     @Test
     public void testCreateSalesperson() {
         Salesperson salesperson = new Salesperson("Jack", 1500);
-        assertThat(salesperson.getName(), equalTo("Jack"));
-        assertThat(salesperson.getAmount(), is(1500));
+        assertEquals("Jack", salesperson.getName());
+        assertEquals(1500, salesperson.getAmount());
     }
 
 }

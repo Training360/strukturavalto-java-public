@@ -1,9 +1,8 @@
 package constructoroverloading.bus;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SimpleTimeTest {
 
@@ -12,8 +11,8 @@ public class SimpleTimeTest {
         //Given
         SimpleTime time = new SimpleTime(15, 16);
         //Then
-        assertThat(time.getHours(), equalTo(15));
-        assertThat(time.getMinutes(), equalTo(16));
+        assertEquals(15, time.getHours());
+        assertEquals(16, time.getMinutes());
     }
 
     @Test
@@ -21,8 +20,8 @@ public class SimpleTimeTest {
         //Given
         SimpleTime time = new SimpleTime(15);
         //Then
-        assertThat(time.getHours(), equalTo(15));
-        assertThat(time.getMinutes(), equalTo(0));
+        assertEquals(15, time.getHours());
+        assertEquals(0, time.getMinutes());
     }
 
     @Test
@@ -30,8 +29,8 @@ public class SimpleTimeTest {
         //Given
         SimpleTime time = new SimpleTime(new SimpleTime(15, 16));
         //Then
-        assertThat(time.getHours(), equalTo(15));
-        assertThat(time.getMinutes(), equalTo(16));
+        assertEquals(15, time.getHours());
+        assertEquals(16, time.getMinutes());
     }
 
     @Test
@@ -40,7 +39,7 @@ public class SimpleTimeTest {
         SimpleTime time = new SimpleTime(new SimpleTime(15, 16));
         SimpleTime anotherTime = new SimpleTime(new SimpleTime(14, 10));
         //Then
-        assertThat(time.difference(anotherTime), equalTo(66));
+        assertEquals(66, time.difference(anotherTime));
     }
 
     @Test
@@ -49,7 +48,7 @@ public class SimpleTimeTest {
         SimpleTime time = new SimpleTime(new SimpleTime(15, 16));
         SimpleTime anotherTime = new SimpleTime(new SimpleTime(15, 16));
         //Then
-        assertThat(time.difference(anotherTime), equalTo(0));
+        assertEquals(0, time.difference(anotherTime));
     }
 
     @Test
@@ -58,7 +57,7 @@ public class SimpleTimeTest {
         SimpleTime time = new SimpleTime(new SimpleTime(15, 16));
         SimpleTime anotherTime = new SimpleTime(new SimpleTime(17, 26));
         //Then
-        assertThat(time.difference(anotherTime), equalTo(-130));
+        assertEquals(-130, time.difference(anotherTime));
     }
 
     @Test
@@ -66,6 +65,6 @@ public class SimpleTimeTest {
         //Given
         SimpleTime time = new SimpleTime(new SimpleTime(15, 16));
         //Then
-        assertThat(time.toString(), equalTo("15:16"));
+        assertEquals("15:16", time.toString());
     }
 }

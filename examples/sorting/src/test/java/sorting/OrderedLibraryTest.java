@@ -1,9 +1,8 @@
 package sorting;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,14 +13,15 @@ import java.util.Collections;
 import java.util.List;
 import java.util.TreeSet;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 
 public class OrderedLibraryTest {
 
     private List<Book> bookList = new ArrayList<>();
 
-    @Before
+    @BeforeEach
     public void setUp() throws IOException {
         InputStream is = this.getClass().getClassLoader().getResourceAsStream("books.csv");
         String line;
@@ -35,16 +35,11 @@ public class OrderedLibraryTest {
         }
     }
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void emptyCollectionShouldThrowException() throws NullPointerException {
-        // Given
-        exception.expect(NullPointerException.class);
-        exception.expectMessage("Libray is empty!");
-        // When
-        new OrderedLibrary(new TreeSet<>()).lendFirstBook();
+        Exception ex = assertThrows(NullPointerException.class, () -> new OrderedLibrary(new TreeSet<>()).lendFirstBook());
+        assertEquals("Libray is empty!", ex.getMessage());
     }
 
     @Test
@@ -55,6 +50,6 @@ public class OrderedLibraryTest {
         // When
         Book book = ol.lendFirstBook();
         //Then
-        assertThat(book.getId(), equalTo(1001));
+        assertEquals(1001, book.getId());
     }
 }

@@ -1,10 +1,11 @@
 package algorithmssum.sales;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.Arrays;
 import java.util.List;
-import static org.hamcrest.CoreMatchers.is;
-import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SalesAmountSumCalculatorTest {
 
@@ -20,7 +21,7 @@ public class SalesAmountSumCalculatorTest {
                 new Salesperson("Karl", 200)
         );
 
-        assertThat(test.sumSalesAmount(salespersons), is(2400));
+        assertEquals(2400,test.sumSalesAmount(salespersons));
 
     }
 

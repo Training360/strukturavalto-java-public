@@ -1,17 +1,18 @@
 package temperatures;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.Random;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class TemperaturesTest {
 
     public byte[] data = new byte[365];
 
-    @Before
+    @BeforeEach
     public void initData() {
         Random random = new Random(5);
         random.nextBytes(data);

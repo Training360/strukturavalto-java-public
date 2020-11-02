@@ -1,14 +1,13 @@
 package collectionsiterator;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class IteratorTest {
 
@@ -22,7 +21,7 @@ public class IteratorTest {
                 i.remove();
             }
         }
-        assertThat(l, equalTo(Arrays.asList(1, 3, 5, 7)));
+        assertEquals(Arrays.asList(1, 3, 5, 7), l);
     }
 }
 

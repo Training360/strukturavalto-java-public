@@ -1,10 +1,9 @@
 package methodoverloading.pub;
 
-import methodoverloading.pub.Pub;
-import org.junit.Test;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.IsEqual.equalTo;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PubTest {
 
@@ -13,9 +12,9 @@ public class PubTest {
         //Given
         Pub pub = new Pub("Kurta kocsma", 10, 30);
         //Then
-        assertThat(pub.getName(), equalTo("Kurta kocsma"));
-        assertThat(pub.getOpenFrom().getHours(), equalTo(10));
-        assertThat(pub.getOpenFrom().getMinutes(), equalTo(30));
+        assertEquals("Kurta kocsma", pub.getName());
+        assertEquals(10, pub.getOpenFrom().getHours());
+        assertEquals(30, pub.getOpenFrom().getMinutes());
     }
 
     @Test
@@ -23,6 +22,6 @@ public class PubTest {
         //Given
         Pub pub = new Pub("Kurta kocsma", 10, 30);
         //Then
-        assertThat(pub.toString(), equalTo("Kurta kocsma;10:30"));
+        assertEquals("Kurta kocsma;10:30", pub.toString());
     }
 }

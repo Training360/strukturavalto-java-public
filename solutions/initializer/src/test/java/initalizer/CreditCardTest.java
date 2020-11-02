@@ -1,12 +1,11 @@
 package initalizer;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class CreditCardTest {
 
@@ -29,7 +28,7 @@ public class CreditCardTest {
         //Given
         CreditCard card = new CreditCard(1000, Currency.EUR, Arrays.asList(rates));
         //Then
-        assertThat(card.getBalance(), equalTo(308_230L));
+        assertEquals(308_230L, card.getBalance());
     }
 
     @Test
@@ -37,7 +36,7 @@ public class CreditCardTest {
         //Given
         CreditCard card = new CreditCard(100_000);
         //Then
-        assertThat(card.getBalance(), equalTo(100_000L));
+        assertEquals(100_000L, card.getBalance());
     }
 
     @Test
@@ -45,8 +44,8 @@ public class CreditCardTest {
         //Given
         CreditCard card = new CreditCard(100_000);
         //Then
-        assertThat(card.payment(100, Currency.EUR), is(true));
-        assertThat(card.getBalance(), equalTo(69177L));
+        assertTrue(card.payment(100, Currency.EUR));
+        assertEquals(69177L, card.getBalance());
     }
 
     @Test
@@ -54,8 +53,8 @@ public class CreditCardTest {
         //Given
         CreditCard card = new CreditCard(100_000);
         //Then
-        assertThat(card.payment(1000, Currency.EUR), is(false));
-        assertThat(card.getBalance(), equalTo(100_000L));
+        assertFalse(card.payment(1000, Currency.EUR));
+        assertEquals(100_000L, card.getBalance());
     }
 
     @Test
@@ -63,8 +62,8 @@ public class CreditCardTest {
         //Given
         CreditCard card = new CreditCard(100_000);
         //Then
-        assertThat(card.payment(10_000), is(true));
-        assertThat(card.getBalance(), equalTo(90_000L));
+        assertTrue(card.payment(10_000));
+        assertEquals(90_000L, card.getBalance());
     }
 
     @Test
@@ -72,7 +71,7 @@ public class CreditCardTest {
         //Given
         CreditCard card = new CreditCard(100_000);
         //Then
-        assertThat(card.payment(150_000), is(false));
-        assertThat(card.getBalance(), equalTo(100_000L));
+        assertFalse(card.payment(150_000));
+        assertEquals(100_000L, card.getBalance());
     }
 }

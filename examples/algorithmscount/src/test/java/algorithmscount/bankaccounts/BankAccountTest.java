@@ -1,17 +1,16 @@
 package algorithmscount.bankaccounts;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BankAccountTest {
 
     @Test
     public void createBankAccount() {
         BankAccount bankAccount = new BankAccount("John Doe", "1234", 1000);
-        assertThat(bankAccount.getNameOfOwner(), equalTo("John Doe"));
-        assertThat(bankAccount.getAccountNumber(), equalTo("1234"));
-        assertThat(bankAccount.getBalance(), equalTo(1000));
+        assertEquals("John Doe", bankAccount.getNameOfOwner());
+        assertEquals("1234", bankAccount.getAccountNumber());
+        assertEquals(1000, bankAccount.getBalance());
     }
 }

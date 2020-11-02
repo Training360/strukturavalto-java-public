@@ -1,14 +1,13 @@
 package searching;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SearchTest {
 
@@ -17,40 +16,40 @@ public class SearchTest {
        int[] i = {1, 3, 5, 6, 7, 9, 12, 4};
        Arrays.sort(i);
 
-        assertThat(Arrays.binarySearch(i, 5), equalTo(3));
-        assertThat(Arrays.binarySearch(i, 20) < 0, equalTo(true));
+        assertEquals(3, Arrays.binarySearch(i, 5));
+        assertTrue(Arrays.binarySearch(i, 20) < 0);
     }
 
     @Test
     public void testListSearch() {
         List<Integer> i = Arrays.asList(1, 3, 5, 6, 7, 9, 12);
-        assertThat(Collections.binarySearch(i, 6), equalTo(3));
+        assertEquals(3, Collections.binarySearch(i, 6));
 
-        assertThat(i.contains(6), equalTo(true));
-        assertThat(i.contains(20), equalTo(false));
+        assertTrue(i.contains(6));
+        assertFalse(i.contains(20));
 
-        assertThat(i.containsAll(Arrays.asList(1, 7)), equalTo(true));
-        assertThat(i.containsAll(Arrays.asList(1, 20)), equalTo(false));
+        assertTrue(i.containsAll(Arrays.asList(1, 7)));
+        assertFalse(i.containsAll(Arrays.asList(1, 20)));
 
-        assertThat(i.indexOf(6), equalTo(3));
-        assertThat(i.indexOf(20) < 0, equalTo(true));
+        assertEquals(3, i.indexOf(6));
+        assertTrue(i.indexOf(20) < 0);
 
-        assertThat(Collections.min(i), equalTo(1));
-        assertThat(Collections.max(i), equalTo(12));
+        assertEquals(1, Collections.min(i));
+        assertEquals(12, Collections.max(i));
 
         List<Trainer> trainers = Arrays.asList(
                 new Trainer("John", 3),
                 new Trainer("Jack", 2),
                 new Trainer("Jane", 1)
         );
-        assertThat(Collections.min(trainers).getName(), equalTo("Jack"));
+        assertEquals("Jack", Collections.min(trainers).getName());
 
-        assertThat(Collections.min(trainers,
+        assertEquals("Jane", Collections.min(trainers,
                 new Comparator<Trainer>() {
                     @Override
                     public int compare(Trainer o1, Trainer o2) {
                         return o1.getSalary() - o2.getSalary();
                     }
-                }).getName(), equalTo("Jane"));
+                }).getName());
     }
 }

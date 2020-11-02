@@ -1,27 +1,26 @@
 package lambdaintro;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class OfficeDocumentReaderTest {
 
-    @Rule
-    public final TemporaryFolder folder = new TemporaryFolder();
+    @TempDir
+    public File folder;
 
 
-
-    @Before
+    @BeforeEach
     public void setUp() {
-        String testDirectory = folder.getRoot().getAbsolutePath();
+        String testDirectory = folder.getAbsolutePath();
 
         createDirectories(testDirectory, "dir.xlsx", "dir2.docx");
 
@@ -41,16 +40,16 @@ public class OfficeDocumentReaderTest {
 
     @Test
     public void testListOfficeDocuments() {
-        List<File> files = new OfficeDocumentReader().listOfficeDocuments(folder.getRoot());
+        List<File> files = new OfficeDocumentReader().listOfficeDocuments(folder);
 
-        assertThat(files.get(0).getName(), equalTo("a.xlsx"));
-        assertThat(files.get(1).getName(), equalTo("f.docx"));
-        assertThat(files.get(2).getName(), equalTo("p.pptx"));
-        assertThat(files.get(3).getName(), equalTo("z.DOCX"));
+        assertEquals("a.xlsx", files.get(0).getName());
+        assertEquals("f.docx", files.get(1).getName());
+        assertEquals("p.pptx", files.get(2).getName());
+        assertEquals("z.DOCX", files.get(3).getName());
     }
 
     private void createDirectories(String prefix, String... paths) {
-        for (String path: paths) {
+        for (String path : paths) {
             new File(prefix + File.separator + path.replace("/", File.separator)).mkdir();
         }
     }
@@ -62,8 +61,7 @@ public class OfficeDocumentReaderTest {
                 path = prefix + File.separator + suffix.replace("/", File.separator);
                 new File(path).createNewFile();
             }
-        }
-        catch (IOException ioe) {
+        } catch (IOException ioe) {
             throw new RuntimeException("Cannot create test file: " + path, ioe);
         }
     }

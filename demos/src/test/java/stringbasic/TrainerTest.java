@@ -1,9 +1,8 @@
 package stringbasic;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TrainerTest {
 
@@ -11,6 +10,6 @@ public class TrainerTest {
     public void setType() {
         Trainer trainer = new Trainer("John Doe", Trainer.TrainerType.FULL_TIME);
         int h = trainer.hours();
-        assertThat(h, equalTo(8));
+        assertEquals(8, h);
     }
 }

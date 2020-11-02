@@ -1,10 +1,11 @@
 package algorithmssum.transactions;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.Arrays;
 import java.util.List;
-import static org.hamcrest.CoreMatchers.is;
-import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TransactionSumCalculatorTest {
 
@@ -22,7 +23,7 @@ public class TransactionSumCalculatorTest {
                 new Transaction("1234-2345-1231", TransactionOperation.DEBIT, 100000)
         );
 
-        assertThat(calculator.sumAmountOfCreditEntries(transactions), is(99801));
+        assertEquals(99801, calculator.sumAmountOfCreditEntries(transactions));
 
     }
 

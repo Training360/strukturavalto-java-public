@@ -1,76 +1,75 @@
 package interfaceextends.robot;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AstroBoyTest {
 
-	@Test
-	public void testMoveTo() {
-		//Given
-		Point initialPoint = new Point(0, 0, 0);
-		AstroBoy astroBoy = new AstroBoy(initialPoint);
-		Point targetPoint = new Point(12L, 23L, 0);
-		//When
+    @Test
+    public void testMoveTo() {
+        //Given
+        Point initialPoint = new Point(0, 0, 0);
+        AstroBoy astroBoy = new AstroBoy(initialPoint);
+        Point targetPoint = new Point(12L, 23L, 0);
+        //When
         astroBoy.moveTo(targetPoint);
-		//Then
-		assertThat(astroBoy.getPosition(), is(targetPoint));
-		assertThat(astroBoy.getPath().size(), is(1));
-		assertThat(astroBoy.getPath().get(0).getX(), is(targetPoint.getX()));
-		assertThat(astroBoy.getPath().get(0).getY(), is(targetPoint.getY()));
-		assertThat(astroBoy.getPath().get(0).getZ(), is(targetPoint.getZ()));
-	}
+        //Then
+        assertEquals(targetPoint, astroBoy.getPosition());
+        assertEquals(1, astroBoy.getPath().size());
+        assertEquals(targetPoint.getX(), astroBoy.getPath().get(0).getX());
+        assertEquals(targetPoint.getY(), astroBoy.getPath().get(0).getY());
+        assertEquals(targetPoint.getZ(), astroBoy.getPath().get(0).getZ());
+    }
 
-	@Test
-	public void testFastMoveTo() {
-		//Given
-		Point initialPoint = new Point(0, 0, 0);
-		AstroBoy astroBoy = new AstroBoy(initialPoint);
-		Point targetPoint = new Point(12L, 23L, 0);
-		//When
+    @Test
+    public void testFastMoveTo() {
+        //Given
+        Point initialPoint = new Point(0, 0, 0);
+        AstroBoy astroBoy = new AstroBoy(initialPoint);
+        Point targetPoint = new Point(12L, 23L, 0);
+        //When
         astroBoy.fastMoveTo(targetPoint);
-		//Then
-		assertThat(astroBoy.getPosition().getX(), is(targetPoint.getX()));
-		assertThat(astroBoy.getPosition().getY(), is(targetPoint.getY()));
-		assertThat(astroBoy.getPosition().getZ(), is(targetPoint.getZ()));
+        //Then
+        assertEquals(targetPoint.getX(), astroBoy.getPosition().getX());
+        assertEquals(targetPoint.getY(), astroBoy.getPosition().getY());
+        assertEquals(targetPoint.getZ(), astroBoy.getPosition().getZ());
 
-		assertThat(astroBoy.getPath().size(), is(3));
-		assertThat(astroBoy.getPath().get(0).getX(), is(initialPoint.getX()));
-		assertThat(astroBoy.getPath().get(0).getY(), is(initialPoint.getY()));
-		assertThat(astroBoy.getPath().get(0).getZ(), is(AstroBoy.ALTITUDE));
+        assertEquals(3, astroBoy.getPath().size());
+        assertEquals(initialPoint.getX(), astroBoy.getPath().get(0).getX());
+        assertEquals(initialPoint.getY(), astroBoy.getPath().get(0).getY());
+        assertEquals(AstroBoy.ALTITUDE, astroBoy.getPath().get(0).getZ());
 
-		assertThat(astroBoy.getPath().get(1).getX(), is(targetPoint.getX()));
-		assertThat(astroBoy.getPath().get(1).getY(), is(targetPoint.getY()));
-		assertThat(astroBoy.getPath().get(1).getZ(), is(AstroBoy.ALTITUDE));
+        assertEquals(targetPoint.getX(), astroBoy.getPath().get(1).getX());
+        assertEquals(targetPoint.getY(), astroBoy.getPath().get(1).getY());
+        assertEquals(AstroBoy.ALTITUDE, astroBoy.getPath().get(1).getZ());
 
-		assertThat(astroBoy.getPath().get(2).getX(), is(targetPoint.getX()));
-		assertThat(astroBoy.getPath().get(2).getY(), is(targetPoint.getY()));
-		assertThat(astroBoy.getPath().get(2).getZ(), is(0L));
-	}
+        assertEquals(targetPoint.getX(), astroBoy.getPath().get(2).getX());
+        assertEquals(targetPoint.getY(), astroBoy.getPath().get(2).getY());
+        assertEquals(0L, astroBoy.getPath().get(2).getZ());
+    }
 
-	@Test
-	public void testRotate() {
-		//Given
-		Point initialPoint = new Point(0, 0, 0);
-		AstroBoy astroBoy = new AstroBoy(initialPoint);
-		final int angle = 12;
-		//When
+    @Test
+    public void testRotate() {
+        //Given
+        Point initialPoint = new Point(0, 0, 0);
+        AstroBoy astroBoy = new AstroBoy(initialPoint);
+        final int angle = 12;
+        //When
         astroBoy.rotate(angle);
-		//Then
-		assertThat(astroBoy.getAngle(), is(angle));
-	}
+        //Then
+        assertEquals(angle, astroBoy.getAngle());
+    }
 
-	@Test
-	public void testLiftTo() {
-		//Given
-		Point initialPoint = new Point(0, 0, 0);
-		AstroBoy astroBoy = new AstroBoy(initialPoint);
-		final long altitude = 12;
-		//When
+    @Test
+    public void testLiftTo() {
+        //Given
+        Point initialPoint = new Point(0, 0, 0);
+        AstroBoy astroBoy = new AstroBoy(initialPoint);
+        final long altitude = 12;
+        //When
         astroBoy.liftTo(altitude);
-		//Then
-		assertThat(astroBoy.getAltitude(), is(altitude));
-	}
+        //Then
+        assertEquals(altitude, astroBoy.getAltitude());
+    }
 }

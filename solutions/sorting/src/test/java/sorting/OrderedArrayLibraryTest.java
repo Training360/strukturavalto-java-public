@@ -1,7 +1,8 @@
 package sorting;
 
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,14 +12,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 public class OrderedArrayLibraryTest {
 
     private List<Book> bookList = new ArrayList<>();
 
-    @Before
+    @BeforeEach
     public void setUp() throws IOException {
         InputStream is = this.getClass().getClassLoader().getResourceAsStream("books.csv");
         String line;
@@ -41,8 +43,8 @@ public class OrderedArrayLibraryTest {
         //When
         Book[] books = orderedLibrary.sortingById();
         //Then
-        assertThat(books[0].getId(), equalTo(1001));
-        assertThat(books[books.length - 1].getId(), equalTo(1172));
+        assertEquals(1001, books[0].getId());
+        assertEquals(1172, books[books.length - 1].getId());
     }
 
     @Test
@@ -54,22 +56,22 @@ public class OrderedArrayLibraryTest {
         //When
         Book[] books = orderedLibrary.sortingByTitle();
         //Then
-        assertThat(books[0].getTitle(), equalTo("A babó"));
-        assertThat(books[0].getAuthor(),equalTo("Tolkien "));
-        assertThat(books[0].toString(),equalTo("1082 Tolkien  A babó"));
+        assertEquals("A babó", books[0].getTitle());
+        assertEquals("Tolkien", books[0].getAuthor());
+        assertEquals("1082 Tolkien A babó", books[0].toString());
 
-        assertThat(books[books.length - 1].getTitle(), equalTo("Öreg néne őzikéje"));
+        assertEquals("Öreg néne őzikéje", books[books.length - 1].getTitle());
     }
 
     @Test
-    public void equalAndHashCodeTest(){
-        Book book = new Book(1082,"J.R.R Tolkien","The Hobbit");
+    public void equalAndHashCodeTest() {
+        Book book = new Book(1082, "J.R.R Tolkien", "The Hobbit");
         Book[] bookArray = new Book[bookList.size()];
         OrderedArrayLibrary orderedLibrary = new OrderedArrayLibrary(bookList.toArray(bookArray));
 
         Book[] books = orderedLibrary.sortingByTitle();
 
-        assertThat(books[0].equals(book),equalTo(true));
-        assertThat(book.hashCode(),equalTo(1082));
+        assertTrue(books[0].equals(book));
+        assertEquals(1082, book.hashCode());
     }
 }

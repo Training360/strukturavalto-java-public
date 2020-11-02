@@ -1,12 +1,14 @@
 package algorithmsdecision.bankaccounts;
 
+import org.junit.jupiter.api.Test;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
-import static org.hamcrest.CoreMatchers.is;
-import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class TransactionDecisionMakerTest {
 
@@ -33,7 +35,7 @@ public class TransactionDecisionMakerTest {
         LocalDateTime endTime = LocalDateTime.parse(end, formatter);
 
         TransactionDecisionMaker test = new TransactionDecisionMaker();
-        assertThat(test.containsCreditEntryGreaterThan(transactions, startTime, endTime, 200), is(true));
+        assertTrue(test.containsCreditEntryGreaterThan(transactions, startTime, endTime, 200));
 
     }
 
@@ -46,7 +48,7 @@ public class TransactionDecisionMakerTest {
         LocalDateTime endTime = LocalDateTime.parse(end, formatter);
 
         TransactionDecisionMaker test = new TransactionDecisionMaker();
-        assertThat(test.containsCreditEntryGreaterThan(transactions, startTime, endTime, 200), is(false));
+        assertFalse(test.containsCreditEntryGreaterThan(transactions, startTime, endTime, 200));
 
     }
 
@@ -59,7 +61,7 @@ public class TransactionDecisionMakerTest {
         LocalDateTime endTime = LocalDateTime.parse(end, formatter);
 
         TransactionDecisionMaker test = new TransactionDecisionMaker();
-        assertThat(test.containsCreditEntryGreaterThan(transactions, startTime, endTime, 200000), is(false));
+        assertFalse(test.containsCreditEntryGreaterThan(transactions, startTime, endTime, 200000));
 
     }
 

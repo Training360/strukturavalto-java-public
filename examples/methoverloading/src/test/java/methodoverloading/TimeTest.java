@@ -1,9 +1,9 @@
 package methodoverloading;
 
-import org.junit.Test;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.IsEqual.equalTo;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TimeTest {
     @Test
@@ -11,9 +11,9 @@ public class TimeTest {
         //Given
         Time time = new Time(13, 14, 15);
         //Then
-        assertThat(time.getHours(), equalTo(13));
-        assertThat(time.getMinutes(), equalTo(14));
-        assertThat(time.getSeconds(), equalTo(15));
+        assertEquals(13, time.getHours());
+        assertEquals(14, time.getMinutes());
+        assertEquals(15, time.getSeconds());
     }
 
     @Test
@@ -21,9 +21,9 @@ public class TimeTest {
         //Given
         Time time = new Time(13, 14);
         //Then
-        assertThat(time.getHours(), equalTo(13));
-        assertThat(time.getMinutes(), equalTo(14));
-        assertThat(time.getSeconds(), equalTo(0));
+        assertEquals(13, time.getHours());
+        assertEquals(14, time.getMinutes());
+        assertEquals(0, time.getSeconds());
     }
 
     @Test
@@ -31,9 +31,9 @@ public class TimeTest {
         //Given
         Time time = new Time(13);
         //Then
-        assertThat(time.getHours(), equalTo(13));
-        assertThat(time.getMinutes(), equalTo(0));
-        assertThat(time.getSeconds(), equalTo(0));
+        assertEquals(13, time.getHours());
+        assertEquals(0, time.getMinutes());
+        assertEquals(0, time.getSeconds());
 
     }
 
@@ -44,9 +44,9 @@ public class TimeTest {
         //When
         Time time = new Time(anotherTime);
 
-        assertThat(time.getHours(), equalTo(13));
-        assertThat(time.getMinutes(), equalTo(14));
-        assertThat(time.getSeconds(), equalTo(15));
+        assertEquals(13, time.getHours());
+        assertEquals(14, time.getMinutes());
+        assertEquals(15, time.getSeconds());
     }
 
     @Test
@@ -54,8 +54,8 @@ public class TimeTest {
         //Given
         Time time = new Time(13, 14, 15);
         //Then
-        assertThat(time.isEqual(13, 14, 15), equalTo(true));
-        assertThat(time.isEqual(15, 10, 10), equalTo(false));
+        assertTrue(time.isEqual(13, 14, 15));
+        assertFalse(time.isEqual(15, 10, 10));
     }
 
     @Test
@@ -65,8 +65,8 @@ public class TimeTest {
         Time anotherTime = new Time(13, 14, 15);
         Time laterTime = new Time(14, 14, 15);
         //Then
-        assertThat(time.isEqual(anotherTime), equalTo(true));
-        assertThat(time.isEqual(laterTime), equalTo(false));
+        assertTrue(time.isEqual(anotherTime));
+        assertFalse(time.isEqual(laterTime));
     }
 
     @Test
@@ -74,8 +74,8 @@ public class TimeTest {
         //Given
         Time time = new Time(13, 14, 15);
         //Then
-        assertThat(time.isEarlier(15, 10, 10), equalTo(true));
-        assertThat(time.isEarlier(10, 10, 10), equalTo(false));
+        assertTrue(time.isEarlier(15, 10, 10));
+        assertFalse(time.isEarlier(10, 10, 10));
     }
 
     @Test
@@ -85,7 +85,7 @@ public class TimeTest {
         Time laterTime = new Time(15, 14, 15);
         Time earlierTime = new Time(10, 14, 15);
         //Then
-        assertThat(time.isEarlier(laterTime), equalTo(true));
-        assertThat(time.isEarlier(earlierTime), equalTo(false));
+        assertTrue(time.isEarlier(laterTime));
+        assertFalse(time.isEarlier(earlierTime));
     }
 }

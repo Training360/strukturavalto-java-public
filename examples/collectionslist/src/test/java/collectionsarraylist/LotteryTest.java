@@ -1,32 +1,26 @@
 package collectionsarraylist;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class LotteryTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void wrongParametersShouldThrowExeption() throws IllegalArgumentException {
-        //Given
         int lotteryType = 6;
         int ballCount = 6;
 
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Balls must be more then the winning numbers!");
-
-        //When
-        new Lottery().selectWinningNumbers(lotteryType, ballCount);
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> {
+            new Lottery().selectWinningNumbers(lotteryType, ballCount);
+        });
+        assertEquals("Balls must be more then the winning numbers!", ex.getMessage());
     }
 
     @Test
@@ -40,10 +34,10 @@ public class LotteryTest {
         List<Integer> winningNumbers = new Lottery().selectWinningNumbers(lotteryType, ballCount);
 
         //Then
-        assertThat(new HashSet<>(winningNumbers).size(), equalTo(lotteryType));
+        assertEquals(lotteryType, new HashSet<>(winningNumbers).size());
         for (int winningNumber : winningNumbers) {
-            assertThat(winningNumber > 0, is(true));
-            assertThat(winningNumber <= ballCount, is(true));
+            assertTrue(winningNumber > 0);
+            assertTrue(winningNumber <= ballCount);
         }
     }
 

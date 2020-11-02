@@ -1,14 +1,13 @@
 package constructoroverloading.bus;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 
 public class BusTimeTableTest {
 
@@ -20,17 +19,14 @@ public class BusTimeTableTest {
             new SimpleTime(18, 15)
     );
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
-
     @Test
     public void constructorTestList() {
         //Given
         BusTimeTable timetable = new BusTimeTable(TIME_TABLE);
         // When
-        assertThat(timetable.getTimeTable().size(), equalTo(5));
-        assertThat(timetable.getTimeTable().get(0).getHours(), equalTo(9));
-        assertThat(timetable.getTimeTable().get(4).getMinutes(), equalTo(15));
+        assertEquals(5, timetable.getTimeTable().size());
+        assertEquals(9, timetable.getTimeTable().get(0).getHours());
+        assertEquals(15, timetable.getTimeTable().get(4).getMinutes());
     }
 
     @Test
@@ -38,10 +34,10 @@ public class BusTimeTableTest {
         //Given
         BusTimeTable timetable = new BusTimeTable(14, 16, 30);
         // When
-        assertThat(timetable.getTimeTable().size(), equalTo(3));
-        assertThat(timetable.getTimeTable().get(0).getHours(), equalTo(14));
-        assertThat(timetable.getTimeTable().get(0).getMinutes(), equalTo(30));
-        assertThat(timetable.getTimeTable().get(2).getHours(), equalTo(16));
+        assertEquals(3, timetable.getTimeTable().size());
+        assertEquals(14, timetable.getTimeTable().get(0).getHours());
+        assertEquals(30, timetable.getTimeTable().get(0).getMinutes());
+        assertEquals(16, timetable.getTimeTable().get(2).getHours());
     }
 
     @Test
@@ -49,16 +45,16 @@ public class BusTimeTableTest {
         //Given
         BusTimeTable timetable = new BusTimeTable(TIME_TABLE);
         // When
-        assertThat(timetable.nextBus(new SimpleTime(13, 15)).toString(), equalTo("14:15"));
+        assertEquals("14:15", timetable.nextBus(new SimpleTime(13, 15)).toString());
     }
 
     @Test
     public void nextBusShouldThrowExceptionIfNone() throws IllegalStateException {
-        // Given
         BusTimeTable timetable = new BusTimeTable(TIME_TABLE);
-        exception.expect(IllegalStateException.class);
-        exception.expectMessage("No more buses today!");
-        //When
-        timetable.nextBus(new SimpleTime(18, 16));
+
+        Exception ex = assertThrows(IllegalStateException.class, () -> {
+            timetable.nextBus(new SimpleTime(18, 16));
+        });
+        assertEquals("No more buses today!", ex.getMessage());
     }
 }

@@ -1,16 +1,16 @@
 package isahasa.htmlmarchaller.isa;
 
-import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BoldHtmlTextTest {
-	@Test
-	public void getBytes() throws Exception {
-		BoldHtmlText boldHtmlText = new BoldHtmlText("asd");
+    @Test
+    public void getBytes() throws Exception {
+        BoldHtmlText boldHtmlText = new BoldHtmlText("asd");
 
-		assertThat(boldHtmlText.getPlainText() , is("<b>asd</b>"));
-	}
+        assertEquals("<b>asd</b>", boldHtmlText.getPlainText());
+    }
 
 }

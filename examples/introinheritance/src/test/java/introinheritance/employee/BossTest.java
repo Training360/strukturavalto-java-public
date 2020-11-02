@@ -1,9 +1,8 @@
 package introinheritance.employee;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BossTest {
 
@@ -11,19 +10,19 @@ public class BossTest {
     public void testCreateBoss() {
         Boss boss = new Boss("John Doe", "1117 Budapest, Budafoki út 56.", 500_000, 3);
 
-        assertThat(boss.getName(), equalTo("John Doe"));
-        assertThat(boss.getAddress(), equalTo("1117 Budapest, Budafoki út 56."));
-        assertThat(boss.getSalary(), equalTo(650_000.0));
-        assertThat(boss.getNumberOfEmployees(), equalTo(3));
+        assertEquals("John Doe", boss.getName());
+        assertEquals("1117 Budapest, Budafoki út 56.", boss.getAddress());
+        assertEquals(650_000.0, boss.getSalary());
+        assertEquals(3, boss.getNumberOfEmployees());
     }
 
     @Test
     public void testCreateBigBoss() {
         BigBoss boss = new BigBoss("John Doe", "1117 Budapest, Budafoki út 56.", 1_000_000, 6, 200_000);
 
-        assertThat(boss.getName(), equalTo("John Doe"));
-        assertThat(boss.getAddress(), equalTo("1117 Budapest, Budafoki út 56."));
-        assertThat(boss.getSalary(), equalTo(1_800_000.0));
-        assertThat(boss.getNumberOfEmployees(), equalTo(6));
+        assertEquals("John Doe", boss.getName());
+        assertEquals("1117 Budapest, Budafoki út 56.", boss.getAddress());
+        assertEquals(1_800_000.0, boss.getSalary());
+        assertEquals(6, boss.getNumberOfEmployees());
     }
 }

@@ -1,28 +1,18 @@
 package methodparam;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class EmployeeServiceTest {
-
-    @Rule
-    public ExpectedException expectedException = ExpectedException.none();
 
     @Test
     public void testCreateEmployee() {
         new EmployeeService().createEmployee("John Doe", 1970, EmployeeType.FULL_TIME);
-    }
-
-    @Test
-    public void testInvalid() {
-        expectedException.expect(IllegalArgumentException.class);
-        new EmployeeService().createEmployee("   ", 1970, EmployeeType.FULL_TIME);
     }
 
     @Test
@@ -42,5 +32,12 @@ public class EmployeeServiceTest {
 //        }
 
         assertEquals(0, names.size());
+    }
+
+    @Test
+    public void testInvalid() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            new EmployeeService().createEmployee("   ", 1970, EmployeeType.FULL_TIME);
+        });
     }
 }

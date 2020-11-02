@@ -1,10 +1,10 @@
 package methodstructure.bmi;
 
-import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.Test;
+
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BodyMassTest {
 
@@ -19,8 +19,8 @@ public class BodyMassTest {
     public void constructorShouldInitialize() {
         BodyMass bm = new BodyMass(SAMPLE_MASS, SAMPLE_HEIGHT);
 
-        assertThat(bm.getWeight(), equalTo(SAMPLE_MASS));
-        assertThat(bm.getHeight(), equalTo(SAMPLE_HEIGHT));
+        assertEquals(SAMPLE_MASS, bm.getWeight());
+        assertEquals(SAMPLE_HEIGHT, bm.getHeight());
     }
 
     @Test
@@ -28,7 +28,7 @@ public class BodyMassTest {
         BodyMass bm = new BodyMass(SAMPLE_MASS, SAMPLE_HEIGHT);
 
         double expectedBmi = SAMPLE_MASS / (SAMPLE_HEIGHT * SAMPLE_HEIGHT);
-        assertThat(bm.bodyMassIndex(), equalTo(expectedBmi));
+        assertEquals(expectedBmi, bm.bodyMassIndex());
     }
 
     @Test
@@ -37,9 +37,9 @@ public class BodyMassTest {
         BodyMass bmUnder = new BodyMass(SAMPLE_MASS_UNDER, SAMPLE_HEIGHT_UNDER);
         BodyMass bmOver = new BodyMass(SAMPLE_MASS_OVER, SAMPLE_HEIGHT_OVER);
 
-        assertThat(bm.body(), equalTo(BmiCategory.NORMAL));
-        assertThat(bmUnder.body(), equalTo(BmiCategory.UNDERWEIGHT));
-        assertThat(bmOver.body(), equalTo(BmiCategory.OVERWEIGHT));
+        assertEquals(BmiCategory.NORMAL, bm.body());
+        assertEquals(BmiCategory.UNDERWEIGHT, bmUnder.body());
+        assertEquals(BmiCategory.OVERWEIGHT, bmOver.body());
     }
 
     @Test
@@ -47,8 +47,8 @@ public class BodyMassTest {
         BodyMass bm = new BodyMass(SAMPLE_MASS, SAMPLE_HEIGHT);
         BodyMass bmUnder = new BodyMass(SAMPLE_MASS_UNDER, SAMPLE_HEIGHT_UNDER);
 
-        assertThat(bm.isThinnerThan(bmUnder), is(false));
-        assertThat(bmUnder.isThinnerThan(bm), is(true));
-        assertThat(bm.isThinnerThan(bm), is(false));
+        assertFalse(bm.isThinnerThan(bmUnder));
+        assertTrue(bmUnder.isThinnerThan(bm));
+        assertFalse(bm.isThinnerThan(bm));
     }
 }

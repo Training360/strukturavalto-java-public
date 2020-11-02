@@ -1,23 +1,22 @@
 package controlselection.greetings;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GreetingsTest {
 
     @Test
     public void testGreet() {
         Greetings greetings = new Greetings();
-        assertThat(greetings.greet(4, 30), equalTo("jó éjt"));
-        assertThat(greetings.greet(5, 0), equalTo("jó éjt"));
-        assertThat(greetings.greet(5, 1), equalTo("jó reggelt"));
-        assertThat(greetings.greet(9, 0), equalTo("jó reggelt"));
-        assertThat(greetings.greet(9, 1), equalTo("jó napot"));
-        assertThat(greetings.greet(18, 30), equalTo("jó napot"));
-        assertThat(greetings.greet(18, 31), equalTo("jó estét"));
-        assertThat(greetings.greet(20, 00), equalTo("jó estét"));
-        assertThat(greetings.greet(20, 01), equalTo("jó éjt"));
+        assertEquals("jó éjt", greetings.greet(4, 30));
+        assertEquals("jó éjt", greetings.greet(5, 0));
+        assertEquals("jó reggelt", greetings.greet(5, 1));
+        assertEquals("jó reggelt", greetings.greet(9, 0));
+        assertEquals("jó napot", greetings.greet(9, 1));
+        assertEquals("jó napot", greetings.greet(18, 30));
+        assertEquals("jó estét", greetings.greet(18, 31));
+        assertEquals("jó estét", greetings.greet(20, 00));
+        assertEquals("jó éjt", greetings.greet(20, 01));
     }
 }

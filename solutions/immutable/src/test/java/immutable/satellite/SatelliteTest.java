@@ -1,24 +1,17 @@
 package immutable.satellite;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class SatelliteTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void emptyParameterShouldThrowException() throws IllegalArgumentException {
-        // Given
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Register ident must not be empty!");
-        // When
-        new Satellite(new CelestialCoordinates(12, 23, 45), "");
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> new Satellite(new CelestialCoordinates(12, 23, 45), ""));
+        assertEquals("Register ident must not be empty!", ex.getMessage());
     }
 
     @Test
@@ -28,6 +21,6 @@ public class SatelliteTest {
         // When
         satellite.modifyDestination(new CelestialCoordinates(2, 2, 2));
         //Then
-        assertThat(satellite.toString(), equalTo("ASD567: CelestialCoordinates: x=14, y=25, z=47"));
+        assertEquals("ASD567: CelestialCoordinates: x=14, y=25, z=47", satellite.toString());
     }
 }

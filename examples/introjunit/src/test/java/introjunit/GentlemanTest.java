@@ -1,12 +1,11 @@
 package introjunit;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GentlemanTest {
- 
+
     @Test
     public void byNormalName() {
         // Given
@@ -16,6 +15,6 @@ public class GentlemanTest {
         String greeting = new Gentleman().sayHello(name);
 
         // Then
-        assertThat(greeting, equalTo("Hello John Doe"));
+        assertEquals("Hello John Doe", greeting);
     }
 }

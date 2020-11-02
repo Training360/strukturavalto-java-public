@@ -1,6 +1,6 @@
 package lambdaintermediate;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -8,8 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static org.hamcrest.Matchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class IntermediateTest {
 
@@ -26,37 +25,37 @@ public class IntermediateTest {
                 employees.stream().filter(e -> e.getName().startsWith("John"))
                 .collect(Collectors.toList());
 
-        assertThat(filtered.size(), equalTo(2));
-        assertThat(filtered.get(0).getName(), equalTo("John Doe"));
+        assertEquals(2, filtered.size());
+        assertEquals("John Doe", filtered.get(0).getName());
     }
 
     @Test
     public void testDistinct() {
         List<String> filtered = Stream.of("John", "John", "Jane", "John")
                 .distinct().collect(Collectors.toList());
-        assertThat(filtered, equalTo(Arrays.asList("John", "Jane")));
+        assertEquals(Arrays.asList("John", "Jane"), filtered);
     }
 
     @Test
     public void testLimitSkip() {
         List<Employee> filtered = employees.stream()
                 .skip(1).limit(2).collect(Collectors.toList());
-        assertThat(filtered.size(), equalTo(2));
-        assertThat(filtered.get(0).getName(), equalTo("Jane Doe"));
+        assertEquals(2, filtered.size());
+        assertEquals("Jane Doe", filtered.get(0).getName());
     }
 
     @Test
     public void testInfinite() {
         List<Integer> l = Stream.iterate(1, n -> n + 2).skip(2).limit(3).
                 collect(Collectors.toList());
-        assertThat(l, equalTo(Arrays.asList(5, 7, 9)));
+        assertEquals(Arrays.asList(5, 7, 9), l);
     }
 
     @Test
     public void testMap() {
         List<String> names = employees.stream().limit(2)
                 .map(e -> e.getName()).collect(Collectors.toList());
-        assertThat(names, equalTo(Arrays.asList("John Doe", "Jane Doe")));
+        assertEquals(Arrays.asList("John Doe", "Jane Doe"), names);
     }
 
     @Test
@@ -66,7 +65,7 @@ public class IntermediateTest {
 
         List<String> names = Stream.of(s1, s2).flatMap(l -> l.stream()).collect(Collectors.toList());
 
-        assertThat(names, equalTo(Arrays.asList("John Doe", "Jane Doe", "Jack Doe", "Joe Doe")));
+        assertEquals(Arrays.asList("John Doe", "Jane Doe", "Jack Doe", "Joe Doe"), names);
     }
 
     @Test
@@ -74,7 +73,7 @@ public class IntermediateTest {
         List<Employee> sorted = employees.stream()
                 .sorted(Comparator.comparing(Employee::getName))
                 .collect(Collectors.toList());
-        assertThat(sorted.get(0).getName(), equalTo("Jane Doe"));
+        assertEquals("Jane Doe", sorted.get(0).getName());
     }
 
     @Test
@@ -85,6 +84,6 @@ public class IntermediateTest {
                 .limit(2)
                 .collect(Collectors.toList());
 
-        assertThat(names, equalTo(Arrays.asList("Jane Doe", "Joe Doe")));
+        assertEquals(Arrays.asList("Jane Doe", "Joe Doe"), names);
     }
 }

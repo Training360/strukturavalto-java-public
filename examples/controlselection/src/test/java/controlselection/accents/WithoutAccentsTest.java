@@ -1,24 +1,23 @@
 package controlselection.accents;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class WithoutAccentsTest {
 
     @Test
     public void testWith() {
-        assertThat(new WithoutAccents().convertToCharWithoutAccents('á'), equalTo('a'));
-        assertThat(new WithoutAccents().convertToCharWithoutAccents('é'), equalTo('e'));
-        assertThat(new WithoutAccents().convertToCharWithoutAccents('ű'), equalTo('u'));
-        assertThat(new WithoutAccents().convertToCharWithoutAccents('Ű'), equalTo('U'));
+        assertEquals('a', new WithoutAccents().convertToCharWithoutAccents('á'));
+        assertEquals('e', new WithoutAccents().convertToCharWithoutAccents('é'));
+        assertEquals('u', new WithoutAccents().convertToCharWithoutAccents('ű'));
+        assertEquals('U', new WithoutAccents().convertToCharWithoutAccents('Ű'));
     }
 
     @Test
     public void testWithout() {
-        assertThat(new WithoutAccents().convertToCharWithoutAccents('a'), equalTo('a'));
-        assertThat(new WithoutAccents().convertToCharWithoutAccents('g'), equalTo('g'));
-        assertThat(new WithoutAccents().convertToCharWithoutAccents('z'), equalTo('z'));
+        assertEquals('a', new WithoutAccents().convertToCharWithoutAccents('a'));
+        assertEquals('g', new WithoutAccents().convertToCharWithoutAccents('g'));
+        assertEquals('z', new WithoutAccents().convertToCharWithoutAccents('z'));
     }
 }

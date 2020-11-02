@@ -1,9 +1,8 @@
 package introinheritance.basket;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ItemTest {
 
@@ -12,7 +11,7 @@ public class ItemTest {
         //Given
         Item item = new Item("123456", 1000, 27);
         //Then
-        assertThat(Math.round(item.getTaxAmount()), equalTo(270L));
+        assertEquals(270L, Math.round(item.getTaxAmount()));
     }
 
     @Test
@@ -20,6 +19,6 @@ public class ItemTest {
         //Given
         Item item = new Item("123456", 1000, 27);
         //Then
-        assertThat(item.toString(), equalTo("Item{barcode='123456', nettoPrice=1000.0, vatPercent=27}"));
+        assertEquals("Item{barcode='123456', nettoPrice=1000.0, vatPercent=27}", item.toString());
     }
 }

@@ -1,18 +1,16 @@
 package javabeans;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.IsEqual.equalTo;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TrainerTest {
 
     @Test
     public void createTrainer() {
         Trainer trainer = new Trainer("John Doe", true);
-        assertThat(trainer.getName(), equalTo("John Doe"));
-        assertThat(trainer.isActive(), is(true));
+        assertEquals("John Doe", trainer.getName());
+        assertTrue(trainer.isActive());
     }
 
     @Test
@@ -20,7 +18,7 @@ public class TrainerTest {
         Trainer trainer = new Trainer("John Doe", true);
         trainer.setName("Jack Doe");
         trainer.setActive(false);
-        assertThat(trainer.getName(), equalTo("Jack Doe"));
-        assertThat(trainer.isActive(), is(false));
+        assertEquals("Jack Doe", trainer.getName());
+        assertFalse(trainer.isActive());
     }
 }

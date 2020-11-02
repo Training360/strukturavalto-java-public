@@ -1,8 +1,8 @@
 package algorithmsdecision;
 
-import static org.hamcrest.CoreMatchers.is;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TrainerTest {
 
@@ -10,7 +10,7 @@ public class TrainerTest {
     public void testGetAge() {
         Trainer trainer = new Trainer("Zsofia", 21);
 
-        assertThat(trainer.getAge(), is(21));
+        assertEquals(21, trainer.getAge());
     }
 
 }

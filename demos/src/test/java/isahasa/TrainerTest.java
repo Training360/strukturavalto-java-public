@@ -1,12 +1,11 @@
 package isahasa;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TrainerTest {
 
@@ -15,39 +14,39 @@ public class TrainerTest {
         WorkStub workStub = new WorkStub();
         Trainer trainer = new Trainer(workStub);
         trainer.doWork();
-        assertThat(workStub.isCalled(), is(true));
+        assertTrue(workStub.isCalled());
     }
 
     @Test
     public void testHasNoWork() {
         Trainer trainer = new Trainer(new HasNoWork());
-        assertThat(trainer.doWork(), equalTo(""));
+        assertEquals("", trainer.doWork());
     }
 
     @Test
     public void testCreateMaterial() {
         Trainer trainer = new Trainer(new CreateMaterials());
-        assertThat(trainer.doWork(), equalTo("Materials"));
+        assertEquals("Materials", trainer.doWork());
     }
 
     @Test
     public void testTakeCourse() {
         Trainer trainer = new Trainer(new TakeCourse());
-        assertThat(trainer.doWork(), equalTo("HappyStudents"));
+        assertEquals("HappyStudents", trainer.doWork());
     }
 
     @Test
     public void testComplexWork() {
         Trainer trainer = new Trainer(new ComplexWork(Arrays.asList(new CreateMaterials(), new TakeCourse())));
-        assertThat(trainer.doWork(), equalTo("Materials, HappyStudents"));
+        assertEquals("Materials, HappyStudents", trainer.doWork());
     }
 
     @Test
     public void testChangeWork() {
         Trainer trainer = new Trainer(new HasNoWork());
-        assertThat(trainer.doWork(), equalTo(""));
+        assertEquals("", trainer.doWork());
         trainer.setWork(new CreateMaterials());
-        assertThat(trainer.doWork(), equalTo("Materials"));
+        assertEquals("Materials", trainer.doWork());
     }
 
 }

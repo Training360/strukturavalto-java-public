@@ -1,21 +1,21 @@
 package lambdaoptional;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.Collections;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class SocialNetworkTest {
 
     @Test
     public void testCreateMember() {
         Member member = new Member("John Doe", Arrays.asList("Java", "OOP"), Sex.MALE);
-        assertThat(member.getName(), equalTo("John Doe"));
-        assertThat(member.getSkills(), equalTo(Arrays.asList("Java", "OOP")));
-        assertThat(member.getGender(), equalTo(Sex.MALE));
+        assertEquals("John Doe", member.getName());
+        assertEquals(Arrays.asList("Java", "OOP"), member.getSkills());
+        assertEquals(Sex.MALE, member.getGender());
     }
 
     @Test
@@ -27,15 +27,15 @@ public class SocialNetworkTest {
                 new Member("Janet Doe", Arrays.asList("JavaScript", "scripting"), Sex.MALE)
         ));
 
-        assertThat(socialNetwork.findFirst(m -> m.getName().equals("Joe")).isPresent(), equalTo(false));
+        assertFalse(socialNetwork.findFirst(m -> m.getName().equals("Joe")).isPresent());
 
-        assertThat(socialNetwork.findFirst(m -> m.getName().equals("John Doe")).isPresent(), equalTo(true));
-        assertThat(socialNetwork.findFirst(m -> m.getName().equals("John Doe")).get().getName(), equalTo("John Doe"));
+        assertTrue(socialNetwork.findFirst(m -> m.getName().equals("John Doe")).isPresent());
+        assertEquals("John Doe", socialNetwork.findFirst(m -> m.getName().equals("John Doe")).get().getName());
     }
 
     @Test
     public void testAvg() {
-        assertThat(new SocialNetwork(Collections.emptyList()).averageNumberOfSkills().isPresent(), equalTo(false));
+        assertEquals(false, new SocialNetwork(Collections.emptyList()).averageNumberOfSkills().isPresent());
 
         SocialNetwork socialNetwork = new SocialNetwork(Arrays.asList(
                 new Member("John Doe", Arrays.asList("Java", "OOP"), Sex.MALE),
@@ -45,6 +45,6 @@ public class SocialNetworkTest {
         ));
 
 
-        assertThat(socialNetwork.averageNumberOfSkills().get(), equalTo(2.25));
+        assertEquals(2.25, socialNetwork.averageNumberOfSkills().get());
     }
 }

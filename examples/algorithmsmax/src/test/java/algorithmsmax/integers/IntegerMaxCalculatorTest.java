@@ -1,10 +1,12 @@
 package algorithmsmax.integers;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.LinkedList;
 import java.util.List;
-import static org.hamcrest.CoreMatchers.is;
-import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class IntegerMaxCalculatorTest {
 
@@ -17,7 +19,7 @@ public class IntegerMaxCalculatorTest {
 
         IntegerMaxCalculator test = new IntegerMaxCalculator();
 
-        assertThat(test.max(integers), is(29));
+        assertEquals(29, test.max(integers));
 
     }
 

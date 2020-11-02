@@ -1,32 +1,26 @@
 package exceptionclass;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.Matchers.hasProperty;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TrainerTest {
-
-    @Rule
-    public ExpectedException expectedException = ExpectedException.none();
-
-    @Test
-    public void testInvalidAge() {
-        expectedException.expect(InvalidAgeException.class);
-        expectedException.expectMessage("Invalid age");
-        expectedException.expect(hasProperty("parameterAge", is(15)));
-        expectedException.expect(hasProperty("minAge", is(18)));
-        new Trainer("John Doe", 15);
-    }
 
     @Test
     public void testCreate() {
         Trainer trainer = new Trainer("John Doe", 30);
-        assertThat(trainer.getName(), equalTo("John Doe"));
-        assertThat(trainer.getAge(), equalTo(30));
+        assertEquals("John Doe", trainer.getName());
+        assertEquals(30, trainer.getAge());
+    }
+
+    @Test
+    public void testInvalidAge() {
+        InvalidAgeException e = assertThrows(InvalidAgeException.class, () -> {
+            new Trainer("John Doe", 15);
+        });
+        assertEquals("Invalid age by creating a trainer", e.getMessage());
+        assertEquals(15, e.getParameterAge());
+        assertEquals(18, e.getMinAge());
     }
 }

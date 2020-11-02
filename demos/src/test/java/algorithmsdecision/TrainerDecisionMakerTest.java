@@ -2,9 +2,10 @@ package algorithmsdecision;
 
 import java.util.Arrays;
 import java.util.List;
-import static org.hamcrest.CoreMatchers.is;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TrainerDecisionMakerTest {
 
@@ -20,8 +21,8 @@ public class TrainerDecisionMakerTest {
                 new Trainer("Karl", 19)
         );
 
-        assertThat(test.containsElderThan(trainers, 31), is(true));
-        assertThat(test.containsElderThan(trainers, 32), is(false));
+        assertTrue(test.containsElderThan(trainers, 31));
+        assertFalse(test.containsElderThan(trainers, 32));
 
     }
 

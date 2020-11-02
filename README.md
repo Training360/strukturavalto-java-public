@@ -18,6 +18,7 @@ Eszközkészlet
 * intromaven - Maven
 * introide - IDE
 * introgit - Git használata az IDE-ben
+* introgithub - Feltöltés GitHubra
 
 Java osztályok
 
@@ -42,6 +43,7 @@ A nyelv építőkövei
 Bonyolultabb típusok
 
 * array - Tömbök
+* cmdarguments - Parancssori paraméterek
 * arrayofarrays - Tömbök tömbje
 * arrays - Tömbök kezelése
 * arraylist - Lista
@@ -71,6 +73,7 @@ Típusok és operátorok
 Vezérlési szerkezetek
 
 * introjunit - Unit tesztelés JUnittal
+* junit5 - JUnit 5
 * controlselection - Vezérlési szerkezetek és az elágazás
 * controliteration - Ciklusok
 * controladvanced - Haladó vezérlési szerkezetek
@@ -126,6 +129,8 @@ Absztrakt osztályok és interfészek
 
 * abstractclass - Absztrakt osztályok
 * interfaces - Interfészek
+* interfacerules - Interfészekkel kapcsolatos szabályok
+* interfacedependencyinversion - Dependency inversion
 * interfacedefaultmethods - Default interfész metódusok
 * interfacestaticmethods - Statikus interfész metódusok
 * interfaceextends - Interfészek és az öröklődés viszonya
@@ -164,7 +169,6 @@ Fájlkezelés
 * ioconvert - Konvertálás a típusok között
 * iofiles - Files osztály használata
 * iofilestest - Fájlkezelés tesztelése
-
 
 ### Kollekciók és osztálykönyvtárak
 

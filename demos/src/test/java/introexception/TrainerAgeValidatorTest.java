@@ -1,21 +1,21 @@
 package introexception;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TrainerAgeValidatorTest {
 
     @Test
     public void testValidAge() {
-        assertThat(new TrainerAgeValidator().isValidAge("18"), is(true));
-        assertThat(new TrainerAgeValidator().isValidAge("20"), is(true));
+        assertTrue(new TrainerAgeValidator().isValidAge("18"));
+        assertTrue(new TrainerAgeValidator().isValidAge("20"));
     }
 
     @Test
     public void testInvalidAge() {
-        assertThat(new TrainerAgeValidator().isValidAge("abc"), is(false));
-        assertThat(new TrainerAgeValidator().isValidAge("17"), is(false));
+        assertFalse(new TrainerAgeValidator().isValidAge("abc"));
+        assertFalse(new TrainerAgeValidator().isValidAge("17"));
     }
 }

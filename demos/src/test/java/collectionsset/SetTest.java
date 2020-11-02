@@ -1,11 +1,10 @@
 package collectionsset;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SetTest {
 
@@ -16,8 +15,8 @@ public class SetTest {
         s.add(new Trainer("Jack"));
         s.add(new Trainer("Jack"));
 
-        assertThat(s.size(), equalTo(1));
-        assertThat(s, equalTo(Set.of(new Trainer("Jack"))));
+        assertEquals(1, s.size());
+        assertEquals(Set.of(new Trainer("Jack")), s);
     }
 
     @Test
@@ -27,6 +26,6 @@ public class SetTest {
         s.add(new Trainer("Jane"));
         s.add(new Trainer("Jack"));
 
-        assertThat(new ArrayList<>(s), equalTo(Arrays.asList(new Trainer("Jane"), new Trainer("Jack"))));
+        assertEquals(Arrays.asList(new Trainer("Jane"), new Trainer("Jack")), new ArrayList<>(s));
     }
 }

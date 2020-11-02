@@ -1,25 +1,27 @@
 package iowritebytes;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
 
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
+
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+
 
 public class StringToBytesTest {
 
-    @Rule
-    public TemporaryFolder folder = new TemporaryFolder();
+    @TempDir
+    public File folder;
 
     @Test
     public void testWriteAsBytes() throws IOException {
         List<String> words = List.of("John", "_notes", "_Does not matter", "Jack", "Jane");
-        Path path = folder.newFile("words.dat").toPath();
+        Path path = new File(folder, "word.dat").toPath();
         StringToBytes stringToBytes = new StringToBytes();
 
         stringToBytes.writeAsBytes(words, path);

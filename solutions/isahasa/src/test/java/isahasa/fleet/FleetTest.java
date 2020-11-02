@@ -1,10 +1,10 @@
 package isahasa.fleet;
 
-import org.junit.Before;
-import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FleetTest {
 
@@ -18,7 +18,7 @@ public class FleetTest {
 
     FerryBoat ferryBoat = new FerryBoat(100, 40);
 
-    @Before
+    @BeforeEach
     public void init() {
         fleet.addShip(liner1);
         fleet.addShip(liner2);
@@ -32,31 +32,31 @@ public class FleetTest {
         fleet.loadShip(320, 80);
 
         // Then
-        assertThat(liner1.getPassengers(), is(100));
-        assertThat(liner2.getPassengers(), is(200));
-        assertThat(ferryBoat.getPassengers(), is(20));
-        assertThat(fleet.getWaitingPersons(), is(0));
+        assertEquals(100, liner1.getPassengers());
+        assertEquals(200, liner2.getPassengers());
+        assertEquals(20, ferryBoat.getPassengers());
+        assertEquals(0, fleet.getWaitingPersons());
 
-        assertThat(cargoShip.getCargoWeight(), is(50));
-        assertThat(ferryBoat.getCargoWeight(), is(30));
+        assertEquals(50, cargoShip.getCargoWeight());
+        assertEquals(30, ferryBoat.getCargoWeight());
 
-        assertThat(fleet.getWaitingCargo(), is(0));
+        assertEquals(0, fleet.getWaitingCargo());
     }
 
-	@Test
-	public void loadWithRemainders() {
-		// When
-		fleet.loadShip(350, 170);
+    @Test
+    public void loadWithRemainders() {
+        // When
+        fleet.loadShip(350, 170);
 
-		// Then
-		assertThat(liner1.getPassengers(), is(100));
-		assertThat(liner2.getPassengers(), is(200));
-        assertThat(ferryBoat.getPassengers(), is(40));
-        assertThat(fleet.getWaitingPersons(), is(10));
+        // Then
+        assertEquals(100, liner1.getPassengers());
+        assertEquals(200, liner2.getPassengers());
+        assertEquals(40, ferryBoat.getPassengers());
+        assertEquals(10, fleet.getWaitingPersons());
 
-        assertThat(cargoShip.getCargoWeight(), is(50));
-        assertThat(ferryBoat.getCargoWeight(), is(100));
+        assertEquals(50, cargoShip.getCargoWeight());
+        assertEquals(100, ferryBoat.getCargoWeight());
 
-        assertThat(fleet.getWaitingCargo(), is(20));
-	}
+        assertEquals(20, fleet.getWaitingCargo());
+    }
 }

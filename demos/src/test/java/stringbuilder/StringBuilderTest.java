@@ -1,9 +1,8 @@
 package stringbuilder;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class StringBuilderTest {
 
@@ -14,15 +13,15 @@ public class StringBuilderTest {
             sb.append(" Doe");
         }
         String s = sb.toString();
-        assertThat(s, equalTo("John Doe Doe Doe"));
+        assertEquals("John Doe Doe Doe", s);
 
         sb.insert(1, "xxx");
-        assertThat(sb.toString(), equalTo("Jxxxohn Doe Doe Doe"));
+        assertEquals("Jxxxohn Doe Doe Doe", sb.toString());
 
         sb.delete(1, 3);
-        assertThat(sb.toString(), equalTo("Jxohn Doe Doe Doe"));
+        assertEquals("Jxohn Doe Doe Doe", sb.toString());
 
-        assertThat(sb.reverse().toString(), equalTo("eoD eoD eoD nhoxJ"));
+        assertEquals("eoD eoD eoD nhoxJ", sb.reverse().toString());
 
     }
 }

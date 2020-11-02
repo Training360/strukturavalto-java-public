@@ -1,43 +1,40 @@
 package exceptionmulticatch;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.instanceOf;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TrainerParserTest {
-
-    @Rule
-    public ExpectedException expectedException = ExpectedException.none();
-
-    @Test
-    public void testNull() {
-        expectedException.expect(ParserException.class);
-        expectedException.expectCause(instanceOf(NullPointerException.class));
-        new TrainerParser().parse(null);
-    }
-
-    @Test
-    public void testInvalid() {
-        expectedException.expect(ParserException.class);
-        expectedException.expectCause(instanceOf(IndexOutOfBoundsException.class));
-        new TrainerParser().parse("");
-    }
-
-    @Test
-    public void testInvalidNumber() {
-        expectedException.expect(ParserException.class);
-        expectedException.expectCause(instanceOf(NumberFormatException.class));
-        new TrainerParser().parse("John Doe;abc");
-    }
 
     @Test
     public void testValid() {
         Trainer trainer = new TrainerParser().parse("John Doe;30");
-        assertThat(trainer.getName(), equalTo("John Doe"));
-        assertThat(trainer.getAge(), equalTo(30));
+        assertEquals("John Doe", trainer.getName());
+        assertEquals(30, trainer.getAge());
+    }
+
+    @Test
+    public void testNull() {
+        Exception e = assertThrows(ParserException.class, () -> {
+            new TrainerParser().parse(null);
+        });
+        assertEquals(NullPointerException.class, e.getCause().getClass());
+    }
+
+    @Test
+    public void testInvalid() {
+        Exception e = assertThrows(ParserException.class, () -> {
+            new TrainerParser().parse("");
+        });
+        assertEquals(ArrayIndexOutOfBoundsException.class, e.getCause().getClass());
+    }
+
+    @Test
+    public void testInvalidNumber() {
+        Exception e = assertThrows(ParserException.class, () -> {
+            new TrainerParser().parse("John Doe;abc");
+        });
+        assertEquals(NumberFormatException.class, e.getCause().getClass());
     }
 }

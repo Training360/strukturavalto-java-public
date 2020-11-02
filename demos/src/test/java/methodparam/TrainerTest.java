@@ -1,28 +1,21 @@
 package methodparam;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.Is.is;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TrainerTest {
-
-
-    @Rule
-    public ExpectedException expectedException = ExpectedException.none();
 
     @Test
     public void createTrainerData(){
         TrainerData trainerData=  new TrainerData("John Doe", 30, Trainer.Answer.NO);
 
-        assertThat(trainerData.getAge(),is(30));
-        assertThat(trainerData.getName(),is("John Doe"));
-        assertThat(trainerData.getAnswer(),is(Trainer.Answer.NO));
+        assertEquals(30, trainerData.getAge());
+        assertEquals("John Doe", trainerData.getName());
+        assertEquals(Trainer.Answer.NO, trainerData.getAnswer());
 
     }
 
@@ -32,8 +25,8 @@ public class TrainerTest {
         Trainer trainer = new Trainer();
         trainer.changeData(new TrainerData("John Doe", 30, Trainer.Answer.NO));
 
-        assertThat(trainer.getAge(),is(30));
-        assertThat(trainer.getName(),is("John Doe"));
+        assertEquals(30, trainer.getAge());
+        assertEquals("John Doe", trainer.getName());
 
     }
 
@@ -45,9 +38,9 @@ public class TrainerTest {
         trainer.setAge(30);
         trainer.setCourses(Arrays.asList(new Course("Java")));
 
-        assertThat(trainer.getAge(),is(30));
-        assertThat(trainer.getName(),is("John Doe"));
-        assertThat(trainer.getCourses().get(0).getName(),is("Java"));
+        assertEquals(30, trainer.getAge());
+        assertEquals("John Doe", trainer.getName());
+        assertEquals("Java", trainer.getCourses().get(0).getName());
 
     }
 
@@ -55,10 +48,10 @@ public class TrainerTest {
     public void wrongAgeTest(){
         Trainer trainer = new Trainer();
 
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Invalid age: 1");
-        trainer.setAge(1);
-
+        Exception e = assertThrows(IllegalArgumentException.class, () -> {
+            trainer.setAge(1);
+        });
+        assertEquals("Invalid age: 1", e.getMessage());
     }
 
 }

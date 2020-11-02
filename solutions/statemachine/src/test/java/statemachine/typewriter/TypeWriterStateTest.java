@@ -1,15 +1,16 @@
 package statemachine.typewriter;
 
-import static org.hamcrest.CoreMatchers.is;
-import org.junit.Test;
-import static org.junit.Assert.*;
+
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TypeWriterStateTest {
 
     @Test
     public void testNext() {
 
-        assertThat(TypeWriterState.LOWERCASE.next(), is(TypeWriterState.UPPERCASE));
-        assertThat(TypeWriterState.UPPERCASE.next(), is(TypeWriterState.LOWERCASE));
+        assertEquals(TypeWriterState.UPPERCASE, TypeWriterState.LOWERCASE.next());
+        assertEquals(TypeWriterState.LOWERCASE, TypeWriterState.UPPERCASE.next());
     }
 }

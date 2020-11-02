@@ -1,9 +1,8 @@
 package interfacedefaultmethods.print;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class StoryBookTest {
 
@@ -11,14 +10,14 @@ public class StoryBookTest {
     public void testCreateAndAddPage() {
         StoryBook storyBook = new StoryBook();
 
-        assertThat(storyBook.getLength(), equalTo(0));
+        assertEquals(0, storyBook.getLength());
 
         storyBook.addPage("Page1", Printable.BLACK);
         storyBook.addPage("Page2", "#FF0000");
-        assertThat(storyBook.getLength(),equalTo(2));
-        assertThat(storyBook.getPage(0), equalTo("Page1"));
-        assertThat(storyBook.getColor(0), equalTo(Printable.BLACK));
-        assertThat(storyBook.getPage(1), equalTo("Page2"));
-        assertThat(storyBook.getColor(1), equalTo("#FF0000"));
+        assertEquals(2, storyBook.getLength());
+        assertEquals("Page1", storyBook.getPage(0));
+        assertEquals(Printable.BLACK, storyBook.getColor(0));
+        assertEquals("Page2", storyBook.getPage(1));
+        assertEquals("#FF0000", storyBook.getColor(1));
     }
 }

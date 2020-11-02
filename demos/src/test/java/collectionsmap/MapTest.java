@@ -1,18 +1,17 @@
 package collectionsmap;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MapTest {
 
     @Test
     public void testMap() {
         Map<String, String> codes = new HashMap<>();
-        assertThat(codes.isEmpty(), equalTo(true));
+        assertTrue(codes.isEmpty());
 
         codes.put("200", "OK");
         codes.put("404", "Not found");
@@ -21,18 +20,18 @@ public class MapTest {
         expected.put("200", "OK");
         expected.put("404", "Not found");
 
-        assertThat(codes, equalTo(expected));
+        assertEquals(expected, codes);
 
         codes.put("404", "Not Found");
         String s = codes.get("404");
 
-        assertThat(s, equalTo("Not Found"));
+        assertEquals("Not Found", s);
 
         codes.put("304", "Not Modified");
 
         codes.remove("304");
-        assertThat(codes.containsKey("304"), equalTo(false));
-        assertThat(codes.containsValue("OK"), equalTo(true));
+        assertFalse(codes.containsKey("304"));
+        assertTrue(codes.containsValue("OK"));
 
         for (Map.Entry entries: codes.entrySet()) {
             System.out.println(entries.getKey());
@@ -55,6 +54,6 @@ public class MapTest {
         }
 
         Trainer t = m.get(3L);
-        assertThat(t.getName(), equalTo("Jane"));
+        assertEquals("Jane", t.getName());
     }
 }

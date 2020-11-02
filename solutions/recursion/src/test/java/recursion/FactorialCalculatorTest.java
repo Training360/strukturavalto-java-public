@@ -1,9 +1,9 @@
 package recursion;
 
-import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FactorialCalculatorTest {
 
@@ -16,7 +16,7 @@ public class FactorialCalculatorTest {
         long actual = new FactorialCalculator().getFactorial(number);
 
         // Then
-        assertThat(actual, equalTo(1L));
+        assertEquals(1L, actual);
     }
 
     @Test
@@ -28,6 +28,6 @@ public class FactorialCalculatorTest {
         long actual = new FactorialCalculator().getFactorial(number);
 
         // Then
-        assertThat(actual, equalTo(120L));
+        assertEquals(120L, actual);
     }
 }

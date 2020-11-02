@@ -1,30 +1,29 @@
 package properties;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Properties;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class PropertiesTest {
 
-    @Rule
-    public TemporaryFolder folder = new TemporaryFolder();
+    @TempDir
+    Path tempDir;
 
     @Test
     public void testProperties() {
         Properties p = new Properties();
         p.setProperty("host", "training360.com");
 
-        assertThat(p.getProperty("host"), equalTo("training360.com"));
-        assertThat(p.getProperty("port"), equalTo(null));
-        assertThat(p.getProperty("port", "80"), equalTo("80"));
+        assertEquals("training360.com", p.getProperty("host"));
+        assertNull(p.getProperty("port"));
+        assertEquals("80", p.getProperty("port", "80"));
     }
 
     @Test
@@ -33,7 +32,7 @@ public class PropertiesTest {
         properties.setProperty("host", "training360.com");
         properties.setProperty("port", "80");
 
-        Path file = folder.newFile("config.properties").toPath();
+        Path file = Files.createFile(tempDir.resolve("config.properties"));
         try (Writer writer = Files.newBufferedWriter(file)){
             properties.store(writer, null);
         }
@@ -49,7 +48,7 @@ public class PropertiesTest {
         }
 
         String value = properties.getProperty("host");
-        assertThat(value, equalTo("training360.com"));
+        assertEquals("training360.com", value);
     }
 
     @Test
@@ -63,6 +62,6 @@ public class PropertiesTest {
         }
 
         String value = p.getProperty("welcome.message");
-        assertThat(value, equalTo("Hello World!"));
+        assertEquals("Hello World!", value);
     }
 }

@@ -1,10 +1,9 @@
 package statemachine.elevator;
 
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ElevatorTest {
 
@@ -15,7 +14,7 @@ public class ElevatorTest {
         elevator.work();
 
         String actualStateInfo = elevator.getHistory();
-        assertThat(actualStateInfo, equalTo("[Ground Floor Open, Ground Floor Closed, First Floor Closed, First Floor Open]"));
+        assertEquals("[Ground Floor Open, Ground Floor Closed, First Floor Closed, First Floor Open]", actualStateInfo);
     }
 
     @Test
@@ -27,7 +26,7 @@ public class ElevatorTest {
         elevator.work();
 
         String actualStateInfo = elevator.getHistory();
-        assertThat(actualStateInfo, equalTo("[Ground Floor Open, Ground Floor Closed, First Floor Closed, First Floor Open, First Floor Closed, Ground Floor Closed, Ground Floor Open]"));
+        assertEquals("[Ground Floor Open, Ground Floor Closed, First Floor Closed, First Floor Open, First Floor Closed, Ground Floor Closed, Ground Floor Open]", actualStateInfo);
     }
 
     @Test
@@ -39,7 +38,7 @@ public class ElevatorTest {
         elevator.work();
 
         String actualStateInfo = elevator.getHistory();
-        assertThat(actualStateInfo, equalTo("[Ground Floor Open, Ground Floor Closed, First Floor Closed, First Floor Open, First Floor Closed, Ground Floor Closed, Ground Floor Open]"));
+        assertEquals("[Ground Floor Open, Ground Floor Closed, First Floor Closed, First Floor Open, First Floor Closed, Ground Floor Closed, Ground Floor Open]", actualStateInfo);
     }
 
     @Test
@@ -51,6 +50,6 @@ public class ElevatorTest {
         elevator.work();
 
         String actualStateInfo = elevator.getHistory();
-        assertThat(actualStateInfo, equalTo("[First Floor Closed, First Floor Open, First Floor Closed, Ground Floor Closed, Ground Floor Open]"));
+        assertEquals("[First Floor Closed, First Floor Open, First Floor Closed, Ground Floor Closed, Ground Floor Open]", actualStateInfo);
     }
 }

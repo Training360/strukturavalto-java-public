@@ -1,34 +1,25 @@
 package exceptionmulticatch.converter;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.instanceOf;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class AnswerStatTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void convertNullShouldThrowException() {
         AnswerStat answerStat = new AnswerStat(new BinaryStringConverter());
-        exception.expect(InvalidBinaryStringException.class);
-        exception.expectCause(instanceOf(NullPointerException.class));
-
-        answerStat.convert(null);
+        Exception ex = assertThrows(InvalidBinaryStringException.class, () -> answerStat.convert(null));
+        assertEquals("binaryString null", ex.getCause().getMessage());
     }
 
     @Test
     public void convertInvalidStringShouldThowException() {
         AnswerStat answerStat = new AnswerStat(new BinaryStringConverter());
-        exception.expect(InvalidBinaryStringException.class);
-        exception.expectCause(instanceOf(IllegalArgumentException.class));
-
-        answerStat.convert("1133");
+        Exception ex = assertThrows(InvalidBinaryStringException.class, () -> answerStat.convert("1133"));
+        assertEquals("binaryString not valid", ex.getCause().getMessage());
     }
 
     @Test
@@ -37,7 +28,7 @@ public class AnswerStatTest {
         AnswerStat answerStat = new AnswerStat(binaryStringConverter);
         String good = "1100010";
 
-        assertThat(answerStat.convert(good), equalTo(binaryStringConverter.binaryStringToBooleanArray(good)));
+        assertArrayEquals(binaryStringConverter.binaryStringToBooleanArray(good), answerStat.convert(good));
     }
 
     @Test
@@ -45,8 +36,8 @@ public class AnswerStatTest {
         BinaryStringConverter binaryStringConverter = new BinaryStringConverter();
         AnswerStat answerStat = new AnswerStat(binaryStringConverter);
 
-        assertThat(answerStat.answerTruePercent("11000101"), equalTo(50));
-        assertThat(answerStat.answerTruePercent("1111111100"), equalTo(80));
+        assertEquals(50, answerStat.answerTruePercent("11000101"));
+        assertEquals(80, answerStat.answerTruePercent("1111111100"));
     }
 
 }

@@ -1,14 +1,13 @@
 package immutable;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TrainerTest {
 
@@ -16,8 +15,8 @@ public class TrainerTest {
     public void testCreate() {
         Trainer trainer = new Trainer("John Doe", 30, Collections.emptyList());
 
-        assertThat(trainer.getName(), equalTo("John Doe"));
-        assertThat(trainer.getAge(), equalTo(30));
+        assertEquals("John Doe", trainer.getName());
+        assertEquals(30, trainer.getAge());
     }
 
     @Test
@@ -26,10 +25,10 @@ public class TrainerTest {
         Trainer trainer = new Trainer("John Doe", 30, courses);
 
         courses.add(new Course("Art"));
-        assertThat(trainer.getCourses().size(), equalTo(2));
+        assertEquals(2, trainer.getCourses().size());
 
         trainer.getCourses().add(new Course("Art"));
-        assertThat(trainer.getCourses().size(), equalTo(2));
+        assertEquals(2, trainer.getCourses().size());
 
     }
 }

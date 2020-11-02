@@ -1,22 +1,23 @@
 package lambdaintro;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class SocialNetworkTest {
 
     @Test
     public void createMember() {
         Member member = new Member("John Doe", Arrays.asList("Java", "OOP"), Sex.MALE);
-        assertThat(member.getName(), equalTo("John Doe"));
-        assertThat(member.getSkills(), equalTo(Arrays.asList("Java", "OOP")));
-        assertThat(member.getGender(), equalTo(Sex.MALE));
-        assertThat(member.getMessages().size(), equalTo(0));
+        assertEquals("John Doe", member.getName());
+        assertEquals(Arrays.asList("Java", "OOP"), member.getSkills());
+        assertEquals(Sex.MALE, member.getGender());
+        assertEquals(0, member.getMessages().size());
     }
 
     @Test
@@ -25,22 +26,22 @@ public class SocialNetworkTest {
         member.sendMessage("Hello!");
         member.sendMessage("Dear John!");
 
-        assertThat(member.getMessages(), equalTo(Arrays.asList("Hello!", "Dear John!")));
+        assertEquals(Arrays.asList("Hello!", "Dear John!"), member.getMessages());
     }
 
     @Test
     public void testFindMembersBy() {
         SocialNetwork socialNetwork = new SocialNetwork(Arrays.asList(
-           new Member("John Doe", Arrays.asList("Java", "OOP"), Sex.MALE),
-           new Member("Jane Doe", Arrays.asList(".NET", "OOP"), Sex.FEMALE),
-           new Member("James Doe", Arrays.asList("Python", "Java", "OOP"), Sex.MALE),
-           new Member("Janet Doe", Arrays.asList("JavaScript", "scripting"), Sex.MALE)
+                new Member("John Doe", Arrays.asList("Java", "OOP"), Sex.MALE),
+                new Member("Jane Doe", Arrays.asList(".NET", "OOP"), Sex.FEMALE),
+                new Member("James Doe", Arrays.asList("Python", "Java", "OOP"), Sex.MALE),
+                new Member("Janet Doe", Arrays.asList("JavaScript", "scripting"), Sex.MALE)
         ));
 
         List<Member> found = socialNetwork.findMembersBy(m -> m.getSkills().contains("Java"));
-        assertThat(found.size(), equalTo(2));
-        assertThat(found.get(0).getName(), equalTo("John Doe"));
-        assertThat(found.get(1).getName(), equalTo("James Doe"));
+        assertEquals(2, found.size());
+        assertEquals("John Doe", found.get(0).getName());
+        assertEquals("James Doe", found.get(1).getName());
     }
 
     @Test
@@ -55,11 +56,11 @@ public class SocialNetworkTest {
 
         socialNetwork.applyToSelectedMembers(
                 m -> m.getGender() == Sex.FEMALE && m.getSkills().contains("db"),
-                m -> m.sendMessage("Dear " + m.getName() + "!") );
+                m -> m.sendMessage("Dear " + m.getName() + "!"));
 
-        assertThat(socialNetwork.findMembersBy(m -> m.getName().equals("Jane Doe")).get(0).getMessages().get(0), equalTo("Dear Jane Doe!"));
-        assertThat(socialNetwork.findMembersBy(m -> m.getName().equals("Janet Doe")).get(0).getMessages().get(0), equalTo("Dear Janet Doe!"));
-        assertThat(socialNetwork.findMembersBy(m -> m.getName().equals("Jenifer Doe")).get(0).getMessages().size(), equalTo(0));
+        assertEquals("Dear Jane Doe!", socialNetwork.findMembersBy(m -> m.getName().equals("Jane Doe")).get(0).getMessages().get(0));
+        assertEquals("Dear Janet Doe!", socialNetwork.findMembersBy(m -> m.getName().equals("Janet Doe")).get(0).getMessages().get(0));
+        assertEquals(0, socialNetwork.findMembersBy(m -> m.getName().equals("Jenifer Doe")).get(0).getMessages().size());
     }
 
     @Test
@@ -69,8 +70,8 @@ public class SocialNetworkTest {
                 new Member("Jane Doe", Arrays.asList(".NET", "OOP", "db"), Sex.FEMALE),
                 new Member("James Doe", Arrays.asList("Python", "Java", "OOP"), Sex.MALE)));
         List<String> names = socialNetwork.transformMembers(Member::getName);
-        assertThat(names.size(), equalTo(3));
-        assertThat(names.get(0), equalTo("John Doe"));
-        assertThat(names.get(2), equalTo("James Doe"));
+        assertEquals(3, names.size());
+        assertEquals("John Doe", names.get(0));
+        assertEquals("James Doe", names.get(2));
     }
 }

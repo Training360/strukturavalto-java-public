@@ -1,33 +1,33 @@
 package iofiles;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
-import org.junit.rules.TemporaryFolder;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class InstallerTest {
 
-    @Rule
-    public TemporaryFolder folder = new TemporaryFolder();
 
-    @Rule
-    public ExpectedException exception = ExpectedException.none();
+    @TempDir
+    public File folder;
+
 
     @Test
     public void testInstall() {
-        String targetDirectory = folder.getRoot().getPath();
+
+        String targetDirectory = folder.getPath();
 
         Installer installer = new Installer();
 
         installer.install(targetDirectory);
 
-        Path targetPath = folder.getRoot().toPath();
+        Path targetPath = folder.toPath();
 
         assertTrue(Files.exists(targetPath.resolve("bin")));
         assertTrue(Files.exists(targetPath.resolve("data")));
@@ -38,11 +38,10 @@ public class InstallerTest {
 
     @Test
     public void testInstallWithFileTarget() throws IOException {
-        String target = folder.newFile().getPath();
+        String target = new File(folder, "test.txt").getPath();
 
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("The given directory doesn't exist");
 
-        new Installer().install(target);
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> new Installer().install(target));
+        assertEquals("The given directory doesn't exist", ex.getMessage());
     }
 }

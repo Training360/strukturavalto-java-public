@@ -1,25 +1,18 @@
 package exceptionmulticatch.converter;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BinaryStringConverterTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void binaryStringToBooleanArrayShouldInvalidStringThrowException() {
         String binaryString = "011200";
         BinaryStringConverter converter = new BinaryStringConverter();
 
-        exception.expect(IllegalArgumentException.class);
-
-        converter.binaryStringToBooleanArray(binaryString);
+        assertThrows(IllegalArgumentException.class, () -> converter.binaryStringToBooleanArray(binaryString));
     }
 
     @Test
@@ -27,9 +20,9 @@ public class BinaryStringConverterTest {
         String binaryString = "0111001";
         BinaryStringConverter converter = new BinaryStringConverter();
 
-        boolean[] expected = new boolean[] {false, true, true, true, false, false, true};
+        boolean[] expected = new boolean[]{false, true, true, true, false, false, true};
 
-        assertThat(converter.binaryStringToBooleanArray(binaryString), equalTo(expected));
+        assertArrayEquals(expected, converter.binaryStringToBooleanArray(binaryString));
     }
 
     @Test
@@ -37,17 +30,15 @@ public class BinaryStringConverterTest {
         boolean[] booleans = new boolean[0];
         BinaryStringConverter converter = new BinaryStringConverter();
 
-        exception.expect(IllegalArgumentException.class);
-
-        converter.booleanArrayToBinaryString(booleans);
+        assertThrows(IllegalArgumentException.class, () -> converter.booleanArrayToBinaryString(booleans));
     }
 
     @Test
     public void booleanArrayToBinaryStringShouldConvert() {
-        boolean[] booleans = new boolean[] {false, true, true, false, false};
+        boolean[] booleans = new boolean[]{false, true, true, false, false};
         BinaryStringConverter converter = new BinaryStringConverter();
         String expected = "01100";
 
-        assertThat(converter.booleanArrayToBinaryString(booleans), equalTo(expected));
+        assertEquals(expected, converter.booleanArrayToBinaryString(booleans));
     }
 }

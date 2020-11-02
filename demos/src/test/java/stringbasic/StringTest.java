@@ -1,9 +1,8 @@
 package stringbasic;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class StringTest {
 
@@ -11,10 +10,10 @@ public class StringTest {
     public void testEquals() {
         String s = "John Doe";
         s = s.toUpperCase();
-        assertThat(s, equalTo("JOHN DOE"));
+        assertEquals("JOHN DOE", s);
 
         String u = new String("John Doe");
         String t = new String("John Doe");
-        assertThat(u, equalTo(t));
+        assertEquals(t, u);
     }
 }

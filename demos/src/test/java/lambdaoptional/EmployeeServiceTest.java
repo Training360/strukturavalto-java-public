@@ -1,13 +1,12 @@
 package lambdaoptional;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-import static org.hamcrest.Matchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class EmployeeServiceTest {
 
@@ -23,11 +22,10 @@ public class EmployeeServiceTest {
         Optional<Employee> result = new EmployeeService().findFirst(employees,
                 employee -> employee.getName().startsWith("Jane"));
 
-        assertThat(result.isPresent(), equalTo(true));
-        assertThat(result.get().getName(), equalTo("Jane Doe"));
+        assertTrue(result.isPresent());
+        assertEquals("Jane Doe", result.get().getName());
     }
 
-    @Test(expected = IllegalArgumentException.class)
     public void testNotFound() {
         List<Employee> employees =
                 Arrays.asList(
@@ -36,8 +34,11 @@ public class EmployeeServiceTest {
                         new Employee("Jack Doe")
                 );
 
-        new EmployeeService().findFirst(employees,
-                employee -> employee.getName().startsWith("Joe")).orElseThrow(() -> new IllegalArgumentException("Not found"));
+        assertThrows(IllegalArgumentException.class, () -> {
+            new EmployeeService().findFirst(employees,
+                    employee -> employee.getName().startsWith("Joe")).orElseThrow(() -> new IllegalArgumentException("Not found"));
+
+        });
     }
 
     @Test
@@ -53,6 +54,6 @@ public class EmployeeServiceTest {
                 employee -> employee.getName().startsWith("Joe"))
         .orElseGet(() -> new Employee("Anonymous"));
 
-        assertThat(result.getName(), equalTo("Anonymous"));
+        assertEquals("Anonymous", result.getName());
     }
 }

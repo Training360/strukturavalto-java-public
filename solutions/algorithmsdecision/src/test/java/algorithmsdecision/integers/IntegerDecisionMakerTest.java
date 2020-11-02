@@ -1,10 +1,13 @@
 package algorithmsdecision.integers;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.Arrays;
 import java.util.List;
-import static org.hamcrest.CoreMatchers.is;
-import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 public class IntegerDecisionMakerTest {
 
@@ -14,14 +17,14 @@ public class IntegerDecisionMakerTest {
     @Test
     public void testContainsGreaterThan() {
 
-        assertThat(test.containsGreaterThan(numbers, 3), is(true));
-        assertThat(test.containsGreaterThan(numbers, 7), is(false));
+        assertTrue(test.containsGreaterThan(numbers, 3));
+        assertFalse(test.containsGreaterThan(numbers, 7));
     }
 
     @Test
     public void testContainsLowerThan() {
-        assertThat(test.containsLowerThan(numbers, -6), is(true));
-        assertThat(test.containsLowerThan(numbers, -7), is(false));
+        assertTrue(test.containsLowerThan(numbers, -6));
+        assertFalse(test.containsLowerThan(numbers, -7));
     }
 
 }

@@ -1,22 +1,21 @@
 package collectionsiterator;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 
 public class LibraryManagerTest {
 
     private LibraryManager manager;
 
-    @Before
+    @BeforeEach
     public void setup() {
         Set<Book> bookSet = new HashSet<>(Arrays.asList(new Book(1245, "Core Java", "Cay Horstmann"),
                 new Book(2454, "Core JavaServer Faces", "Cay Horstmann"),
@@ -24,16 +23,14 @@ public class LibraryManagerTest {
         manager = new LibraryManager(bookSet);
     }
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void missingRegnumberShouldThrowException() throws MissingBookException {
-        // Given
-        exception.expect(MissingBookException.class);
-        exception.expectMessage("No books found with regnumber:");
-        // When
-        manager.findBookByRegNumber(1212);
+
+        Exception ex = assertThrows(MissingBookException.class, () -> {
+            manager.findBookByRegNumber(1212);
+        });
+        assertEquals("No books found with regnumber: " + 1212, ex.getMessage());
     }
 
     @Test
@@ -41,17 +38,18 @@ public class LibraryManagerTest {
         // When
         Book book = manager.findBookByRegNumber(1245);
         //Then
-        assertThat(book.getAuthor(), equalTo("Cay Horstmann"));
-        assertThat(book.getTitle(),equalTo("Core Java"));
+        assertEquals("Cay Horstmann", book.getAuthor());
+        assertEquals("Core Java", book.getTitle());
     }
 
     @Test
     public void missingRegnumberShouldThrowExceptionAtRemove() throws MissingBookException {
-        // Given
-        exception.expect(MissingBookException.class);
-        exception.expectMessage("No books found with regnumber:");
-        // When
-        manager.removeBookByRegNumber(1212);
+
+        Exception ex = assertThrows(MissingBookException.class, () -> {
+            manager.removeBookByRegNumber(1212);
+
+        });
+        assertEquals("No books found with regnumber: " + 1212, ex.getMessage());
     }
 
     @Test
@@ -59,17 +57,19 @@ public class LibraryManagerTest {
         // When
         int removedBookId = manager.removeBookByRegNumber(2454);
         //Then
-        assertThat(removedBookId, equalTo(2454));
-        assertThat(manager.libraryBooksCount(), equalTo(2));
+        assertEquals(2454, removedBookId);
+        assertEquals(2, manager.libraryBooksCount());
     }
 
     @Test
     public void nonExistingAuthorShouldThrowExceptionAtRemove() throws MissingBookException {
-        // Given
-        exception.expect(MissingBookException.class);
-        exception.expectMessage("No books found by");
-        // When
-        manager.selectBooksByAuthor("Tolkien");
+
+        Exception ex = assertThrows(MissingBookException.class, () -> {
+            manager.selectBooksByAuthor("Tolkien");
+        });
+        assertEquals("No books found by Tolkien", ex.getMessage());
+
+
     }
 
     @Test
@@ -77,6 +77,6 @@ public class LibraryManagerTest {
         // When
         Set<Book> foundBooks = manager.selectBooksByAuthor("Cay Horstmann");
         //Then
-        assertThat(foundBooks.size(), equalTo(2));
+        assertEquals(2, foundBooks.size());
     }
 }

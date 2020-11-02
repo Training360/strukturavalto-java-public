@@ -1,37 +1,36 @@
 package isahasa.fleet;
 
-import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CargoShipTest {
-	@Test
-	public void load() {
-		// Given
-		CargoShip cargoShip = new CargoShip(100);
-		assertThat(cargoShip.getCargoWeight(), is(0));
+    @Test
+    public void load() {
+        // Given
+        CargoShip cargoShip = new CargoShip(100);
+        assertEquals(0, cargoShip.getCargoWeight());
 
-		// When
-		int remainder = cargoShip.loadCargo(56);
+        // When
+        int remainder = cargoShip.loadCargo(56);
 
-		// Then
-		assertThat(remainder, is(0));
-		assertThat(cargoShip.getCargoWeight(), is(56));
-	}
+        // Then
+        assertEquals(0, remainder);
+        assertEquals(56, cargoShip.getCargoWeight());
+    }
 
-	@Test
-	public void loadToMuch() {
-		// Given
-		CargoShip cargoShip = new CargoShip(100);
-		assertThat(cargoShip.getCargoWeight(), is(0));
+    @Test
+    public void loadToMuch() {
+        // Given
+        CargoShip cargoShip = new CargoShip(100);
+        assertEquals(0, cargoShip.getCargoWeight());
 
-		// When
-		int remainder = cargoShip.loadCargo(111);
+        // When
+        int remainder = cargoShip.loadCargo(111);
 
-		// Then
-		assertThat(remainder, is(11));
-		assertThat(cargoShip.getCargoWeight(), is(100));
-	}
+        // Then
+        assertEquals(11, remainder);
+        assertEquals(100, cargoShip.getCargoWeight());
+    }
 }

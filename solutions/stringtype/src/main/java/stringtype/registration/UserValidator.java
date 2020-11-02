@@ -3,12 +3,11 @@ package stringtype.registration;
 public class UserValidator {
 
     public boolean isValidUsername(String username) {
-        return username != null && !"".equals(username);
+        return !"".equals(username);
     }
 
     public boolean isValidPassword(String password1, String password2) {
-        return password1 != null
-            && password1.length() >= 8
+        return password1.length() >= 8
             && password1.equals(password2);
     }
 

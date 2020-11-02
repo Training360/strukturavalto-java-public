@@ -1,45 +1,34 @@
 package datenewtypes;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.util.Locale;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 
 public class DateOfBirthTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void emptyPatternShouldThrowException() {
-        // Given
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Empty pattern string");
-        // When
-        new DateOfBirth("1987-10-17", "", Locale.ENGLISH);
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> new DateOfBirth("1987-10-17", "", Locale.ENGLISH));
+        assertEquals("Empty pattern string, cannot use: ", ex.getMessage());
     }
 
     @Test
     public void emptyPatternWithoutLocaleShouldThrowException() {
-        // Given
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Empty pattern string");
-        // When
-        new DateOfBirth("1987-10-17", "");
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> new DateOfBirth("1987-10-17", ""));
+        assertEquals("Empty pattern string, cannot use: ", ex.getMessage());
     }
 
     @Test
     public void nullParameterShouldThrowException() {
-        // Given
-        exception.expect(NullPointerException.class);
-        exception.expectMessage("Locale must not be null");
-        // When
-        new DateOfBirth("1987-10-17", "yyyy-MM-dd", null);
+        Exception ex = assertThrows(NullPointerException.class, () -> new DateOfBirth("1987-10-17", "yyyy-MM-dd", null));
+        assertEquals("Locale must not be null!", ex.getMessage());
     }
 
     @Test
@@ -47,7 +36,7 @@ public class DateOfBirthTest {
         // Given
         DateOfBirth dob = new DateOfBirth(1987, 10, 17);
         //Then
-        assertThat(dob.toString("yyyy-MM-dd"), equalTo("1987-10-17"));
+        assertEquals("1987-10-17", dob.toString("yyyy-MM-dd"));
     }
 
     @Test
@@ -55,7 +44,7 @@ public class DateOfBirthTest {
         // Given
         DateOfBirth dob = new DateOfBirth(1987, 10, 17);
         //Then
-        assertThat(dob.findDayOfWeekForBirthDate(Locale.ENGLISH), equalTo("Saturday"));
+        assertEquals("Saturday", dob.findDayOfWeekForBirthDate(Locale.ENGLISH));
     }
 
     @Test
@@ -64,16 +53,13 @@ public class DateOfBirthTest {
         DateOfBirth dob = new DateOfBirth(1987, 10, 17);
         LocalDate later = dob.getDateOfBirth().plusYears(2);
         //Then
-        assertThat(dob.findDayOfWeekForBirthDate(Locale.ENGLISH, later), equalTo("Tuesday"));
+        assertEquals("Tuesday", dob.findDayOfWeekForBirthDate(Locale.ENGLISH, later));
     }
 
     @Test
     public void nullParameterShouldThrowExceptionInFindDayOfWeekMethod() {
-        // Given
-        exception.expect(NullPointerException.class);
-        exception.expectMessage("Locale must not be null");
-        // When
-        new DateOfBirth("1987-10-17", "yyyy-MM-dd", Locale.ENGLISH).findDayOfWeekForBirthDate(null);
+        Exception ex = assertThrows(NullPointerException.class, () -> new DateOfBirth("1987-10-17", "yyyy-MM-dd", Locale.ENGLISH).findDayOfWeekForBirthDate(null));
+        assertEquals("Locale must not be null!", ex.getMessage());
     }
 
     @Test
@@ -82,16 +68,13 @@ public class DateOfBirthTest {
         DateOfBirth dob = new DateOfBirth(2000, 1, 1);
         LocalDate now = LocalDate.of(2017, 10, 2);
         //Then
-        assertThat(dob.countDaysSinceBirth(now), equalTo(6484));
+        assertEquals(6484, dob.countDaysSinceBirth(now));
     }
 
     @Test
     public void futureBirthDateShouldThrowException() {
-        // Given
-        exception.expect(IllegalStateException.class);
-        exception.expectMessage("Birthdate is in the future");
-        // When
-        new DateOfBirth(2018, 1, 1).countDaysSinceBirth(LocalDate.of(2017, 10, 2));
+        Exception ex = assertThrows(IllegalStateException.class, () -> new DateOfBirth(2018, 1, 1).countDaysSinceBirth(LocalDate.of(2017, 10, 2)));
+        assertEquals("Birthdate is in the future!", ex.getMessage());
     }
 
     @Test
@@ -99,7 +82,7 @@ public class DateOfBirthTest {
         // Given
         DateOfBirth dob = new DateOfBirth(2017, 2, 1);
         //Then
-        assertThat(dob.countDaysBetween(new DateOfBirth(2017, 3, 1)), equalTo(28));
+        assertEquals(28, dob.countDaysBetween(new DateOfBirth(2017, 3, 1)));
     }
 
     @Test
@@ -107,15 +90,12 @@ public class DateOfBirthTest {
         // Given
         DateOfBirth dob = new DateOfBirth(2017, 2, 1);
         //Then
-        assertThat(dob.toString("dd/MM/yyyy"), equalTo("01/02/2017"));
+        assertEquals("01/02/2017", dob.toString("dd/MM/yyyy"));
     }
 
     @Test
     public void emptyPatternInToStringMethodShouldThrowException() {
-        // Given
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Empty pattern string");
-        // When
-        new DateOfBirth(2018, 2, 1).toString("");
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> new DateOfBirth(2018, 2, 1).toString(""));
+        assertEquals("Empty pattern string, cannot use: ", ex.getMessage());
     }
 }

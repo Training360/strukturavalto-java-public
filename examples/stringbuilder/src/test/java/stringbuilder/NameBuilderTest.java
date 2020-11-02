@@ -1,71 +1,72 @@
 package stringbuilder;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class NameBuilderTest {
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
+
 
     @Test
     public void invalidParametersShouldThrowExceptionNullFamilyName() throws IllegalArgumentException {
-        //Given
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Family name and given name must not be empty!");
-        // When
-        new NameBuilder().concatNameHungarianStyle(null, "G", "John", Title.MR);
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> {
+            new NameBuilder().concatNameHungarianStyle(null, "G", "John", Title.MR);
+        });
+
+        assertEquals("Family name and given name must not be empty!", ex.getMessage());
+
     }
 
     @Test
     public void invalidParametersShouldThrowExceptionNullGivenName() throws IllegalArgumentException {
-        //Given
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Family name and given name must not be empty!");
-        // When
-        new NameBuilder().concatNameHungarianStyle("Smith", "G", null, Title.MR);
+
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> {
+            new NameBuilder().concatNameHungarianStyle("Smith", "G", null, Title.MR);
+        });
+
+        assertEquals("Family name and given name must not be empty!", ex.getMessage());
     }
 
     @Test
     public void invalidParametersShouldThrowExceptionEmptyFamilyName() throws IllegalArgumentException {
-        //Given
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Family name and given name must not be empty!");
 
-        // When
-        new NameBuilder().concatNameHungarianStyle("", "G", "John", Title.MR);
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> {
+            new NameBuilder().concatNameHungarianStyle("", "G", "John", Title.MR);
+        });
+
+        assertEquals("Family name and given name must not be empty!", ex.getMessage());
+
+
     }
 
     @Test
     public void invalidParametersShouldThrowExceptionEmptyGivenName() throws IllegalArgumentException {
-        //Given
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Family name and given name must not be empty!");
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> {
+            new NameBuilder().concatNameHungarianStyle("Smith", "G", "", Title.MR);
 
-        // When
-        new NameBuilder().concatNameHungarianStyle("Smith", "G", "", Title.MR);
+        });
+
+        assertEquals("Family name and given name must not be empty!", ex.getMessage());
     }
 
     @Test
     public void westernStyleNameConcatenation() {
 
-        assertThat(new NameBuilder().concatNameWesternStyle("Smith", "G", "John", Title.MR), equalTo("Mr. John G Smith"));
-        assertThat(new NameBuilder().concatNameWesternStyle("Smith", "G", "John", null), equalTo("John G Smith"));
-        assertThat(new NameBuilder().concatNameWesternStyle("Smith", "", "John", Title.MR), equalTo("Mr. John Smith"));
-        assertThat(new NameBuilder().concatNameWesternStyle("Smith", null, "John", Title.MR), equalTo("Mr. John Smith"));
+        assertEquals("Mr. John G Smith", new NameBuilder().concatNameWesternStyle("Smith", "G", "John", Title.MR));
+        assertEquals("John G Smith", new NameBuilder().concatNameWesternStyle("Smith", "G", "John", null));
+        assertEquals("Mr. John Smith", new NameBuilder().concatNameWesternStyle("Smith", "", "John", Title.MR));
+        assertEquals("Mr. John Smith", new NameBuilder().concatNameWesternStyle("Smith", null, "John", Title.MR));
     }
 
     @Test
     public void hungarianStyleNameConcatenation() {
 
-        assertThat(new NameBuilder().concatNameHungarianStyle("Smith", "G", "John", Title.MR), equalTo("Mr. Smith G John"));
-        assertThat(new NameBuilder().concatNameHungarianStyle("Smith", "G", "John", null), equalTo("Smith G John"));
-        assertThat(new NameBuilder().concatNameHungarianStyle("Smith", "", "John", Title.MR), equalTo("Mr. Smith John"));
-        assertThat(new NameBuilder().concatNameHungarianStyle("Smith", null, "John", Title.MR), equalTo("Mr. Smith John"));
+        assertEquals("Mr. Smith G John", new NameBuilder().concatNameHungarianStyle("Smith", "G", "John", Title.MR));
+        assertEquals("Smith G John", new NameBuilder().concatNameHungarianStyle("Smith", "G", "John", null));
+        assertEquals("Mr. Smith John", new NameBuilder().concatNameHungarianStyle("Smith", "", "John", Title.MR));
+        assertEquals("Mr. Smith John", new NameBuilder().concatNameHungarianStyle("Smith", null, "John", Title.MR));
     }
 
     @Test
@@ -73,12 +74,12 @@ public class NameBuilderTest {
         //Given
         String name = "Dr. John G Smith";
         //Then
-        assertThat(new NameBuilder().insertTitle(name, Title.PROF, " "), equalTo("Dr. Prof. John G Smith"));
+        assertEquals("Dr. Prof. John G Smith", new NameBuilder().insertTitle(name, Title.PROF, " "));
     }
 
     @Test
     public void deleteNamePart() {
 
-        assertThat(new NameBuilder().deleteNamePart("Dr. Prof. John G Smith", "Prof. "), equalTo("Dr. John G Smith"));
+        assertEquals("Dr. John G Smith", new NameBuilder().deleteNamePart("Dr. Prof. John G Smith", "Prof. "));
     }
 }

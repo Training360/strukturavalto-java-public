@@ -9,7 +9,7 @@ public class LocalVariablesMain {
 
         int a = 2;
 
-        int i = 4, j = 5;
+        int i = 3, j = 4;
 
         int k = i;
 

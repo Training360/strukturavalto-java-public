@@ -1,24 +1,16 @@
 package immutable.satellite;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SpaceAgencyTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void nullParameterShouldThrowException() throws NullPointerException {
-        // Given
-        exception.expect(NullPointerException.class);
-        exception.expectMessage("Parameter must not be null!");
-        // When
-        new SpaceAgency().registerSatellite(null);
+        Exception ex = assertThrows(NullPointerException.class, () -> new SpaceAgency().registerSatellite(null));
+        assertEquals("Parameter must not be null!", ex.getMessage());
     }
 
     @Test
@@ -29,19 +21,13 @@ public class SpaceAgencyTest {
         sa.registerSatellite((new Satellite(new CelestialCoordinates(12, 23, 45), "ASD345")));
         sa.registerSatellite((new Satellite(new CelestialCoordinates(22, 33, 44), "QWE789")));
         //Then
-        assertThat(sa.toString(), equalTo("[ASD345: CelestialCoordinates: x=12, y=23, z=45, QWE789: CelestialCoordinates: x=22, y=33, z=44]"));
+        assertEquals("[ASD345: CelestialCoordinates: x=12, y=23, z=45, QWE789: CelestialCoordinates: x=22, y=33, z=44]", sa.toString());
     }
 
     @Test
     public void testNotFoundSatelliteByRegisterIdent() throws IllegalArgumentException {
-        // Given
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Satellite with the given registration cannot be found!");
-//        SpaceAgency sa = new SpaceAgency();
-//        sa.registerSatellite((new Satellite(new CelestialCoordinates(12, 23, 45), "ASD345")));
-//        sa.registerSatellite((new Satellite(new CelestialCoordinates(22, 33, 44), "QWE789")));
-        // When
-        new SpaceAgency().findSatelliteByRegisterIdent("XXX123");
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> new SpaceAgency().findSatelliteByRegisterIdent("XXX123"));
+        assertEquals("Satellite with the given registration cannot be found!XXX123", ex.getMessage());
     }
 
     @Test
@@ -52,6 +38,6 @@ public class SpaceAgencyTest {
         sa.registerSatellite((new Satellite(new CelestialCoordinates(12, 23, 45), "ASD345")));
         sa.registerSatellite((new Satellite(new CelestialCoordinates(22, 33, 44), "QWE789")));
         //Then
-        assertThat(sa.findSatelliteByRegisterIdent("QWE789").toString(), equalTo("QWE789: CelestialCoordinates: x=22, y=33, z=44"));
+        assertEquals("QWE789: CelestialCoordinates: x=22, y=33, z=44", sa.findSatelliteByRegisterIdent("QWE789").toString());
     }
 }

@@ -1,9 +1,10 @@
 package javabeans;
 
-import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class HumanTest {
 
@@ -13,7 +14,7 @@ public class HumanTest {
         Human human = new Human();
         human.setName(name);
 
-        assertThat(human.getName(), is(name));
+        assertEquals(name, human.getName());
     }
 
     @Test
@@ -22,7 +23,7 @@ public class HumanTest {
         Human human = new Human();
         human.setWeight(weight);
 
-        assertThat(human.getWeight(), is(weight));
+        assertEquals(weight, human.getWeight());
     }
 
     @Test
@@ -31,6 +32,6 @@ public class HumanTest {
         Human human = new Human();
         human.setIq(iq);
 
-        assertThat(human.getIq(), is(iq));
+        assertEquals(iq, human.getIq());
     }
 }

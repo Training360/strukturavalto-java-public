@@ -1,9 +1,8 @@
 package introinheritance.employee;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class EmployeeTest {
 
@@ -12,9 +11,9 @@ public class EmployeeTest {
         //Given
         Employee employee = new Employee("John Doe", "1117 Budapest, Budafoki út 56.", 300_000);
         //Then
-        assertThat(employee.getName(), equalTo("John Doe"));
-        assertThat(employee.getAddress(), equalTo("1117 Budapest, Budafoki út 56."));
-        assertThat(employee.getSalary(), equalTo(300_000.0));
+        assertEquals("John Doe", employee.getName());
+        assertEquals("1117 Budapest, Budafoki út 56.", employee.getAddress());
+        assertEquals(300_000.0, employee.getSalary());
     }
 
     @Test
@@ -23,7 +22,7 @@ public class EmployeeTest {
         Employee employee = new Employee("John Doe", "1117 Budapest, Budafoki út 56.", 300_000);
         employee.migrate("1117 Budapest, Budafoki út 100.");
         //Then
-        assertThat(employee.getAddress(), equalTo("1117 Budapest, Budafoki út 100."));
+        assertEquals("1117 Budapest, Budafoki út 100.", employee.getAddress());
     }
 
     @Test
@@ -33,6 +32,6 @@ public class EmployeeTest {
         //When
         employee.raiseSalary(10);
         //Then
-        assertThat(employee.getSalary(), equalTo(330_000.0));
+        assertEquals(330_000.0, employee.getSalary());
     }
 }

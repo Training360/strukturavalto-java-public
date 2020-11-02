@@ -1,70 +1,58 @@
 package methodargvars.examstats;
 
-import methodargvars.examstats.ExamStats;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ExamStatsTest {
 
     private ExamStats examStats;
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
-    @Before
+    @BeforeEach
     public void setUp() {
         this.examStats = new ExamStats(100);
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         this.examStats = null;
     }
 
     @Test
     public void zeroResultsShouldThrowException() throws IllegalArgumentException {
-        // Given
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Number of results must not be empty!");
-        // When
-        examStats.getNumberOfTopGrades(85);
+
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> examStats.getNumberOfTopGrades(85));
+        assertEquals("Number of results must not be empty!", ex.getMessage());
     }
 
     @Test
     public void nullResultsShouldThrowException() throws IllegalArgumentException {
-        // Given
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Number of results must not be empty!");
-        // When
-        examStats.getNumberOfTopGrades(85, null);
+
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> examStats.getNumberOfTopGrades(85, null));
+        assertEquals("Number of results must not be empty!", ex.getMessage());
     }
 
     @Test
     public void testGetNumberOfTopGrades() {
 
-        assertThat(examStats.getNumberOfTopGrades(85, 2, 3, 4, 5, 86, 90, 99), is(3));
-        assertThat(examStats.getNumberOfTopGrades(85, 2, 3, 4, 5, 56, 34, 70), is(0));
+        assertEquals(3, examStats.getNumberOfTopGrades(85, 2, 3, 4, 5, 86, 90, 99));
+        assertEquals(0, examStats.getNumberOfTopGrades(85, 2, 3, 4, 5, 56, 34, 70));
     }
 
     @Test
     public void zeroResultsShouldThrowExceptionWithFails() throws IllegalArgumentException {
-        // Given
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Number of results must not be empty!");
-        // When
-        examStats.hasAnyFailed(50);
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> examStats.hasAnyFailed(50));
+        assertEquals("Number of results must not be empty!", ex.getMessage());
     }
 
     @Test
     public void testHasAnyFailed() {
 
-        assertThat(examStats.hasAnyFailed(50, 10, 90), is(true));
-        assertThat(examStats.hasAnyFailed(50, 60, 90), is(false));
+        assertTrue(examStats.hasAnyFailed(50, 10, 90));
+        assertFalse(examStats.hasAnyFailed(50, 60, 90));
     }
 }

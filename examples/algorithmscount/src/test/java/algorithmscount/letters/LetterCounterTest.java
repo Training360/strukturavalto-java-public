@@ -1,15 +1,14 @@
 package algorithmscount.letters;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LetterCounterTest {
 
     @Test
     public void testCount() {
-        assertThat(new LetterCounter().countLetters("abcdeabcd", 'f'), equalTo(0));
-        assertThat(new LetterCounter().countLetters("abcdeabcd", 'd'), equalTo(2));
+        assertEquals(0, new LetterCounter().countLetters("abcdeabcd", 'f'));
+        assertEquals(2, new LetterCounter().countLetters("abcdeabcd", 'd'));
     }
 }

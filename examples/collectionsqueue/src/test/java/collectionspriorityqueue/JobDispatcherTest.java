@@ -1,30 +1,27 @@
 package collectionspriorityqueue;
 
+import org.junit.jupiter.api.Test;
+
 import job.Job;
 import job.NoJobException;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+
 
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 
 public class JobDispatcherTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void emptyQueueShouldThrowException() throws NoJobException {
-        //Given
-        exception.expect(NoJobException.class);
-        exception.expectMessage("No job available");
-
-        //When
-        new JobDispatcher().dispatchNextJob(new PriorityQueue<>());
+        Exception ex = assertThrows(NoJobException.class, () -> {
+            new JobDispatcher().dispatchNextJob(new PriorityQueue<>());
+        });
+        assertEquals("No job available, get a rest!", ex.getMessage());
     }
 
     @Test
@@ -41,7 +38,7 @@ public class JobDispatcherTest {
         Job nextJob = dispatcher.dispatchNextJob(availableJobs);
 
         // Then
-        assertThat(nextJob.getJobDescription(), equalTo("mostImportant"));
-        assertThat(nextJob.getPriority(), equalTo(1));
+        assertEquals("mostImportant", nextJob.getJobDescription());
+        assertEquals(1, nextJob.getPriority());
     }
 }

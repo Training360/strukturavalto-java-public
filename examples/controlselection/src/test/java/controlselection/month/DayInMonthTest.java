@@ -1,38 +1,33 @@
 package controlselection.month;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class DayInMonthTest {
 
-    @Rule
-    public ExpectedException expectedException = ExpectedException.none();
 
     @Test
     public void testNumberOfDays() {
-        assertThat(new DayInMonth().numberOfDays(2017, "május"), equalTo(31));
-        assertThat(new DayInMonth().numberOfDays(2017, "június"), equalTo(30));
-        assertThat(new DayInMonth().numberOfDays(2017, "február"), equalTo(28));
-        assertThat(new DayInMonth().numberOfDays(1900,"február"),equalTo(28));
+        assertEquals(31, new DayInMonth().numberOfDays(2017, "május"));
+        assertEquals(30, new DayInMonth().numberOfDays(2017, "június"));
+        assertEquals(28, new DayInMonth().numberOfDays(2017, "február"));
+        assertEquals(28, new DayInMonth().numberOfDays(1900, "február"));
     }
 
     @Test
     public void testCase() {
-        assertThat(new DayInMonth().numberOfDays(2017, "MáJuS"), equalTo(31));
+        assertEquals(31, new DayInMonth().numberOfDays(2017, "MáJuS"));
     }
 
     @Test
     public void testLeapYear() {
-        assertThat(new DayInMonth().numberOfDays(2012, "február"), equalTo(29));
+        assertEquals(29, new DayInMonth().numberOfDays(2012, "február"));
     }
 
     @Test
     public void testIllegalMonth() {
-        expectedException.expect(IllegalArgumentException.class);
-        new DayInMonth().numberOfDays(2012, "abc");
+        assertThrows(IllegalArgumentException.class, () -> new DayInMonth().numberOfDays(2012, "abc"));
     }
 }

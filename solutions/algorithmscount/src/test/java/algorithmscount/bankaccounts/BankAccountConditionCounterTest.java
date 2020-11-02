@@ -1,12 +1,12 @@
 package algorithmscount.bankaccounts;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class BankAccountConditionCounterTest {
 
@@ -18,7 +18,7 @@ public class BankAccountConditionCounterTest {
                 new BankAccount("Joe Doe", "123", 300),
                 new BankAccount("Jennifer Doe", "123", 400));
 
-        assertThat(new BankAccountConditionCounter().countWithBalanceGreaterThan(bankAccounts, 100), equalTo(3));
-        assertThat(new BankAccountConditionCounter().countWithBalanceGreaterThan(bankAccounts, 400), equalTo(0));
+        assertEquals(3, new BankAccountConditionCounter().countWithBalanceGreaterThan(bankAccounts, 100));
+        assertEquals(0, new BankAccountConditionCounter().countWithBalanceGreaterThan(bankAccounts, 400));
     }
 }

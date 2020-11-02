@@ -1,12 +1,9 @@
 package methodchain;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.sameInstance;
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class HumanTest {
 	@Test
@@ -16,9 +13,9 @@ public class HumanTest {
 		Human human = new Human("noname");
 		Human human2 = human.setPet(petName);
 
-		assertThat(human.getName(), equalTo("noname"));
-		assertThat(human, is(sameInstance(human2)));
-		assertThat(human.getPet(), equalTo(petName));
+		assertEquals("noname", human.getName());
+		assertTrue(human == human2);
+		assertEquals(petName, human.getPet());
 	}
 
 	@Test
@@ -28,8 +25,8 @@ public class HumanTest {
 		Human human = new Human("noname");
 		Human human2 = human.setFavouriteCar(favouriteCar);
 
-		assertThat(human, is(sameInstance(human2)));
-		assertThat(human.getFavouriteCar(), equalTo(favouriteCar));
+		assertTrue(human == human2);
+		assertEquals(favouriteCar, human.getFavouriteCar());
 	}
 
 	@Test
@@ -39,8 +36,8 @@ public class HumanTest {
 		Human human = new Human("noname");
 		Human human2 = human.setCountOfChildren(countOfChildren);
 
-		assertThat(human, is(sameInstance(human2)));
-		assertThat(human.getCountOfChildren(), equalTo(countOfChildren));
+		assertTrue(human == human2);
+		assertEquals(countOfChildren, human.getCountOfChildren());
 	}
 
 	@Test
@@ -54,9 +51,9 @@ public class HumanTest {
 				.setCountOfChildren(countOfChildren)
 				.setFavouriteCar(favouriteCar);
 
-		assertThat(human.getCountOfChildren(), equalTo(countOfChildren));
-		assertThat(human.getFavouriteCar(), equalTo(favouriteCar));
-		assertThat(human.getPet(), equalTo(petName));
+		assertEquals(countOfChildren, human.getCountOfChildren());
+		assertEquals(favouriteCar, human.getFavouriteCar());
+		assertEquals(petName, human.getPet());
 	}
 
 

@@ -1,24 +1,27 @@
 package iodatastream.statistics;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
 
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
+
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+
 
 public class HeightStatisticsTest {
 
-    @Rule
-    public TemporaryFolder folder = new TemporaryFolder();
+   @TempDir
+   public File folder;
 
     @Test
     public void testSaveHeights() throws IOException {
-        Path path = folder.newFile().toPath();
+        File file = new File(folder,"test.txt");
+        Path path = file.toPath();
         HeightStatistics statistics = new HeightStatistics();
 
         List<Integer> heights = List.of(198, 201, 211, 195, 214, 208, 203, 198);

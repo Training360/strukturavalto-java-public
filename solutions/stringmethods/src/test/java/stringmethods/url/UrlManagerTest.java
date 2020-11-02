@@ -1,15 +1,14 @@
 package stringmethods.url;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+
+import java.rmi.server.ExportException;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class UrlManagerTest {
 
-    @Rule
-    public ExpectedException exception = ExpectedException.none();
 
     @Test
     public void testCreate() {
@@ -52,18 +51,14 @@ public class UrlManagerTest {
 
     @Test
     public void testCreateMissingHost() {
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Invalid url");
-
-        new UrlManager("http://");
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> new UrlManager("http://"));
+        assertEquals("Invalid url", ex.getMessage());
     }
 
     @Test
     public void testCreateMissingProtocol() {
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Invalid url");
-
-        new UrlManager("www.google.com");
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> new UrlManager("www.google.com"));
+        assertEquals("Invalid url", ex.getMessage());
     }
 
     @Test
@@ -98,9 +93,8 @@ public class UrlManagerTest {
         String url = "HTTPS://EarthQuake.USgs.gov/fdsnws/event/1/query?format=geojson&starttime=2014-01-01&endtime=2014-01-02";
         UrlManager urlManager = new UrlManager(url);
 
-        exception.expect(IllegalArgumentException.class);
+        assertThrows(IllegalArgumentException.class, () -> urlManager.hasProperty(null));
 
-        urlManager.hasProperty(null);
     }
 
     @Test
@@ -136,8 +130,6 @@ public class UrlManagerTest {
         String url = "HTTPS://EarthQuake.USgs.gov/fdsnws/event/1/query?format=geojson&starttime=2014-01-01&endtime=2014-01-02";
         UrlManager urlManager = new UrlManager(url);
 
-        exception.expect(IllegalArgumentException.class);
-
-        urlManager.hasProperty("  ");
+        assertThrows(IllegalArgumentException.class, () -> urlManager.hasProperty("  "));
     }
 }

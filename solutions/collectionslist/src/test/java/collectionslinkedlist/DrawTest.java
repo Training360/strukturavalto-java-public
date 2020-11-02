@@ -1,29 +1,22 @@
 package collectionslinkedlist;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
 import java.util.Set;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class DrawTest {
 
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
-
     @Test
     public void wrongParametersShouldThrowExeption() throws IllegalArgumentException {
-        //Given
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("drawCount must be less");
 
-        //When
-        new Draw().drawNumbers(8, 8);
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> {
+            new Draw().drawNumbers(8, 8);
+        });
+        assertEquals("drawCount must be less then 8!", ex.getMessage());
     }
 
     @Test
@@ -36,10 +29,10 @@ public class DrawTest {
         Set<Integer> drawnNumbers = new Draw().drawNumbers(drawCount, maxNumber);
 
         //Then
-       // assertThat(drawnNumbers.size(), equalTo(drawCount));
+        // assertThat(drawnNumbers.size(), equalTo(drawCount));
         for (int drawnNumber : drawnNumbers) {
-            assertThat(drawnNumber > 0, is(true));
-            assertThat(drawnNumber <= maxNumber, is(true));
+            assertTrue(drawnNumber > 0);
+            assertTrue(drawnNumber <= maxNumber);
         }
     }
 }

@@ -1,11 +1,13 @@
 package algorithmsdecision.bankaccounts;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.Arrays;
 import java.util.List;
-import static org.hamcrest.CoreMatchers.is;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 public class BankAccountDecisionMakerTest {
 
@@ -20,8 +22,8 @@ public class BankAccountDecisionMakerTest {
 
         BankAccountDecisionMaker test = new BankAccountDecisionMaker();
 
-        assertThat(test.containsBalanceGreaterThan(accounts, 150), is(true));
-        assertThat(test.containsBalanceGreaterThan(accounts, 250), is(false));
+        assertTrue(test.containsBalanceGreaterThan(accounts, 150));
+        assertFalse(test.containsBalanceGreaterThan(accounts, 250));
 
     }
 

@@ -1,17 +1,16 @@
 package introinheritance.basket;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ShoppingBasketTest {
 
     private ShoppingBasket shoppingBasket;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         shoppingBasket = new ShoppingBasket();
         shoppingBasket.addItem(new Item("123456", 1500, 27));
@@ -19,14 +18,14 @@ public class ShoppingBasketTest {
         shoppingBasket.addItem(new Item("147258", 5000, 27));
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         shoppingBasket = null;
     }
 
     @Test
     public void testAddItem() {
-        assertThat(Math.round(shoppingBasket.sumNettoPrice()), equalTo(9000L));
+        assertEquals(9000L, Math.round(shoppingBasket.sumNettoPrice()));
     }
 
     @Test
@@ -34,25 +33,25 @@ public class ShoppingBasketTest {
         // When
         shoppingBasket.removeItem("123456");
         //Then
-        assertThat(Math.round(shoppingBasket.sumNettoPrice()), equalTo(7500L));
+        assertEquals(7500L, Math.round(shoppingBasket.sumNettoPrice()));
     }
 
     @Test
     public void testSumNettoPrice() {
 
-        assertThat(shoppingBasket.sumNettoPrice(), equalTo(9000.0));
+        assertEquals(9000.0, shoppingBasket.sumNettoPrice());
     }
 
     @Test
     public void testSumTaxValue() {
 
-        assertThat(shoppingBasket.sumTaxValue(), equalTo(1755.0));
+        assertEquals(1755.0, shoppingBasket.sumTaxValue());
     }
 
     @Test
     public void testSumBruttoPrice() {
 
-        assertThat(shoppingBasket.sumBruttoPrice(), equalTo(10755.0));
+        assertEquals(10755.0, shoppingBasket.sumBruttoPrice());
     }
 
     @Test
@@ -60,7 +59,7 @@ public class ShoppingBasketTest {
         //When
         shoppingBasket.checkout();
         //Then
-        assertThat(shoppingBasket.sumNettoPrice(), equalTo(0.0));
+        assertEquals(0.0, shoppingBasket.sumNettoPrice());
     }
 
     @Test
@@ -68,6 +67,6 @@ public class ShoppingBasketTest {
         // When
         shoppingBasket.removeMostExpensiveItem();
         //Then
-        assertThat(shoppingBasket.sumNettoPrice(), equalTo(4000.0));
+        assertEquals(4000.0, shoppingBasket.sumNettoPrice());
     }
 }

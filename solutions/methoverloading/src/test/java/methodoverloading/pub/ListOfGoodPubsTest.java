@@ -1,29 +1,23 @@
 package methodoverloading.pub;
 
-import methodoverloading.pub.ListOfGoodPubs;
-import methodoverloading.pub.Pub;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.IsEqual.equalTo;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 
 public class ListOfGoodPubsTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void emptyPubListShouldThrowException() throws IllegalArgumentException {
-        // Given
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Pub list is empty!");
-        // When
-        new ListOfGoodPubs(new ArrayList<>());
+
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> new ListOfGoodPubs(new ArrayList<>()));
+        assertEquals("Pub list is empty!", ex.getMessage());
     }
 
     @Test
@@ -37,6 +31,6 @@ public class ListOfGoodPubsTest {
                 new Pub("Fekete macska", 23, 30)
         ));
 
-        assertThat(goodPubs.findTheBest().toString(), equalTo("Kurta kocsma;9:0"));
+        assertEquals("Kurta kocsma;9:0", goodPubs.findTheBest().toString());
     }
 }

@@ -12,6 +12,7 @@ public class ClientMain {
         client.name = scanner.nextLine();
         System.out.println("Születési év:");
         client.year = scanner.nextInt();
+        client.address = scanner.nextLine();
         System.out.println("Lakcím:");
         client.address = scanner.nextLine();
 

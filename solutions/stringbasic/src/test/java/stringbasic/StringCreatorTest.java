@@ -1,9 +1,10 @@
 package stringbasic;
 
-import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class StringCreatorTest {
 
@@ -13,18 +14,18 @@ public class StringCreatorTest {
         StringCreator sc = new StringCreator();
 
         //Then
-        assertThat(sc.createStringForPool() == sc.createStringForPool(), is(true));
-        assertThat(sc.createStringForHeap() == sc.createStringForHeap(), is(false));
-        assertThat(sc.createStringForPool().equals(sc.createStringForHeap()), is(true));
+        assertTrue(sc.createStringForPool() == sc.createStringForPool());
+        assertFalse(sc.createStringForHeap() == sc.createStringForHeap());
+        assertTrue(sc.createStringForPool().equals(sc.createStringForHeap()));
     }
 
     @Test
-    public void sameStringsShouldBeTheSameByCanonicalRepresentation(){
+    public void sameStringsShouldBeTheSameByCanonicalRepresentation() {
         //Given
         StringCreator sc = new StringCreator();
 
         //Then
-        assertThat(sc.createStringForHeap().intern() == sc.createStringForHeap().intern(), is(true));
-        assertThat(sc.createStringForHeap().intern() == sc.createStringForPool().intern(), is(true));
+        assertTrue(sc.createStringForHeap().intern() == sc.createStringForHeap().intern());
+        assertTrue(sc.createStringForHeap().intern() == sc.createStringForPool().intern());
     }
 }

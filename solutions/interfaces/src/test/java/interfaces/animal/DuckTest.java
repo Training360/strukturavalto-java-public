@@ -1,23 +1,22 @@
 package interfaces.animal;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DuckTest {
-	@Test
-	public void getNumberofLegs() throws Exception {
-		Duck duck = new Duck();
+    @Test
+    public void getNumberofLegs() throws Exception {
+        Duck duck = new Duck();
 
-		assertThat(duck.getNumberOfLegs(), is(2));
-	}
+        assertEquals(2, duck.getNumberOfLegs());
+    }
 
-	@Test
-	public void getName() throws Exception {
-		Duck duck = new Duck();
+    @Test
+    public void getName() throws Exception {
+        Duck duck = new Duck();
 
-		assertThat(duck.getName(), is("Duck"));
-	}
+        assertEquals("Duck", duck.getName());
+    }
 
 }

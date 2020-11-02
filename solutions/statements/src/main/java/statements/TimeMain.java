@@ -27,6 +27,6 @@ public class TimeMain {
 
         System.out.println("Az első időpont " + time1.toString() + " = " + time1.getInMinutes() + " perc");
         System.out.println("A második időpont " + time2.toString() + " = " + time2.getInSeconds() + " másodperc");
-        System.out.println("Az első korábbi, minit a második: " + time1.earlierThan(time2));
+        System.out.println("Az első korábbi, mint a második: " + time1.earlierThan(time2));
     }
 }

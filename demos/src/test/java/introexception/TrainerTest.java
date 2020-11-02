@@ -1,27 +1,23 @@
 package introexception;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TrainerTest {
-
-    @Rule
-    public final ExpectedException expectedException = ExpectedException.none();
 
     @Test
     public void testCreate() {
         Trainer trainer = new Trainer("John Doe", 20);
-        assertThat(trainer.getName(), equalTo("John Doe"));
+        assertEquals("John Doe", trainer.getName());
     }
 
     @Test
     public void testInvalidAge() {
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Invalid age: 13");
-        new Trainer("John Doe", 13);
+        Exception e = assertThrows(IllegalArgumentException.class, () -> {
+            new Trainer("John Doe", 13);
+        });
+        assertEquals("Invalid age: 13", e.getMessage());
     }
 }

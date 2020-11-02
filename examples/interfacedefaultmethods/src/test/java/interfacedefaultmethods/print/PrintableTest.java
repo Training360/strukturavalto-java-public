@@ -1,20 +1,16 @@
 package interfacedefaultmethods.print;
 
-import org.hamcrest.CoreMatchers;
-import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.List;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PrintableTest {
 
     @Test
     public void testGetColorWithDefaultImplementation() {
         Printable printable = new TestPrintable();
-        assertThat(printable.getColor(0), equalTo(Printable.BLACK));
+        assertEquals(Printable.BLACK, printable.getColor(0));
     }
 
 }

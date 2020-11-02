@@ -1,9 +1,8 @@
 package interfacedefaultmethods.print;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PrinterTest {
 
@@ -11,7 +10,7 @@ public class PrinterTest {
     public void printNewsPaper() {
         NewsPaper newspaper = new NewsPaper();
         newspaper.addPage("Page1");
-        assertThat(new Printer().print(newspaper), equalTo("Page1\n"));
+        assertEquals("Page1\n", new Printer().print(newspaper));
     }
 
     @Test
@@ -20,6 +19,6 @@ public class PrinterTest {
         storyBook.addPage("Page1", Printable.BLACK);
         storyBook.addPage("Page2", "#ff0000");
 
-        assertThat(new Printer().print(storyBook), equalTo("Page1\n[#ff0000]Page2\n"));
+        assertEquals("Page1\n[#ff0000]Page2\n", new Printer().print(storyBook));
     }
 }

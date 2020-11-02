@@ -1,14 +1,13 @@
 package lambdastreams;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static org.hamcrest.Matchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class StreamTest {
 
@@ -21,17 +20,17 @@ public class StreamTest {
 
     @Test
     public void testCount() {
-        assertThat(Stream.empty().count(), equalTo(0L));
+        assertEquals(0L, Stream.empty().count());
 
-        assertThat(Stream.of(new Employee("John Doe"),
-                new Employee("Jack Doe")).count(), equalTo(2L));
+        assertEquals(2L, Stream.of(new Employee("John Doe"),
+                new Employee("Jack Doe")).count());
 
         Stream<Employee> s = Stream.of(new Employee("John Doe"),
                 new Employee("Jack Doe"));
-        assertThat(s.count(), equalTo(2L));
+        assertEquals(2L, s.count());
 
 
-        assertThat(employees.stream().count(), equalTo(4L));
+        assertEquals(4L, employees.stream().count());
     }
 
     @Test
@@ -39,7 +38,7 @@ public class StreamTest {
         Employee employee =
                 employees.stream().min(Comparator.comparing(Employee::getName))
                         .get();
-        assertThat(employee.getName(), equalTo("Jane Doe"));
+        assertEquals("Jane Doe", employee.getName());
     }
 
     @Test
@@ -47,22 +46,21 @@ public class StreamTest {
     {
         Employee employee =
                 employees.stream().findFirst().get();
-        assertThat(employee.getName(), equalTo("John Doe"));
+        assertEquals("John Doe", employee.getName());
     }
 
     @Test
     public void testAllMatch() {
         boolean result = employees.stream().allMatch(e -> e.getName().length() > 5);
-        assertThat(result, equalTo(true));
+        assertTrue(result);
 
-        assertThat(employees.stream().allMatch(e -> e.getName().startsWith("a")),
-                equalTo(false));
+        assertFalse(employees.stream().allMatch(e -> e.getName().startsWith("a")));
     }
 
     @Test
     public void testForEach() {
         employees.stream().forEach(e -> e.setName(e.getName().toUpperCase()));
-        assertThat(employees.get(0).getName(), equalTo("JOHN DOE"));
+        assertEquals("JOHN DOE", employees.get(0).getName());
     }
 
 

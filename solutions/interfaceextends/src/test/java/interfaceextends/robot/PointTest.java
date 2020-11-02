@@ -1,9 +1,8 @@
 package interfaceextends.robot;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PointTest {
     @Test
@@ -11,8 +10,8 @@ public class PointTest {
         //Given
         Point point = new Point(2, 3, 4);
         //Then
-        assertThat(point.getX(), is(2L));
-        assertThat(point.getY(), is(3L));
-        assertThat(point.getZ(), is(4L));
+        assertEquals(2L, point.getX());
+        assertEquals(3L, point.getY());
+        assertEquals(4L, point.getZ());
     }
 }

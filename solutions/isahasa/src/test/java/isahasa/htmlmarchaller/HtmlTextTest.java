@@ -1,17 +1,16 @@
 package isahasa.htmlmarchaller;
 
-import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class HtmlTextTest {
-	@Test
-	public void getBytes() {
-		HtmlText htmlText = new HtmlText("aasd");
+    @Test
+    public void getBytes() {
+        HtmlText htmlText = new HtmlText("aasd");
 
-		assertThat(htmlText.getPlainText(),
-				is("aasd"));
-	}
+        assertEquals("aasd", htmlText.getPlainText());
+    }
 
 }

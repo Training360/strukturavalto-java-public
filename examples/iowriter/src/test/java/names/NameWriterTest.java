@@ -1,28 +1,28 @@
 package names;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
 
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
+
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class NameWriterTest {
 
-    @Rule
-    public TemporaryFolder temporaryFolder = new TemporaryFolder();
+    @TempDir
+    public Path temporaryFolder;
 
     private NameWriter nameWriter;
 
     @Test
     public void testWrite() throws IOException {
-        Path file = temporaryFolder.newFile().toPath();
-
+        Path file = Files.createFile(temporaryFolder.resolve("test.txt"));
+        System.out.println(file);
         nameWriter = new NameWriter(file);
         nameWriter.addAndWrite("John Smith");
 
@@ -33,7 +33,7 @@ public class NameWriterTest {
 
     @Test
     public void testAppend() throws IOException {
-        Path file = temporaryFolder.newFile().toPath();
+        Path file = Files.createFile(temporaryFolder.resolve("test.txt"));
 
         nameWriter = new NameWriter(file);
         nameWriter.addAndWrite("John Smith");

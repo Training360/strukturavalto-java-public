@@ -1,23 +1,22 @@
 package interfaces.animal;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class WormTest {
-	@Test
-	public void getNumberofLegs() {
-		Worm worm = new Worm();
+    @Test
+    public void getNumberofLegs() {
+        Worm worm = new Worm();
 
-		assertThat(worm.getNumberOfLegs(), is(0));
-	}
+        assertEquals(0, worm.getNumberOfLegs());
+    }
 
-	@Test
-	public void getName() {
-		Worm worm = new Worm();
+    @Test
+    public void getName() {
+        Worm worm = new Worm();
 
-		assertThat(worm.getName(), is("Worm"));
-	}
+        assertEquals("Worm", worm.getName());
+    }
 
 }

@@ -1,27 +1,27 @@
 package salary;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class SalaryWriterTest {
 
-    @Rule
-    public TemporaryFolder temporaryFolder = new TemporaryFolder();
+    @TempDir
+    public File folder;
 
     private SalaryWriter sw = new SalaryWriter(List.of("Dr. John Doe", "Mrs. Jane Doe", "Dr. Julie Smith", "Jack Doe"));
 
     @Test
     public void testWriteNamesAndSalaries() throws IOException {
-        Path file = temporaryFolder.newFile().toPath();
+        Path file = new File(folder, "test.txt").toPath();
         sw.writeNamesAndSalaries(file);
         List<String> writtenLines = Files.readAllLines(file);
 

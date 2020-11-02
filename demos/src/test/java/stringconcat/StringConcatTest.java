@@ -1,9 +1,8 @@
 package stringconcat;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class StringConcatTest {
 
@@ -12,13 +11,13 @@ public class StringConcatTest {
         String s = "John";
         // s = s.concat(" Doe");
         s = s + " Doe";
-        assertThat(s, equalTo("John Doe"));
+        assertEquals("John Doe", s);
 
-        assertThat("value" + 1 + 2, equalTo("value12"));
-        assertThat(1 + 2 + "value", equalTo("3value"));
+        assertEquals("value12", "value" + 1 + 2);
+        assertEquals("3value", 1 + 2 + "value");
 
         int i = 8;
         String t = Integer.toString(i);
-        assertThat(t, equalTo("8"));
+        assertEquals("8", t);
     }
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Catalog of books -->
+<catalog>
+    <book isbn10="059610149X">
+        <title>Java and XML</title>
+        <available />
+    </book>
+    <book isbn10="1590597060">
+        <title>Pro XML Development with Java Technology</title>
+    </book>
+</catalog>

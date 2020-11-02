@@ -19,7 +19,7 @@ public class Draw {
     public Set<Integer> drawNumbers(int drawCount, int maxNumber) throws IllegalArgumentException {
 
         if (maxNumber <= drawCount) {
-            throw new IllegalArgumentException("drawCount must be less then maxNumber!");
+            throw new IllegalArgumentException("drawCount must be less then " + maxNumber + "!");
         }
 
         return new TreeSet<>(createNumberPool(maxNumber));

@@ -1,23 +1,22 @@
 package controlselection.consonant;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ToConsonantTest {
 
     @Test
     public void testVowel() {
-        assertThat(new ToConsonant().convertToConsonant('a'), equalTo('b'));
-        assertThat(new ToConsonant().convertToConsonant('e'), equalTo('f'));
-        assertThat(new ToConsonant().convertToConsonant('i'), equalTo('j'));
+        assertEquals('b', new ToConsonant().convertToConsonant('a'));
+        assertEquals('f', new ToConsonant().convertToConsonant('e'));
+        assertEquals('j', new ToConsonant().convertToConsonant('i'));
     }
 
     @Test
     public void testConsonant() {
-        assertThat(new ToConsonant().convertToConsonant('b'), equalTo('b'));
-        assertThat(new ToConsonant().convertToConsonant('g'), equalTo('g'));
-        assertThat(new ToConsonant().convertToConsonant('z'), equalTo('z'));
+        assertEquals('b', new ToConsonant().convertToConsonant('b'));
+        assertEquals('g', new ToConsonant().convertToConsonant('g'));
+        assertEquals('z', new ToConsonant().convertToConsonant('z'));
     }
 }

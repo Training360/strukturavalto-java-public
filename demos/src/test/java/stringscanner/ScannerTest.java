@@ -1,14 +1,13 @@
 package stringscanner;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ScannerTest {
 
@@ -19,7 +18,7 @@ public class ScannerTest {
         while (s.hasNext()) {
             l.add(s.next());
         }
-        assertThat(l, equalTo(Arrays.asList("aaa", "bbb", "ccc", "ddd")));
+        assertEquals(Arrays.asList("aaa", "bbb", "ccc", "ddd"), l);
 
         Scanner t = new Scanner("12 13 14");
         List<Integer> m = new ArrayList<>();
@@ -27,6 +26,6 @@ public class ScannerTest {
             int i = t.nextInt();
             m.add(i);
         }
-        assertThat(m, equalTo(Arrays.asList(12, 13, 14)));
+        assertEquals(Arrays.asList(12, 13, 14), m);
     }
 }

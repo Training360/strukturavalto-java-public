@@ -1,12 +1,13 @@
 package methodstructure.pendrives;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class PendrivesTest {
 
@@ -21,14 +22,14 @@ public class PendrivesTest {
     public void best() {
         Pendrives pendrives = new Pendrives();
 
-        assertThat(pendrives.best(PENDRIVE_LIST), equalTo(PENDRIVE_LIST.get(2)));
+        assertEquals(PENDRIVE_LIST.get(2), pendrives.best(PENDRIVE_LIST));
     }
 
     @Test
     public void cheapest() {
         Pendrives pendrives = new Pendrives();
 
-        assertThat(pendrives.cheapest(PENDRIVE_LIST), equalTo(PENDRIVE_LIST.get(1)));
+        assertEquals(PENDRIVE_LIST.get(1), pendrives.cheapest(PENDRIVE_LIST));
     }
 
     @Test
@@ -38,7 +39,7 @@ public class PendrivesTest {
         int[] expected = {3500, 2200, 3000, 2750};
         pendrives.risePriceWhereCapacity(PENDRIVE_LIST, 10, 32);
         for (int j = 0; j < PENDRIVE_LIST.size(); j++) {
-            assertThat(PENDRIVE_LIST.get(j).getPrice(), equalTo(expected[j]));
+            assertEquals(expected[j], PENDRIVE_LIST.get(j).getPrice());
         }
     }
 }

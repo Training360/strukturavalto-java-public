@@ -1,12 +1,12 @@
 package genericsusage;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class TestGenericUsage {
 
@@ -17,6 +17,6 @@ public class TestGenericUsage {
         l.add("Jane Doe");
 
         String s = l.get(0);
-        assertThat(s, equalTo("John Doe"));
+        assertEquals("John Doe", s);
     }
 }

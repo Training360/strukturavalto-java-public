@@ -1,16 +1,17 @@
 package isahasa.htmlmarchaller.isa;
 
-import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class UnderlinedTextTest {
-	@Test
-	public void getBytes() throws Exception {
-		UnderlinedHtmlText underlinedHtmlText = new UnderlinedHtmlText("asd");
+    @Test
+    public void getBytes() throws Exception {
+        UnderlinedHtmlText underlinedHtmlText = new UnderlinedHtmlText("asd");
 
-		assertThat(underlinedHtmlText.getPlainText() , is("<u>asd</u>"));
-	}
+        assertEquals("<u>asd</u>", underlinedHtmlText.getPlainText());
+    }
 
 }

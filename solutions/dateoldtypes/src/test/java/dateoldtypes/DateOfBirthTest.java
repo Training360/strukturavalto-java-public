@@ -1,63 +1,55 @@
 package dateoldtypes;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
 import java.util.Locale;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class DateOfBirthTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void illegalMonthOrDayShouldThrowException() throws IllegalArgumentException {
-        // Given
-        exception.expect(IllegalArgumentException.class);
-        // When
-        new DateOfBirth(2016, 12, 42);
+        assertThrows(IllegalArgumentException.class, () -> new DateOfBirth(2016, 12, 42));
     }
 
     @Test
     public void illegalDateStringShouldThrowException() throws IllegalArgumentException {
-        // Given
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Illegal date string");
-        // When
-        new DateOfBirth("", "yyyy-MM-dd");
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> {
+            new DateOfBirth("", "yyyy-MM-dd");
+        });
+        assertEquals("Illegal date string, cannot parse: ", ex.getMessage());
+
     }
 
     @Test
     public void illegalPatternStringShouldThrowException() throws IllegalArgumentException {
-        // Given
+
         String pattern = "yyyy-MM-dd";
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Illegal pattern string");
-        // When
-        new DateOfBirth("1987-10-17", "");
+
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> {
+            new DateOfBirth("1987-10-17", "");
+        });
+        assertEquals("Illegal pattern string, cannot use: ", ex.getMessage());
     }
 
     @Test
     public void nullLocaleShouldThrowException() throws NullPointerException {
-        // Given
-        exception.expect(NullPointerException.class);
-        exception.expectMessage("Locale must not be null!");
-        // When
-        new DateOfBirth("1987-10-17", "yyyy-MM-dd", null);
+
+        Exception ex = assertThrows(NullPointerException.class, () -> {
+            new DateOfBirth("1987-10-17", "yyyy-MM-dd", null);
+        });
+        assertEquals("Locale must not be null!", ex.getMessage());
     }
+
 
     @Test
     public void nullLocaleShouldThrowExceptionInDayOfWeekForBirthDateMethod() throws NullPointerException {
-        // Given
-        exception.expect(NullPointerException.class);
-        exception.expectMessage("Locale must not be null!");
-        // When
-        new DateOfBirth("1987-10-17", "yyyy-MM-dd", new Locale("hu", "HU")).findDayOfWeekForBirthDate(null);
+        Exception ex = assertThrows(NullPointerException.class, () -> {
+            new DateOfBirth("1987-10-17", "yyyy-MM-dd", new Locale("hu", "HU")).findDayOfWeekForBirthDate(null);
+        });
+        assertEquals("Locale must not be null!", ex.getMessage());
     }
 
     @Test
@@ -65,16 +57,16 @@ public class DateOfBirthTest {
         // Given
         DateOfBirth dateOfBirth = new DateOfBirth(1987, 10, 17);
         //Then
-        assertThat(dateOfBirth.findDayOfWeekForBirthDate(new Locale("hu", "HU")), equalTo("szombat"));
+        assertEquals("szombat", dateOfBirth.findDayOfWeekForBirthDate(new Locale("hu", "HU")));
     }
 
     @Test
     public void illegalPatternStringShouldThrowExceptionInToStringMethod() throws IllegalArgumentException {
-        // Given
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Illegal pattern string");
-        // When
-        new DateOfBirth("1987-10-17", "yyyy-MM-dd", new Locale("hu", "HU")).toString("");
+
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> {
+            new DateOfBirth("1987-10-17", "yyyy-MM-dd", new Locale("hu", "HU")).toString("");
+        });
+        assertEquals("Illegal pattern string, cannot use: ", ex.getMessage());
     }
 
     @Test
@@ -82,7 +74,7 @@ public class DateOfBirthTest {
         // Given
         DateOfBirth dateOfBirth = new DateOfBirth(1987, 10, 17);
         //Then
-        assertThat(dateOfBirth.toString("yyyy-MM-dd"), equalTo("1987-10-17"));
+        assertEquals("1987-10-17", dateOfBirth.toString("yyyy-MM-dd"));
     }
 
     @Test
@@ -90,6 +82,6 @@ public class DateOfBirthTest {
         // Given
         DateOfBirth dateOfBirth = new DateOfBirth(1987, 10, 17);
         //Then
-        assertThat(dateOfBirth.isWeekDay(), is(false));
+        assertFalse(dateOfBirth.isWeekDay());
     }
 }

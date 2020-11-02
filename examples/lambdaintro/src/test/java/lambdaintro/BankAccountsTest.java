@@ -1,12 +1,13 @@
 package lambdaintro;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class BankAccountsTest {
 
@@ -23,8 +24,8 @@ public class BankAccountsTest {
 
         List<BankAccount> sorted = accounts.listBankAccountsByAccountNumber();
 
-        assertThat(sorted.get(0).getAccountNumber(), equalTo("1"));
-        assertThat(sorted.get(3).getAccountNumber(), equalTo("4"));
+        assertEquals("1", sorted.get(0).getAccountNumber());
+        assertEquals("4", sorted.get(3).getAccountNumber());
     }
 
     @Test
@@ -40,8 +41,8 @@ public class BankAccountsTest {
 
         List<BankAccount> sorted = accounts.listBankAccountsByBalance();
 
-        assertThat(sorted.get(0).getBalance(), equalTo(90.0));
-        assertThat(sorted.get(3).getBalance(), equalTo(105.0));
+        assertEquals(90.0, sorted.get(0).getBalance());
+        assertEquals(105.0, sorted.get(3).getBalance());
     }
 
     @Test
@@ -57,9 +58,9 @@ public class BankAccountsTest {
 
         List<BankAccount> sorted = accounts.listBankAccountsByBalanceDesc();
 
-        assertThat(sorted.get(1).getBalance(), equalTo(105.0));
-        assertThat(sorted.get(3).getBalance(), equalTo(90.0));
-        assertThat(sorted.get(4).getBalance(), equalTo(-102.0));
+        assertEquals(105.0, sorted.get(1).getBalance());
+        assertEquals(90.0, sorted.get(3).getBalance());
+        assertEquals(-102.0, sorted.get(4).getBalance());
 
     }
 
@@ -76,11 +77,11 @@ public class BankAccountsTest {
 
         List<BankAccount> sorted = accounts.listBankAccountsByNameThanAccountNumber();
 
-        assertThat(sorted.get(0).getNameOfOwner(), equalTo(null));
-        assertThat(sorted.get(1).getNameOfOwner(), equalTo("Ábrahám Doe"));
-        assertThat(sorted.get(2).getNameOfOwner(), equalTo("Alphonse Doe"));
-        assertThat(sorted.get(4).getNameOfOwner(), equalTo("John Doe"));
-        assertThat(sorted.get(4).getAccountNumber(), equalTo("4"));
+        assertEquals(null, sorted.get(0).getNameOfOwner());
+        assertEquals("Ábrahám Doe", sorted.get(1).getNameOfOwner());
+        assertEquals("Alphonse Doe", sorted.get(2).getNameOfOwner());
+        assertEquals("John Doe", sorted.get(4).getNameOfOwner());
+        assertEquals("4", sorted.get(4).getAccountNumber());
     }
 
 }

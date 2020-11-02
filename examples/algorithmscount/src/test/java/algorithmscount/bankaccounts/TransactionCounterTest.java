@@ -1,12 +1,12 @@
 package algorithmscount.bankaccounts;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TransactionCounterTest {
 
@@ -19,8 +19,8 @@ public class TransactionCounterTest {
                 new Transaction("1234", TransactionType.CREDIT, 4000)
         );
 
-        assertThat(new TransactionCounter().countEntryLessThan(transactions, 2000), equalTo(1));
-        assertThat(new TransactionCounter().countEntryLessThan(transactions, 1000), equalTo(0));
-        assertThat(new TransactionCounter().countEntryLessThan(transactions, 10000), equalTo(4));
+        assertEquals(1, new TransactionCounter().countEntryLessThan(transactions, 2000));
+        assertEquals(0, new TransactionCounter().countEntryLessThan(transactions, 1000));
+        assertEquals(4, new TransactionCounter().countEntryLessThan(transactions, 10000));
     }
 }

@@ -1,33 +1,23 @@
 package stringbuilder;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PalindromeValidatorTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
-
     @Test
     public void nullParameterShouldThrowException() throws IllegalArgumentException {
-
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Text must not be null!");
-
-        // When
-        new PalindromeValidator().isPalindrome(null);
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> new PalindromeValidator().isPalindrome(null));
+        assertEquals("Text must not be null!", ex.getMessage());
     }
 
     @Test
     public void isPalindrome() {
 
-        assertThat(new PalindromeValidator().isPalindrome("Racecar"), is(true));
-        assertThat(new PalindromeValidator().isPalindrome("start"), is(false));
-        assertThat(new PalindromeValidator().isPalindrome(""), is(true));
-        assertThat(new PalindromeValidator().isPalindrome("\n\t"), is(true));
+        assertTrue(new PalindromeValidator().isPalindrome("Racecar"));
+        assertFalse(new PalindromeValidator().isPalindrome("start"));
+        assertTrue(new PalindromeValidator().isPalindrome(""));
+        assertTrue(new PalindromeValidator().isPalindrome("\n\t"));
     }
 }

@@ -1,10 +1,12 @@
 package algorithmsmax.sales;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.Arrays;
 import java.util.List;
-import org.junit.Test;
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.is;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class MaxAlgorithmsTest {
 
@@ -20,26 +22,26 @@ public class MaxAlgorithmsTest {
     public void testSelectSalesPersonWithMaxSalesAmount() {
         SalesAmountMaxSelector maxAmount = new SalesAmountMaxSelector();
 
-        assertThat(maxAmount.selectSalesPersonWithMaxSalesAmount(salespersons).getAmount(), is(700));
-        assertThat(maxAmount.selectSalesPersonWithMaxSalesAmount(salespersons).getTarget(), is(100));
+        assertEquals(700, maxAmount.selectSalesPersonWithMaxSalesAmount(salespersons).getAmount());
+        assertEquals(100, maxAmount.selectSalesPersonWithMaxSalesAmount(salespersons).getTarget());
     }
 
     @Test
     public void testSelectSalesPersonWithFurthestAboveTarget() {
         SalespersonWithFurthestAboveTargetSelector aboveTarget = new SalespersonWithFurthestAboveTargetSelector();
 
-        assertThat(aboveTarget.selectSalesPersonWithFurthestAboveTarget(salespersons).getDifferenceFromTarget(), is(600));
-        assertThat(aboveTarget.selectSalesPersonWithFurthestAboveTarget(salespersons).getAmount(), is(700));
-        assertThat(aboveTarget.selectSalesPersonWithFurthestAboveTarget(salespersons).getTarget(), is(100));
+        assertEquals(600, aboveTarget.selectSalesPersonWithFurthestAboveTarget(salespersons).getDifferenceFromTarget());
+        assertEquals(700, aboveTarget.selectSalesPersonWithFurthestAboveTarget(salespersons).getAmount());
+        assertEquals(100, aboveTarget.selectSalesPersonWithFurthestAboveTarget(salespersons).getTarget());
     }
 
     @Test
     public void testSelectSalesPersonWithFurthestBelowTarget() {
         SalespersonWithFurthestBelowTargetSelector belowTarget = new SalespersonWithFurthestBelowTargetSelector();
 
-        assertThat(belowTarget.selectSalesPersonWithFurthestBelowTarget(salespersons).getDifferenceFromTarget(), is(-100));
-        assertThat(belowTarget.selectSalesPersonWithFurthestBelowTarget(salespersons).getAmount(), is(200));
-        assertThat(belowTarget.selectSalesPersonWithFurthestBelowTarget(salespersons).getTarget(), is(300));
+        assertEquals(-100, belowTarget.selectSalesPersonWithFurthestBelowTarget(salespersons).getDifferenceFromTarget());
+        assertEquals(200, belowTarget.selectSalesPersonWithFurthestBelowTarget(salespersons).getAmount());
+        assertEquals(300, belowTarget.selectSalesPersonWithFurthestBelowTarget(salespersons).getTarget());
     }
 
 }

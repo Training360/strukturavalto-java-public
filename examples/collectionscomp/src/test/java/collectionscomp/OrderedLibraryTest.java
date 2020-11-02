@@ -1,22 +1,22 @@
 package collectionscomp;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class OrderedLibraryTest {
 
     private OrderedLibrary library;
 
 
-    @Before
+    @BeforeEach
     public void setUp() {
         List<Book> bookList = new LinkedList<>(Arrays.asList(new Book(1245, "Őrület", "Utasy Kristóf"),
                 new Book(2454, "Álom", "Ómolnár Géza"),
@@ -31,7 +31,7 @@ public class OrderedLibraryTest {
         // Given
         List<Book> orderedBookList = library.orderedByTitle();
         //Then
-        assertThat(orderedBookList.get(0).getTitle(), equalTo("Utitársak"));
+        assertEquals("Utitársak", orderedBookList.get(0).getTitle());
     }
 
     @Test
@@ -39,7 +39,7 @@ public class OrderedLibraryTest {
         // Given
         List<Book> orderedBookList = library.orderedByAuthor();
         //Then
-        assertThat(orderedBookList.get(0).getAuthor(), equalTo("Utasy Kristóf"));
+        assertEquals("Utasy Kristóf", orderedBookList.get(0).getAuthor());
     }
 
     @Test
@@ -47,6 +47,6 @@ public class OrderedLibraryTest {
         // Given
         List<String> orderedTitleList = library.orderedByTitleLocale(new Locale("hu", "HU"));
         //Then
-        assertThat(orderedTitleList.get(0), equalTo("Államhatár"));
+        assertEquals("Államhatár", orderedTitleList.get(0));
     }
 }

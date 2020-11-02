@@ -1,9 +1,8 @@
 package inheritanceattributes.book;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BookTest {
 
@@ -12,8 +11,8 @@ public class BookTest {
         //Given
         Book book = new Book("Gyűrűk ura", 3000);
         //Then
-        assertThat(book.getTitle(), equalTo("Gyűrűk ura"));
-        assertThat(book.price, equalTo(3000));
+        assertEquals("Gyűrűk ura",book.getTitle());
+        assertEquals(3000,book.price);
     }
 
     @Test
@@ -21,6 +20,6 @@ public class BookTest {
         //Given
         Book book = new Book("Gyűrűk ura", 3000);
         //Then
-        assertThat(book.purchase(2), equalTo(6000));
+        assertEquals(6000,book.purchase(2));
     }
 }

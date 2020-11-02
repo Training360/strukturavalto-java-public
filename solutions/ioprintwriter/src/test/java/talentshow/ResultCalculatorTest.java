@@ -1,23 +1,24 @@
 package talentshow;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 public class ResultCalculatorTest {
 
-    @Rule
-    public TemporaryFolder temporaryFolder = new TemporaryFolder();
+    @TempDir
+    public File folder;
 
     private ResultCalculator rc = new ResultCalculator();
 
@@ -25,12 +26,12 @@ public class ResultCalculatorTest {
 
     private Path votesFile;
 
-    @Before
+    @BeforeEach
     public void initFiles() throws IOException {
-        talentsFile = temporaryFolder.newFile().toPath();
+        talentsFile = new File(folder, "test.txt").toPath();
         Files.copy(ResultCalculatorTest.class.getResourceAsStream("talents.txt"), talentsFile, StandardCopyOption.REPLACE_EXISTING);
 
-        votesFile = temporaryFolder.newFile().toPath();
+        votesFile = new File(folder, "test2.txt").toPath();
         Files.copy(ResultCalculatorTest.class.getResourceAsStream("votes.txt"), votesFile, StandardCopyOption.REPLACE_EXISTING);
 
     }
@@ -66,7 +67,7 @@ public class ResultCalculatorTest {
         rc.readTalents(talentsFile);
         rc.calculateVotes(votesFile);
 
-        Path resultFile = temporaryFolder.newFile().toPath();
+        Path resultFile = new File(folder, "test3.txt").toPath();
 
         rc.writeResultToFile(resultFile);
         List<String> results = Files.readAllLines(resultFile);

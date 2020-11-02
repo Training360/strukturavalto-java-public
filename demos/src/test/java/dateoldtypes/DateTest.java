@@ -1,6 +1,6 @@
 package dateoldtypes;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -8,8 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class DateTest {
 
@@ -31,6 +30,6 @@ public class DateTest {
         System.out.println(s);
 
         Date date3 = format.parse("2018-06-01 10:45");
-        assertThat(date3.after(date2), equalTo(true));
+        assertTrue(date3.after(date2));
     }
 }

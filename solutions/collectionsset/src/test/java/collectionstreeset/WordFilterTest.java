@@ -1,14 +1,13 @@
 package collectionstreeset;
 
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Set;
 import java.util.SortedSet;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class WordFilterTest {
 
@@ -19,8 +18,8 @@ public class WordFilterTest {
         //When
         Set<String> testSet = new WordFilter().filterWords(randomStrings);
         //Then
-        assertThat(testSet.size(), is(3));
-        assertThat(((SortedSet<String>) testSet).first(), equalTo("cde"));
-        assertThat(((SortedSet<String>) testSet).last(), equalTo("xyz"));
+        assertEquals(3, testSet.size());
+        assertEquals("cde", ((SortedSet<String>) testSet).first());
+        assertEquals("xyz", ((SortedSet<String>) testSet).last());
     }
 }

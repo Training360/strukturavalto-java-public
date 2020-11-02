@@ -1,12 +1,13 @@
 package algorithmssum.integers;
 
+
+import org.junit.jupiter.api.Test;
+
 import java.util.Arrays;
-
 import java.util.List;
-import static org.hamcrest.CoreMatchers.is;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class IntegerSumCalculatorTest {
 
@@ -16,7 +17,7 @@ public class IntegerSumCalculatorTest {
 
         IntegerSumCalculator test = new IntegerSumCalculator();
 
-        assertThat(test.sum(numbers), is(4));
+        assertEquals(4, test.sum(numbers));
 
     }
 

@@ -1,23 +1,22 @@
 package defaultconstructor.date;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SimpleDateFormatterTest {
 
     private SimpleDate simpleDate;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         simpleDate = new SimpleDate();
         simpleDate.setDate(2016, 2, 29);
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         simpleDate = null;
     }
@@ -25,24 +24,24 @@ public class SimpleDateFormatterTest {
     @Test
     public void testFormatDateStringByCountryCodeHU() {
 
-        assertThat(new SimpleDateFormatter().formatDateStringByCountryCode(CountryCode.HU, simpleDate), equalTo("2016-2-29"));
+        assertEquals("2016-2-29", new SimpleDateFormatter().formatDateStringByCountryCode(CountryCode.HU, simpleDate));
     }
 
     @Test
     public void testFormatDateStringByCountryCodeEN() {
 
-        assertThat(new SimpleDateFormatter().formatDateStringByCountryCode(CountryCode.EN, simpleDate), equalTo("29-2-2016"));
+        assertEquals("29-2-2016", new SimpleDateFormatter().formatDateStringByCountryCode(CountryCode.EN, simpleDate));
     }
 
     @Test
     public void testFormatDateStringByCountryCodeUS() {
 
-        assertThat(new SimpleDateFormatter().formatDateStringByCountryCode(CountryCode.US, simpleDate), equalTo("2-29-2016"));
+        assertEquals("2-29-2016", new SimpleDateFormatter().formatDateStringByCountryCode(CountryCode.US, simpleDate));
     }
 
     @Test
     public void testFormatDateString() {
 
-        assertThat(new SimpleDateFormatter().formatDateString(simpleDate), equalTo("2016-2-29"));
+        assertEquals("2016-2-29", new SimpleDateFormatter().formatDateString(simpleDate));
     }
 }

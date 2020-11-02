@@ -1,17 +1,18 @@
 package isahasa.htmlmarchaller.hasa;
 
-import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class BoldTest {
-	@Test
-	public void getPlainText() {
-		TextSourceImplementation textSourceImplementation = new TextSourceImplementation("qwe");
-		Bold bold = new Bold(textSourceImplementation);
+    @Test
+    public void getPlainText() {
+        TextSourceImplementation textSourceImplementation = new TextSourceImplementation("qwe");
+        Bold bold = new Bold(textSourceImplementation);
 
-		assertThat(bold.getPlainText(), is("<b>qwe</b>"));
-	}
+        assertEquals("<b>qwe</b>", bold.getPlainText());
+    }
 
 }

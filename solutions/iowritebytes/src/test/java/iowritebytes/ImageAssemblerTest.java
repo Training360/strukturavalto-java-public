@@ -1,29 +1,31 @@
 package iowritebytes;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 import java.io.BufferedInputStream;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+
 
 public class ImageAssemblerTest {
 
-    @Rule
-    public TemporaryFolder folder = new TemporaryFolder();
+    @TempDir
+    public File folder;
 
     @Test
     public void testMakeImageFile() throws IOException {
         ImageAssembler imageAssembler = new ImageAssembler();
 
         byte[][] source = readImage();
-        Path path = folder.getRoot().toPath();
+        Path path = folder.toPath();
 
         imageAssembler.makeImageFile(source, path);
 

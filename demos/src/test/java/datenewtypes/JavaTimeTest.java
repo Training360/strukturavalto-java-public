@@ -1,6 +1,6 @@
 package datenewtypes;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -11,8 +11,8 @@ import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.Locale;
 
-import static org.hamcrest.Matchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class JavaTimeTest {
 
@@ -28,18 +28,17 @@ public class JavaTimeTest {
        System.out.println(localTime);
 
        LocalDate localDate1 = LocalDate.of(2018, 1, 12);
-       assertThat(localDate1.toString(), equalTo("2018-01-12"));
+       assertEquals("2018-01-12", localDate1.toString());
 
        LocalDateTime localDateTime1 = LocalDateTime.of(2018, 1, 12, 16, 0);
-       assertThat(localDateTime1.toString(), equalTo("2018-01-12T16:00"));
+       assertEquals("2018-01-12T16:00", localDateTime1.toString());
 
        LocalTime localTime1 = LocalTime.of(16, 0);
-       assertThat(localTime1.toString(), equalTo("16:00"));
+       assertEquals("16:00", localTime1.toString());
 
-       assertThat(localDateTime1.plusDays(1).plusHours(1).toString(),
-               equalTo("2018-01-13T17:00"));
+       assertEquals("2018-01-13T17:00", localDateTime1.plusDays(1).plusHours(1).toString());
 
-       assertThat(localDateTime.isAfter(localDateTime1), equalTo(true));
+       assertTrue(localDateTime.isAfter(localDateTime1));
    }
 
    @Test
@@ -47,11 +46,11 @@ public class JavaTimeTest {
        LocalDateTime localDateTime = LocalDateTime.of(2018, 1, 12, 16, 0);
        LocalDate localDate = localDateTime.toLocalDate();
        LocalTime localTime = localDateTime.toLocalTime();
-       assertThat(localDate.toString(), equalTo("2018-01-12"));
-       assertThat(localTime.toString(), equalTo("16:00"));
+       assertEquals("2018-01-12", localDate.toString());
+       assertEquals("16:00", localTime.toString());
 
        LocalDateTime localDateTime1 = LocalDateTime.of(localDate, localTime);
-       assertThat(localDateTime1.toString(), equalTo("2018-01-12T16:00"));
+       assertEquals("2018-01-12T16:00", localDateTime1.toString());
    }
 
    @Test
@@ -71,14 +70,14 @@ public class JavaTimeTest {
        LocalDateTime localDateTime = LocalDateTime.of(2018, 1, 12, 16, 0);
        LocalDateTime localDateTime1 = LocalDateTime.of(2018, 1, 16, 16, 0);
 
-       assertThat(ChronoUnit.DAYS.between(localDateTime, localDateTime1), equalTo(4L));
+       assertEquals(4L, ChronoUnit.DAYS.between(localDateTime, localDateTime1));
 
    }
 
    @Test
     public void testField() {
        LocalDateTime localDateTime = LocalDateTime.of(2018, 1, 12, 16, 0);
-       assertThat(localDateTime.getDayOfMonth(), equalTo(12));
+       assertEquals(12, localDateTime.getDayOfMonth());
    }
 
    @Test
@@ -88,7 +87,7 @@ public class JavaTimeTest {
                DateTimeFormatter.ofPattern("yyyy. MMMM dd. hh:mm").withLocale(Locale.ENGLISH);
        String s = localDateTime.format(formatter);
 
-       assertThat(s, equalTo("2018. January 12. 04:00"));
+       assertEquals("2018. January 12. 04:00", s);
    }
 
    @Test
@@ -98,7 +97,7 @@ public class JavaTimeTest {
        String s = "2018-01-12 16:00";
        LocalDateTime localDateTime =
                LocalDateTime.parse(s, formatter);
-       assertThat(localDateTime.getDayOfMonth(), equalTo(12));
+       assertEquals(12, localDateTime.getDayOfMonth());
    }
 
 

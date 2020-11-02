@@ -1,15 +1,14 @@
 package defaultconstructor;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TrainerTest {
 
     @Test
     public void testCreate() {
         Trainer trainer = new Trainer("John Doe");
-        assertThat(trainer.getName(), equalTo("John Doe"));
+        assertEquals("John Doe", trainer.getName());
     }
 }

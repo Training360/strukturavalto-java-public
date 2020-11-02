@@ -1,13 +1,13 @@
 package controliteration.dictionary;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class DictionaryTest {
 
@@ -17,7 +17,7 @@ public class DictionaryTest {
         dictionary.addItem("kutya", Arrays.asList("pooch", "dog"));
 
         List<String> translations = dictionary.findTranslations("kutya");
-        assertThat(translations, equalTo(Arrays.asList("pooch", "dog")));
+        assertEquals(Arrays.asList("pooch", "dog"), translations);
     }
 
     @Test
@@ -27,7 +27,7 @@ public class DictionaryTest {
         dictionary.addItem("kutya", Collections.singletonList("dawg"));
 
         List<String> translations = dictionary.findTranslations("kutya");
-        assertThat(translations, equalTo(Arrays.asList("pooch", "dog", "dawg")));
+        assertEquals(Arrays.asList("pooch", "dog", "dawg"), translations);
     }
 
     @Test
@@ -38,6 +38,6 @@ public class DictionaryTest {
         dictionary.addItem("kutya", Collections.singletonList("dawg"));
 
         List<String> translations = dictionary.findTranslations("kutya");
-        assertThat(translations, equalTo(Arrays.asList("pooch", "dog", "dawg")));
+        assertEquals(Arrays.asList("pooch", "dog", "dawg"), translations);
     }
 }

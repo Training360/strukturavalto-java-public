@@ -1,23 +1,22 @@
 package methodchain.robot;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RobotTest {
 
     private Robot robot;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         this.robot = new Robot();
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         this.robot = null;
     }
@@ -27,8 +26,8 @@ public class RobotTest {
         //When
         robot.go(5).go(10).rotate(30);
         //Then
-        assertThat(robot.getDistance(), is(15));
-        assertThat(robot.getAzimut(), is(30));
+        assertEquals(15, robot.getDistance());
+        assertEquals(30, robot.getAzimut());
     }
 
     @Test
@@ -36,7 +35,7 @@ public class RobotTest {
         //When
         robot.rotate(45).rotate(45).rotate(-90);
         //Then
-        assertThat(robot.getAzimut(), is(0));
+        assertEquals(0, robot.getAzimut());
     }
 
     //Bónusz feladat tesztje, kommentezd ki az alapfeladathoz
@@ -45,6 +44,6 @@ public class RobotTest {
         //When
         robot.go(5).rotate(45).registerNavigationPoint().go(10).rotate(-15).registerNavigationPoint();
         //Then
-        assertThat(robot.getNavigationList().toString(), equalTo("[distance: 5 azimut: 45, distance: 15 azimut: 30]"));
+        assertEquals("[distance: 5 azimut: 45, distance: 15 azimut: 30]", robot.getNavigationList().toString());
     }
 }

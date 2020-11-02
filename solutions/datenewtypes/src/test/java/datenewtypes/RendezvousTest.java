@@ -1,45 +1,31 @@
 package datenewtypes;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalTime;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class RendezvousTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void emptyPatternShouldThrowException() {
-        // Given
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Empty pattern string");
-        // When
-        new Rendezvous("10:20", "");
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> new Rendezvous("10:20", ""));
+        assertEquals("Empty pattern string!", ex.getMessage());
     }
 
     @Test
     public void emptyTimeStringShouldThrowException() {
-        // Given
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Illegal time string");
-        // When
-        new Rendezvous("", "hh:mm");
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> new Rendezvous("", "hh:mm"));
+        assertEquals("Illegal time string: ", ex.getMessage());
     }
 
     @Test
     public void illegalTimeStringShouldThrowException() {
-        // Given
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Illegal time string");
-        // When
-        new Rendezvous("10:20:20", "hh:mm");
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> new Rendezvous("10:20:20", "hh:mm"));
+        assertEquals("Illegal time string: 10:20:20", ex.getMessage());
     }
 
     @Test
@@ -47,16 +33,13 @@ public class RendezvousTest {
         // Given
         Rendezvous rendezvous = new Rendezvous(21, 30);
         //Then
-        assertThat(rendezvous.toString("HH-mm"), equalTo("21-30"));
+        assertEquals("21-30", rendezvous.toString("HH-mm"));
     }
 
     @Test
     public void emptyPatternInToStringMethodShouldThrowException() {
-        // Given
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Empty pattern string");
-        // When
-        new Rendezvous("10:20", "HH:mm").toString("\t");
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> new Rendezvous("10:20", "HH:mm").toString("\t"));
+        assertEquals("Empty pattern string!", ex.getMessage());
     }
 
     @Test
@@ -65,17 +48,14 @@ public class RendezvousTest {
         LocalTime base = LocalTime.of(20, 30);
         Rendezvous rendezvous = new Rendezvous(22, 0);
         //Then
-        assertThat(rendezvous.countMinutesLeft(base), equalTo(90));
+        assertEquals(90, rendezvous.countMinutesLeft(base));
     }
 
     @Test
     public void tooLateToGoShouldThrowException() {
-        // Given
         LocalTime now = LocalTime.of(15, 0);
-        exception.expect(MissedOpportunityException.class);
-        exception.expectMessage("Too late!");
-        // When
-        new Rendezvous(10, 30).countMinutesLeft(now);
+        Exception ex = assertThrows(MissedOpportunityException.class, () -> new Rendezvous(10, 30).countMinutesLeft(now));
+        assertEquals("Too late!", ex.getMessage());
     }
 
     @Test
@@ -85,7 +65,7 @@ public class RendezvousTest {
         //When
         rendezvous.pushLater(0, 90);
         //Then
-        assertThat(rendezvous.toString("HH:mm"), equalTo("23:30"));
+        assertEquals("23:30", rendezvous.toString("HH:mm"));
     }
 
     @Test
@@ -95,6 +75,6 @@ public class RendezvousTest {
         //When
         rendezvous.pullEarlier(1, 15);
         //Then
-        assertThat(rendezvous.toString("HH:mm"), equalTo("20:45"));
+        assertEquals("20:45", rendezvous.toString("HH:mm"));
     }
 }

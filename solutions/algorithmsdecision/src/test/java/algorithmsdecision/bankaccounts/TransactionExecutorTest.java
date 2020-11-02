@@ -1,11 +1,13 @@
 package algorithmsdecision.bankaccounts;
 
+import org.junit.jupiter.api.Test;
+
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
-import static org.hamcrest.CoreMatchers.is;
-import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class TransactionExecutorTest {
 
@@ -27,7 +29,7 @@ public class TransactionExecutorTest {
     public void testExecuteBankAccountCredit() {
 
         test.executeTransactions(transactions, accounts);
-        assertThat(accounts.get(0).getBalance(), is(2100));
+        assertEquals(2100, accounts.get(0).getBalance());
 
     }
 
@@ -35,7 +37,7 @@ public class TransactionExecutorTest {
     public void testExecuteBankAccountDebitWithDrawOk() {
 
         test.executeTransactions(transactions, accounts);
-        assertThat(accounts.get(1).getBalance(), is(1800));
+        assertEquals(1800, accounts.get(1).getBalance());
 
     }
 
@@ -43,7 +45,7 @@ public class TransactionExecutorTest {
     public void testExecuteBankAccountDebitWithDrawNotOk() {
 
         test.executeTransactions(transactions, accounts);
-        assertThat(accounts.get(2).getBalance(), is(90));
+        assertEquals(90, accounts.get(2).getBalance());
 
     }
 

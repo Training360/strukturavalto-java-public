@@ -1,10 +1,9 @@
 package methodparam;
 
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FoundedCourseTest {
 
@@ -13,8 +12,8 @@ public class FoundedCourseTest {
 
         FoundedCourse foundedCourse= new FoundedCourse(new Course("Java"),1);
 
-        assertThat(foundedCourse.getCourse().getName(),is("Java"));
-        assertThat(foundedCourse.getPosition(),is(1));
+        assertEquals("Java", foundedCourse.getCourse().getName());
+        assertEquals(1, foundedCourse.getPosition());
 
     }
 

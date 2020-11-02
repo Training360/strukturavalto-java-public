@@ -1,10 +1,9 @@
 package searching;
 
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,14 +12,14 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class BookArraySearchTest {
 
     private List<Book> bookList = new ArrayList<>();
 
-    @Before
+    @BeforeEach
     public void setUp() throws IOException {
         InputStream is = this.getClass().getClassLoader().getResourceAsStream("books.csv");
         String line;
@@ -34,41 +33,40 @@ public class BookArraySearchTest {
         }
     }
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void emptyParametersShouldThrowException() throws IllegalArgumentException {
-        // Given
+
         Book[] bookArray = new Book[bookList.size()];
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Author or title must not be empty!");
-        // When
-        new BookArraySearch(bookList.toArray(bookArray)).findBookByAuthorTitle("", "");
+
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> new BookArraySearch(bookList.toArray(bookArray)).findBookByAuthorTitle("", ""));
+        assertEquals("Author or title must not be empty!", ex.getMessage());
 
     }
 
     @Test
     public void emptyParametersShouldThrowExceptionNull() throws IllegalArgumentException {
-        // Given
+
         Book[] bookArray = new Book[bookList.size()];
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Author or title must not be empty!");
-        // When
-        new BookArraySearch(bookList.toArray(bookArray)).findBookByAuthorTitle(null, null);
+
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> {
+            new BookArraySearch(bookList.toArray(bookArray)).findBookByAuthorTitle(null, null);
+        });
+        assertEquals("Author or title must not be empty!", ex.getMessage());
 
     }
 
     @Test
     public void notFoundBookShouldThrowException() throws IllegalArgumentException {
-        // Given
+
         String author = "Homérosz";
         String title = "Iliász";
         Book[] bookArray = new Book[bookList.size()];
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("No book found by " + author + " with title " + title);
-        // When
-        new BookArraySearch(bookList.toArray(bookArray)).findBookByAuthorTitle(author, title);
+
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> {
+            new BookArraySearch(bookList.toArray(bookArray)).findBookByAuthorTitle(author, title);
+        });
+        assertEquals("No book found by " + author + " with title " + title, ex.getMessage());
 
     }
 
@@ -80,9 +78,9 @@ public class BookArraySearchTest {
         //When
         Book book = bas.findBookByAuthorTitle("Fazekas Anna", "Mackó, mókus, malacka");
         //Then
-        assertThat(book.getId(), equalTo(1010));
-        assertThat(book.getAuthor(),equalTo(("Fazekas Anna")));
-        assertThat(book.getTitle(),equalTo("Mackó, mókus, malacka"));
-        assertThat(book.toString(),equalTo("1010 Fazekas Anna Mackó, mókus, malacka"));
+        assertEquals(1010, book.getId());
+        assertEquals("Fazekas Anna", book.getAuthor());
+        assertEquals("Mackó, mókus, malacka", book.getTitle());
+        assertEquals("1010 Fazekas Anna Mackó, mókus, malacka", book.toString());
     }
 }

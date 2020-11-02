@@ -1,11 +1,10 @@
 package clone;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AuctionTest {
 
@@ -18,22 +17,22 @@ public class AuctionTest {
 
         Auction another = new Auction(auction);
 
-        assertThat(another.getPrice(), equalTo(5));
-        assertThat(another.getStart(), equalTo(LocalDateTime.parse("2018-01-01T12:00")));
-        assertThat(another.getUser().getName(), equalTo("Joe"));
-        assertThat(another.getProduct().getName(), equalTo("Computer"));
+        assertEquals(5, another.getPrice());
+        assertEquals(LocalDateTime.parse("2018-01-01T12:00"), another.getStart());
+        assertEquals("Joe", another.getUser().getName());
+        assertEquals("Computer", another.getProduct().getName());
         auction.setPrice(10);
         auction.setStart(LocalDateTime.parse("2018-01-01T15:00"));
         auction.getUser().setName("Jack");
         auction.getProduct().setName("Computer2");
-        assertThat(auction.getPrice(), equalTo(10));
-        assertThat(auction.getStart(), equalTo(LocalDateTime.parse("2018-01-01T15:00")));
-        assertThat(auction.getUser().getName(), equalTo("Jack"));
-        assertThat(auction.getProduct().getName(), equalTo("Computer2"));
+        assertEquals(10, auction.getPrice());
+        assertEquals(LocalDateTime.parse("2018-01-01T15:00"), auction.getStart());
+        assertEquals("Jack", auction.getUser().getName());
+        assertEquals("Computer2", auction.getProduct().getName());
 
-        assertThat(another.getPrice(), equalTo(5));
-        assertThat(another.getStart(), equalTo(LocalDateTime.parse("2018-01-01T12:00")));
-        assertThat(another.getUser().getName(), equalTo("Jack"));
-        assertThat(another.getProduct().getName(), equalTo("Computer"));
+        assertEquals(5, another.getPrice());
+        assertEquals(LocalDateTime.parse("2018-01-01T12:00"), another.getStart());
+        assertEquals("Jack", another.getUser().getName());
+        assertEquals("Computer", another.getProduct().getName());
     }
 }

@@ -1,24 +1,17 @@
 package bank2;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class AccountTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void constructorShouldThrowException() {
         String accountNumber = null;
-
-        exception.expect(IllegalArgumentException.class);
-
-        new Account(accountNumber, 0);
+        assertThrows(IllegalArgumentException.class, () -> new Account(accountNumber, 0));
     }
 
     @Test
@@ -29,19 +22,16 @@ public class AccountTest {
 
         Account account = new Account(accountNumber, balance);
 
-        assertThat(account.getAccountNumber(), equalTo(accountNumber));
-        assertThat(account.getBalance(), equalTo(balance));
-        assertThat(account.getMaxSubtract(), equalTo(maxSubtract));
+        assertEquals(accountNumber, account.getAccountNumber());
+        assertEquals(balance, account.getBalance());
+        assertEquals(maxSubtract, account.getMaxSubtract());
     }
 
     @Test
     public void setMaxSubtractShouldThrowException() {
         double maxSubtract = -10;
         Account account = new Account("a", 0);
-
-        exception.expect(InvalidAmountBankOperationException.class);
-
-        account.setMaxSubtract(maxSubtract);
+        assertThrows(InvalidAmountBankOperationException.class, () -> account.setMaxSubtract(maxSubtract));
     }
 
     @Test
@@ -51,17 +41,14 @@ public class AccountTest {
 
         account.setMaxSubtract(maxSubtract);
 
-        assertThat(account.getMaxSubtract(), equalTo(maxSubtract));
+        assertEquals(maxSubtract, account.getMaxSubtract());
     }
 
     @Test
     public void subtractInvalidAmountShouldThrowException() {
         double amount = -10;
         Account account = new Account("a", 100);
-
-        exception.expect(InvalidAmountBankOperationException.class);
-
-        account.subtract(amount);
+        assertThrows(InvalidAmountBankOperationException.class, () -> account.subtract(amount));
     }
 
     @Test
@@ -69,9 +56,7 @@ public class AccountTest {
         double amount = 10;
         Account account = new Account("a", 5);
 
-        exception.expect(LowBalanceBankOperationException.class);
-
-        account.subtract(amount);
+        assertThrows(LowBalanceBankOperationException.class, () -> account.subtract(amount));
     }
 
     @Test
@@ -81,7 +66,7 @@ public class AccountTest {
 
         Account account = new Account("a", balance);
 
-        assertThat(account.subtract(amount), equalTo(balance - amount));
+        assertEquals(290, account.subtract(amount));
     }
 
     @Test
@@ -92,18 +77,16 @@ public class AccountTest {
         Account account = new Account("a", balance);
 
         account.subtract(amount);
-        assertThat(account.getBalance(), equalTo(balance - amount));
+        assertEquals(290, account.getBalance());
     }
 
 
     @Test
     public void depositShouldThrowException() throws Exception {
         double amount = -10;
-
         Account account = new Account("a", 100);
 
-        exception.expect(InvalidAmountBankOperationException.class);
-        account.deposit(amount);
+        assertThrows(InvalidAmountBankOperationException.class, () -> account.deposit(amount));
     }
 
     @Test
@@ -113,7 +96,7 @@ public class AccountTest {
 
         Account account = new Account("a", balance);
 
-        assertThat(account.deposit(amount), equalTo(balance + amount));
+        assertEquals(310, account.deposit(amount));
     }
 
     @Test
@@ -124,7 +107,7 @@ public class AccountTest {
         Account account = new Account("a", balance);
 
         account.deposit(amount);
-        assertThat(account.getBalance(), equalTo(balance + amount));
+        assertEquals(310, account.getBalance());
     }
 
 }

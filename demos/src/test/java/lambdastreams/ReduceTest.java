@@ -1,12 +1,11 @@
 package lambdastreams;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.hamcrest.Matchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ReduceTest {
 
@@ -24,7 +23,7 @@ public class ReduceTest {
                 (i, e) -> i + e.getName().length(),
                 (i1, i2) -> i1 + i2
         );
-        assertThat(length, equalTo(38));
+        assertEquals(38, length);
     }
 
     @Test
@@ -34,8 +33,8 @@ public class ReduceTest {
                 (nc, e) -> nc.add(e),
                 (nc1, nc2) -> nc1.add(nc2)
         );
-        assertThat(nameCounter.getThreePartName(), equalTo(1));
-        assertThat(nameCounter.getTwoPartName(), equalTo(3));
+        assertEquals(1, nameCounter.getThreePartName());
+        assertEquals(3, nameCounter.getTwoPartName());
     }
 
     @Test
@@ -46,7 +45,7 @@ public class ReduceTest {
                         (counter, employee) -> counter.add(employee),
                         (c1, c2) -> c1.add(c2)
                 );
-        assertThat(nameCounterMod.getTwoPartName(), equalTo(3));
-        assertThat(nameCounterMod.getThreePartName(), equalTo(1));
+        assertEquals(3, nameCounterMod.getTwoPartName());
+        assertEquals(1, nameCounterMod.getThreePartName());
     }
 }

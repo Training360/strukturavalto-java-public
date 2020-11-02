@@ -1,11 +1,10 @@
 package collectionsclass;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CollectionsTest {
 
@@ -15,17 +14,17 @@ public class CollectionsTest {
         elements.add(1);
         elements.add(2);
         List<Integer> l = Collections.unmodifiableList(elements);
-        assertThat(l, equalTo(Arrays.asList(1, 2)));
+        assertEquals(Arrays.asList(1, 2), l);
 
         elements.add(3);
-        assertThat(l, equalTo(Arrays.asList(1, 2, 3)));
+        assertEquals(Arrays.asList(1, 2, 3), l);
     }
 
     @Test
     public void testReverse() {
         List<Integer> l = Arrays.asList(1, 2, 3, 4);
         Collections.reverse(l);
-        assertThat(l, equalTo(Arrays.asList(4, 3, 2, 1)));
+        assertEquals(Arrays.asList(4, 3, 2, 1), l);
     }
 
     @Test
@@ -33,6 +32,6 @@ public class CollectionsTest {
         List<Integer> l = Arrays.asList(1, 2, 3, 4);
         Random random = new Random(5);
         Collections.shuffle(l, random);
-        assertThat(l, equalTo(Arrays.asList(4, 1, 2, 3)));
+        assertEquals(Arrays.asList(4, 1, 2, 3), l);
     }
 }

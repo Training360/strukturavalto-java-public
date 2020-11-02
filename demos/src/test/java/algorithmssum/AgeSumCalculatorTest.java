@@ -2,9 +2,9 @@ package algorithmssum;
 
 import java.util.Arrays;
 import java.util.List;
-import static org.hamcrest.CoreMatchers.is;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AgeSumCalculatorTest {
 
@@ -20,7 +20,7 @@ public class AgeSumCalculatorTest {
                 new Trainer("Karl", 19)
         );
 
-        assertThat(test.sumAges(trainers), is(131));
+        assertEquals(131, test.sumAges(trainers));
     }
 
 }

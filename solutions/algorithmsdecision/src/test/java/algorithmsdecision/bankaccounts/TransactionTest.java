@@ -1,10 +1,11 @@
 package algorithmsdecision.bankaccounts;
 
+import org.junit.jupiter.api.Test;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import static org.hamcrest.CoreMatchers.is;
-import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TransactionTest {
 
@@ -14,12 +15,12 @@ public class TransactionTest {
 
     @Test
     public void transactionCreateTest() {
-         Transaction transaction = new Transaction("1234-234-345", TransactionOperation.CREDIT, 10000, dateTime);
+        Transaction transaction = new Transaction("1234-234-345", TransactionOperation.CREDIT, 10000, dateTime);
 
-        assertThat(transaction.isCredit(), is(true));
-        assertThat(transaction.isDebit(), is(false));
-        assertThat(transaction.getAmount(), is(10000));
-        assertThat(transaction.getDateOfTransaction(), is(dateTime));
-        assertThat(transaction.getAccountNumber(), is("1234-234-345"));
+        assertTrue(transaction.isCredit());
+        assertFalse(transaction.isDebit());
+        assertEquals(10000, transaction.getAmount());
+        assertEquals(dateTime, transaction.getDateOfTransaction());
+        assertEquals("1234-234-345", transaction.getAccountNumber());
     }
 }

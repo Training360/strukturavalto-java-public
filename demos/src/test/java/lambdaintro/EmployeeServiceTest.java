@@ -1,12 +1,11 @@
 package lambdaintro;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.hamcrest.Matchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class EmployeeServiceTest {
 
@@ -22,6 +21,6 @@ public class EmployeeServiceTest {
         Employee result = new EmployeeService().findFirst(employees,
                 employee -> employee.getName().startsWith("Jane"));
 
-        assertThat(result.getName(), equalTo("Jane Doe"));
+        assertEquals("Jane Doe", result.getName());
     }
 }

@@ -1,9 +1,8 @@
 package inheritanceconstructor.classroom;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ClassRoomTest {
 
@@ -12,9 +11,9 @@ public class ClassRoomTest {
         //Given
         ClassRoom classroom = new ClassRoom("122", 20, Facility.CHALKBOARD);
         //Then
-        assertThat(classroom.getLocation(), equalTo("122"));
-        assertThat(classroom.getCapacity(), equalTo(20));
-        assertThat(classroom.getFacility(), equalTo(Facility.CHALKBOARD));
+        assertEquals("122", classroom.getLocation());
+        assertEquals(20, classroom.getCapacity());
+        assertEquals(Facility.CHALKBOARD, classroom.getFacility());
     }
 
     @Test
@@ -23,7 +22,7 @@ public class ClassRoomTest {
         ClassRoom classroom = new ClassRoom("122", 20, Facility.COMPUTERS);
         Course course = new Course(15, Facility.COMPUTERS);
         //Then
-        assertThat(classroom.isSuitable(course), equalTo(true));
+        assertTrue(classroom.isSuitable(course));
 
     }
 
@@ -33,6 +32,6 @@ public class ClassRoomTest {
         ClassRoom classroom = new ClassRoom("122", 20, Facility.COMPUTERS);
         Course course = new Course(15, Facility.CHALKBOARD);
         //Then
-        assertThat(classroom.isSuitable(course), equalTo(false));
+        assertFalse(classroom.isSuitable(course));
     }
 }

@@ -1,31 +1,30 @@
 package introinheritance.basket;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BasketTest {
 
     private Basket basket;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         basket = new Basket();
         basket.addItem(new Item("457812", 1500, 27));
         basket.addItem(new Item("654789", 2500, 0));
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         basket = null;
     }
 
     @Test
     public void testAddItem() {
-        assertThat(basket.getItems().size(), equalTo(2));
+        assertEquals(2, basket.getItems().size());
     }
 
     @Test
@@ -33,7 +32,7 @@ public class BasketTest {
         //When
         basket.removeItem("457812");
         //Then
-        assertThat(basket.getItems().size(), equalTo(1));
+        assertEquals(1, basket.getItems().size());
     }
 
     @Test
@@ -41,6 +40,6 @@ public class BasketTest {
         //When
         basket.clearBasket();
         //Then
-        assertThat(basket.getItems().size(), equalTo(0));
+        assertEquals(0, basket.getItems().size());
     }
 }

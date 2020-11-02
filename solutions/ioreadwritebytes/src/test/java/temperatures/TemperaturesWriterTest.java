@@ -1,26 +1,30 @@
 package temperatures;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
+
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Random;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 public class TemperaturesWriterTest {
 
-    @Rule
-    public TemporaryFolder folder = new TemporaryFolder();
+
+    @TempDir
+    public File folder;
+
     private byte[] data = new byte[365];
     private Temperatures temperatures;
 
-    @Before
+    @BeforeEach
     public void init() {
         Random random = new Random(5);
         random.nextBytes(data);
@@ -29,7 +33,7 @@ public class TemperaturesWriterTest {
 
     @Test
     public void testWriteTemperatures() throws IOException {
-        String pathString = Path.of(folder.newFolder().toString(), "temp.dat").toString();
+        String pathString = Path.of(folder.toString(), "temp.dat").toString();
         TemperaturesWriter writer = new TemperaturesWriter();
 
         writer.writeTemperatures(temperatures, pathString);

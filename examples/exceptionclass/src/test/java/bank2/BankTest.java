@@ -1,26 +1,20 @@
 package bank2;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BankTest {
-
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     private double initialBalance;
     private List<Account> accounts;
     private Bank bank;
 
-    @Before
+    @BeforeEach
     public void createAccountList() {
         initialBalance = 100;
         accounts = new ArrayList<>();
@@ -34,18 +28,13 @@ public class BankTest {
 
     @Test
     public void constructorNullParamShouldThrowException() throws Exception {
-        exception.expect(IllegalArgumentException.class);
-
-        new Bank(null);
+        assertThrows(IllegalArgumentException.class, () -> new Bank(null));
     }
 
     @Test
     public void paymentUnknownAccountNumberShouldThrowException() throws Exception {
         String accountNumber = "unknownaccountNumber";
-
-        exception.expect(InvalidAccountNumberBankOperationException.class);
-
-        bank.payment(accountNumber, 10);
+        assertThrows(InvalidAccountNumberBankOperationException.class, () -> bank.payment(accountNumber, 10));
     }
 
     @Test
@@ -56,9 +45,9 @@ public class BankTest {
         bank.payment(accountNumber, amount);
         for (Account account : accounts) {
             if (account.getAccountNumber().equals(accountNumber)) {
-                assertThat(account.getBalance(), equalTo(initialBalance - amount));
+                assertEquals(initialBalance - amount, account.getBalance());
             } else {
-                assertThat(account.getBalance(), equalTo(initialBalance));
+                assertEquals(initialBalance, account.getBalance());
             }
         }
     }
@@ -66,10 +55,7 @@ public class BankTest {
     @Test
     public void depositUnknownAccountNumberShouldThrowException() throws Exception {
         String accountNumber = "unknownAccountNumber";
-
-        exception.expect(InvalidAccountNumberBankOperationException.class);
-
-        bank.deposit(accountNumber, 10);
+        assertThrows(InvalidBankOperationException.class, () -> bank.deposit(accountNumber, 10));
     }
 
     @Test
@@ -80,9 +66,9 @@ public class BankTest {
         bank.deposit(accountNumber, amount);
         for (Account account : accounts) {
             if (account.getAccountNumber().equals(accountNumber)) {
-                assertThat(account.getBalance(), equalTo(initialBalance + amount));
+                assertEquals(initialBalance + amount, account.getBalance());
             } else {
-                assertThat(account.getBalance(), equalTo(initialBalance));
+                assertEquals(initialBalance, account.getBalance());
             }
         }
     }

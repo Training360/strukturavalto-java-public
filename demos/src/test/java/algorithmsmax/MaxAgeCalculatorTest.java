@@ -3,11 +3,9 @@ package algorithmsmax;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.is;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Test;
-
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MaxAgeCalculatorTest {
 
@@ -24,7 +22,7 @@ public class MaxAgeCalculatorTest {
         //When
         MaxAgeCalculator mac = new MaxAgeCalculator();
         //Then
-        assertThat(mac.trainerWithMaxAge(trainers).getAge(), is(32));
+        assertEquals(32, mac.trainerWithMaxAge(trainers).getAge());
     }
 
 }

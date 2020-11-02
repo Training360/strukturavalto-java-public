@@ -1,9 +1,8 @@
 package inheritanceattributes.order;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ShippedBookTestBonus {
 
@@ -12,6 +11,6 @@ public class ShippedBookTestBonus {
         //Given
         ShippedBook book = new ShippedBook("Gyűrűk ura", 3000, 1200);
         //Then
-        assertThat(book.purchase(2), equalTo(6000));
+        assertEquals(6000, book.purchase(2));
     }
 }
