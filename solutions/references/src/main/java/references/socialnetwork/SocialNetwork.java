@@ -15,12 +15,7 @@ public class SocialNetwork {
 
     public void connect(String name, String anotherName) {
         Member first = findByName(name);
-        try{
         first.connectMember(findByName(anotherName));
-        }catch(NullPointerException npe){
-           Logger.getAnonymousLogger().log(Level.SEVERE,"Cannot find first!",npe);
-        }
-
     }
 
     private Member findByName(String name) {
