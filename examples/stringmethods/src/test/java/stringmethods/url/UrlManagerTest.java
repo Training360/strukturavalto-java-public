@@ -126,7 +126,7 @@ public class UrlManagerTest {
 
 
     @Test
-    public void testGetPropertyWithBlankParameter() {
+    public void testHasPropertyWithBlankParameter() {
         String url = "HTTPS://EarthQuake.USgs.gov/fdsnws/event/1/query?format=geojson&starttime=2014-01-01&endtime=2014-01-02";
         UrlManager urlManager = new UrlManager(url);
 

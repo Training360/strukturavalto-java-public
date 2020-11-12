@@ -16,7 +16,7 @@ public class GreetingsTest {
         assertEquals("jó napot", greetings.greet(9, 1));
         assertEquals("jó napot", greetings.greet(18, 30));
         assertEquals("jó estét", greetings.greet(18, 31));
-        assertEquals("jó estét", greetings.greet(20, 00));
-        assertEquals("jó éjt", greetings.greet(20, 01));
+        assertEquals("jó estét", greetings.greet(20, 0));
+        assertEquals("jó éjt", greetings.greet(20, 1));
     }
 }
