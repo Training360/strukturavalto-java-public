@@ -1,14 +1,5 @@
 Tesztesetek írása akkor is javasolt, ha ez nem szerepel a feladatleírásban.
 
-
-
-Írj egy Tree osztályt, melynek van egy name és egy size attribútuma!
-A main metódusban hozz létre egy Tree objektumokat tartalmazo listát!
-
-Menj végig a lista elemein, és írd ki azokat, amik magasabbak, mint
-15 méter, és írd ki őket. Azonban a kiírás  
-formátumát a Tree osztály toString() metódusában implementáld.
-
 # 2020-11-03 (`week02d2`)
 
 Írj egy `Phone` osztályt, `type` (`String`) és mem (`int`) attribútumokkal!
