@@ -1,11 +1,11 @@
 Tesztesetek írása akkor is javasolt, ha ez nem szerepel a feladatleírásban.
 
-# 2020-11-03 (`week02d2`)
+# 2020-11-03 (`week02d02`)
 
 Írj egy `Phone` osztályt, `type` (`String`) és mem (`int`) attribútumokkal!
 Generálj konstruktort, gettert és settert! Írj bele egy `main` metódust, amivel példányosítasz egy osztályt, és kiírod az attribútumok értékeit!
 
-# 2020-11-04 (`week02d3`)
+# 2020-11-04 (`week02d03`)
 
 Írj egy `Product` oszályt `String name` és `String code` attribútumokkal!
 Legyen egy konstruktora a két attribútummal! Legyen egy `areTheyEqual()`
@@ -16,14 +16,14 @@ a nevük megegyezik.
 Bónusz: szigorúbb egyelőség a feltételre: a két termék kódjának hosszának különbsége
 maximum egy karakter lehet.
 
-# 2020-11-05 (`week02d4`)
+# 2020-11-05 (`week02d04`)
 
 Hozz létre egy `InputNames` Java osztályt, melynek van egy `main` metódusa.
 Ciklusban kérj be öt nevet! A neveket tárold el egy tömbben!
 Írd ki a tömb tartalmát, sortöréssel elválasztva (írd bele, hogy hanyadik elem - 1-től sorszámozva)!
 
 
-# 2020-11-06 (`week02d5`)
+# 2020-11-06 (`week02d05`)
 
 Hozz létre egy `Languages` osztályt, `main` metódussal!
 Ebben hozz létre egy listát, mely karakterláncokat tartalmaz!
@@ -42,7 +42,7 @@ Menj végig a lista elemein, és írd ki azokat, ahol a bónusz magasabb, mint
 150_000. Azonban a kiírás  
 formátumát a `Position` osztály `toString()` metódusában implementáld!
 
-# 2020-11-12 (`week03d4`)
+# 2020-11-12 (`week03d04`)
 
 Írj egy `Phone` oszályt, melynek van egy `prefix` és egy `number`
 `String` attribútuma! Írj egy `PhoneParser` osztályt egy
