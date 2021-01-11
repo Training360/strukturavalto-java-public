@@ -412,3 +412,15 @@ Készítsünk egy `Calculator` nevű osztályt, melynek van egy `findMinMaxSum(i
 A `Calculator` osztály tartalmazzon egy `main` metódust is, amely a konzolról olvassa be a számokat és azokból készít tömböt, amivel meghívja a `findMinMaxSum` metódust.
 
 
+# 2021-01-11
+
+## Junior
+
+Készítsünk egy `DivisorFinder` nevű osztályt, melynek van egy `int findDivisors(int n)` metódusa. A feladat az, hogy megnézzük a szám minden egyes számjegyére, hogy osztója-e a számnak, majd számoljuk össze őket. Példa: a `425`-ben az `5` osztója a számnak, ezért a visszatérési érték `1`.
+
+
+## Senior
+
+Készítsünk egy `PairFinder` nevű osztályt, melynek van egy `int findPairs(int[] arr)` metódusa. A feladat az, hogy a tömb elemeiből kikeressük, hogy hány darab pár van bennük. Ha egy szám kétszer szerepel a tömbben, akkor az egy párnak számít. Példa: A `[5, 1, 4, 5]` tömbben kétszer szerepel az 5, ezért a visszatérési érték `1`. A `[7, 1, 5, 7, 3, 3, 5, 7, 6, 7]` tömbben négyszer szerepel a 7, ezért ez 2 párnak számít, illetve a 3 kétszer szerepel, így a visszatérési érték `3`.
+
+
