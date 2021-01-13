@@ -425,7 +425,9 @@ Készítsünk egy `PairFinder` nevű osztályt, melynek van egy `int findPairs(i
 
 # 2021-01-12 (Csoportmunka)
 
+
 ## Senior
+
 A feladatban egy biciklis futár egy heti munkáját rögzítjük és készítünk statissztikákat.
 
 A futár minden fuvar után feljegyzi, hogy a hét hányadik napján történt a fuvar. Ezután azt, hogy az adott nap hányadik fuvarját teljesítette és ezután azt, hogy hány kilométer volt az adott fuvar. A futár egy-egy fuvarját reprezentálja a `Ride` nevű osztály.
@@ -436,7 +438,9 @@ Készíts egy metódust ami visszaadja a hét legelső fuvarjának minden adatá
 Készíts egy metódust, ami visszaadja valamilyen formában, hogy mely napokon nem dolgozott a futár!
 Készíts egy metódust, ami visszaadja valamilyen formában napokra lebontva, hogy melyik nap hány kilométert tekert!  
 
+
 ## Junior
+
 A feladatban egy biciklis futár egy heti munkáját rögzítjük és készítünk statissztikákat.
 
 A futár minden fuvar után feljegyzi, hogy a hét hányadik napján történt a fuvar. Ezután azt, hogy az adott nap hányadik fuvarját teljesítette és ezután azt, hogy hány kilométer volt az adott fuvar. A futár egy-egy fuvarját reprezentálja a `Ride` nevű osztály, adatagokkal, konstruktorra, getterekkel.
@@ -452,6 +456,9 @@ pl egy helyes listára:
 Készíts egy metódust, ami visszad egy napot amikor a futár nem dolgozott. Ha több ilyen nap is van akkor a korábbit!
 
  
+# 2021-01-13
 
+## Senior
 
+Készítsünk egy `CharFinder` osztályt, melyben van egy `int findChars(String[] chars)` metódus. A feladat az, hogy összeszámoljuk azokat a karaktereket asz összes `chars`-ban lévő `String`-ből, amelyek mindegyik `String`-ben szerepelnek. Példa: Ha a chars-ban `["abc", "cba", "ab"]` szerepel, akkor a visszatérési érték `2`, mert az `a` és a `b` karakter szerepel mindegyik `String`-ben.
 
