@@ -460,5 +460,5 @@ Készíts egy metódust, ami visszad egy napot amikor a futár nem dolgozott. Ha
 
 ## Senior
 
-Készítsünk egy `CharFinder` osztályt, melyben van egy `int findChars(String[] chars)` metódus. A feladat az, hogy összeszámoljuk azokat a karaktereket asz összes `chars`-ban lévő `String`-ből, amelyek mindegyik `String`-ben szerepelnek. Példa: Ha a chars-ban `["abc", "cba", "ab"]` szerepel, akkor a visszatérési érték `2`, mert az `a` és a `b` karakter szerepel mindegyik `String`-ben.
+Készítsünk egy `CharCounter` osztályt, melyben van egy `int countChars(String[] chars)` metódus. A feladat az, hogy összeszámoljuk azokat a karaktereket asz összes `chars`-ban lévő `String`-ből, amelyek mindegyik `String`-ben szerepelnek. Példa: Ha a chars-ban `["abc", "cba", "ab"]` szerepel, akkor a visszatérési érték `2`, mert az `a` és a `b` karakter szerepel mindegyik `String`-ben.
 
