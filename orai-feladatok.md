@@ -330,7 +330,7 @@ kiírja az összeadás eredményét!
 mely kiírja a kivonás eredményét!
 ```
 
-# 2020-12-18
+# 2020-12-18 (`week08d05`)
 
 # Junior
 A week08d05 csomagban készíts egy osztályt MathAlgorithms néven. Legyen benne egy metódus, greatestCommonDivisor(), ami paraméterül vár két pozitív egész számot és visszaadja a legnagyobb közös osztójukat.
@@ -342,12 +342,12 @@ A térkép fölött csak egyszer repülhetünk el és amikor leszálltunk már t
 A térkép: 10000000111110000000000001111111111000010000010000100000111111110000101000000000111110000000000000000100000001000000000000111111000000000100000000000011
 
 
-# 2020-12-23
+# 2020-12-23 (`week09d03`)
 
 ## Junior-Senior
 A  mai feladatban Mikulásnak segítünk ajándékokat kiosztani. A `week09d03` csomagba  dolgozz. Készíts egy `Present` nevű enumot a következő felsorolókkal: `Toy`, `Electronic`, `Housekepping`, `Decoration`. Ezek fogják az ajándékok típusát reprezentálni. Készíts egy `Person` osztályt legyen neki neve és életkora és legyen egy Present típusú attribútuma. A nevet és életkort konstruktorban kapja meg. Legyen egy `setPresent()` metódusa ami beállítja az ajándék attribútumot véletlenszerűen, egy kitétel van, 14 év fölötti nem kaphat játékot. Ennek megvalósításához szabadon bővíthetőek az eddig elkészült elemek. Legyen egy `SantaClaus` osztály, akinek van egy `Person` listája, amit konstruktorban kap meg. Legyen neki egy `getThroughChimneys()` metódusa, ami végigmegy az emberek listáján és meghívja minden ember `setPresent()` metódusát. 
 
-# 2021-01-04
+# 2021-01-04 (`week10d01`)
 
 ## Junior
 
@@ -371,7 +371,7 @@ Ezt egy fájlba tárolja, melynek formátuma:
 külön az ereszkedések, és külön az emelkedések összegét. Azaz pl. `10,20,15,18` esetén az emelkedés `13`, ugyanis `(20 - 10) + (18 - 15)`. 
 A `20` méterről `15` méterre ereszkedést pedig `5`.
 
-# 2021-01-05
+# 2021-01-05 (`week10d02`)
 
 ## Junior
 
@@ -397,7 +397,7 @@ Egy sorban a megálló száma az első oszlop. Írj egy `Travel.getStopWithMax(I
 visszaadja, hogy melyik megállóban szerettek volna a legtöbben
 felszállni! Maximum 30 megálló lehet.
 
-# 2021-01-08
+# 2021-01-08 (`week10d05`)
 
 
 ## Junior
@@ -412,7 +412,7 @@ Készítsünk egy `Calculator` nevű osztályt, melynek van egy `findMinMaxSum(i
 A `Calculator` osztály tartalmazzon egy `main` metódust is, amely a konzolról olvassa be a számokat és azokból készít tömböt, amivel meghívja a `findMinMaxSum` metódust.
 
 
-# 2021-01-11
+# 2021-01-11 (`week11d01`)
 
 ## Junior
 
@@ -423,20 +423,7 @@ Készítsünk egy `DivisorFinder` nevű osztályt, melynek van egy `int findDivi
 
 Készítsünk egy `PairFinder` nevű osztályt, melynek van egy `int findPairs(int[] arr)` metódusa. A feladat az, hogy a tömb elemeiből kikeressük, hogy hány darab pár van bennük. Ha egy szám kétszer szerepel a tömbben, akkor az egy párnak számít. Példa: A `[5, 1, 4, 5]` tömbben kétszer szerepel az 5, ezért a visszatérési érték `1`. A `[7, 1, 5, 7, 3, 3, 5, 7, 6, 7]` tömbben négyszer szerepel a 7, ezért ez 2 párnak számít, illetve a 3 kétszer szerepel, így a visszatérési érték `3`.
 
-# 2021-01-12 (Csoportmunka)
-
-
-## Senior
-
-A feladatban egy biciklis futár egy heti munkáját rögzítjük és készítünk statissztikákat.
-
-A futár minden fuvar után feljegyzi, hogy a hét hányadik napján történt a fuvar. Ezután azt, hogy az adott nap hányadik fuvarját teljesítette és ezután azt, hogy hány kilométer volt az adott fuvar. A futár egy-egy fuvarját reprezentálja a `Ride` nevű osztály.
-
-Készítsd el a `Courier` osztályt. Ez fogja a futárt reprezentálni. Legyen egy metódusa, ami a mellékelt fájl fuvarjait beolvassa és eltárolja a memóriában. Figyelem a fuvarok nem sorrendben vannak! (Készíts magadnak minta fájlt!)
-
-Készíts egy metódust ami visszaadja a hét legelső fuvarjának minden adatát. Figyelj arra, hogy nem sorrendben vannak a fuvaraok és lehet, hogy nem is dolgozott az 1-es számú napon. 
-Készíts egy metódust, ami visszaadja valamilyen formában, hogy mely napokon nem dolgozott a futár!
-Készíts egy metódust, ami visszaadja valamilyen formában napokra lebontva, hogy melyik nap hány kilométert tekert!  
+# 2021-01-12 (Csoportmunka) (`week11d02`)
 
 
 ## Junior
@@ -455,25 +442,62 @@ pl egy helyes listára:
 
 Készíts egy metódust, ami visszad egy napot amikor a futár nem dolgozott. Ha több ilyen nap is van akkor a korábbit!
 
+## Senior
+
+A feladatban egy biciklis futár egy heti munkáját rögzítjük és készítünk statissztikákat.
+
+A futár minden fuvar után feljegyzi, hogy a hét hányadik napján történt a fuvar. Ezután azt, hogy az adott nap hányadik fuvarját teljesítette és ezután azt, hogy hány kilométer volt az adott fuvar. A futár egy-egy fuvarját reprezentálja a `Ride` nevű osztály.
+
+Készítsd el a `Courier` osztályt. Ez fogja a futárt reprezentálni. Legyen egy metódusa, ami a mellékelt fájl fuvarjait beolvassa és eltárolja a memóriában. Figyelem a fuvarok nem sorrendben vannak! (Készíts magadnak minta fájlt!)
+
+Készíts egy metódust ami visszaadja a hét legelső fuvarjának minden adatát. Figyelj arra, hogy nem sorrendben vannak a fuvaraok és lehet, hogy nem is dolgozott az 1-es számú napon. 
+Készíts egy metódust, ami visszaadja valamilyen formában, hogy mely napokon nem dolgozott a futár!
+Készíts egy metódust, ami visszaadja valamilyen formában napokra lebontva, hogy melyik nap hány kilométert tekert!  
  
-# 2021-01-13
+# 2021-01-13 (`week11d03`)
+
+## Junior
+
+Készíts egy `WordFilter` osztályt, melyben van egy `List<String> wordsWithChar(List<String> words, char c)` metódus. A metódus kiválógatja a paraméterül kapott String listából azokat a szavakat, melyekben előfordul a c karakter, majd ezeket visszaadja egy listában.
 
 ## Senior
 
 Készítsünk egy `CharCounter` osztályt, melyben van egy `int countChars(String[] chars)` metódus. A feladat az, hogy összeszámoljuk azokat a karaktereket asz összes `chars`-ban lévő `String`-ből, amelyek mindegyik `String`-ben szerepelnek. Példa: Ha a chars-ban `["abc", "cba", "ab"]` szerepel, akkor a visszatérési érték `2`, mert az `a` és a `b` karakter szerepel mindegyik `String`-ben.
 
+# 2021-01-14 (`week11d04`)
+
 ## Junior
 
-Készíts egy `WordFilter` osztályt, melyben van egy `List<String> wordsWithChar(List<String> words, char c)` metódus. A metódus kiválógatja a paraméterül kapott String listából azokat a szavakat, melyekben előfordul a c karakter, majd ezeket visszaadja egy listában. 
+Adott az aktuális könyvtárban több, fájl, melynek a nevei: `number00.txt`, `number03.txt`, `number20.txt`, egészen `99`-ig.
+Nem minden fájl létezik, lehet, hogy bizonyos számhoz tartozó fájl kimaradt. Olvasd be az állományból a benne lévő
+számot, és ezt összegezd! Használd a `Files.isRegularFile()` metódust arra, hogy megnézd, létezik-e a fájl!
+Használd a `Files.readString()` metódust a fájl beolvasására! A `FilesSum` osztály `int sumNumbers()` metódusába dolgozz!
+
+	try {
+            String content = Files.readString(Path.of("helloworld.txt"));
+            System.out.println(content);
+        } catch (IOException e) {
+            throw new IllegalStateException("Can not read", e);
+        }
+
+        System.out.println(Files.isRegularFile(Path.of("kutya.txt")));
+        System.out.println(Files.isRegularFile(Path.of("helloworld.txt")));
+
+## Senior
+
+Adott egy nevek listája. Add vissza egy listában, hogy milyen hosszúságú `J` karakterrel kezdődő nevek szerepelnek a listában! Minden szám
+csak egyszer szerepeljen! A `NameLength` osztály `getLengths(List<String>)` metódusába dolgozz!
+Ha a bemenet pl. `List.of("Joe", "Jack", "Jane", "Jake", "George", "William")`, a visszatérési érték `[3, 4]` legyen! 
 
 
-# 2021-01-18
+# 2021-01-18 (`week12d01`)
+
+## Junior
+
+Készíts egy `GradeRounder` osztályt, amiben van egy `int[] grades roundGrades(int[] grades)` metódus. A `grades` tömb pontszámokat tartalmaz 0 és 100 között. A feladat az, hogy kerekítsük a benne lévő számokat a következő szabály szerint: Ha a pontszám és az `5` következő többszöröse közötti különbség kisebb, mint `3`, akkor kerekítsük fel a számot az `5` következő többszörösére. Fontos: a `40` pont alatti pontszámok elégtelenek, ezeket egyáltalán nem kell kerekíteni. Példa: a pontszám `84`. `85 - 84` kevesebb mint `3`, így felfelé kerekítünk.
 
 ## Senior
 
 Készíts egy `GoodsPacker` osztályt, melynek van egy `int packGoods(int[][] types, int capacity)` metódusa. A `types` tömb számpárokat tartalmaz, melyek tárgyak súlyát és értékét tartalmazzák, például: `[(7, 160), (3, 90), (2, 15)]`. Az első szám a súly kilogrammban, a második szám az érték forintban. A feladat az, hogy kiszámoljuk, hogy a megadott táskamérethez (`capacity`) mennyi a tárgyak maximum értéke, amit belepakolhatunk a táskába. Például ha a `types` `[(7, 160), (3, 90), (2, 15)]` és a `capacity` `20`, akkor a maximum érték `555`.
 
-## Junior
-
-Készíts egy `GradeRounder` osztályt, amiben van egy `int[] grades roundGrades(int[] grades)` metódus. A `grades` tömb pontszámokat tartalmaz 0 és 100 között. A feladat az, hogy kerekítsük a benne lévő számokat a következő szabály szerint: Ha a pontszám és az `5` következő többszöröse közötti különbség kisebb, mint `3`, akkor kerekítsük fel a számot az `5` következő többszörösére. Fontos: a `40` pont alatti pontszámok elégtelenek, ezeket egyáltalán nem kell kerekíteni. Példa: a pontszám `84`. `85 - 84` kevesebb mint `3`, így felfelé kerekítünk.
 
