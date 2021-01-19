@@ -510,11 +510,11 @@ szerepel. Az utca hossza legfeljebb 1000 méter. Mindkét oldalon elkelt legalá
 
 Példa:
 
-0 10 P
-1 8 K
-1 10 :
-1 9 S
-0 10 P 
+0 10 P\
+1 8 K\
+1 10 :\
+1 9 S\
+0 10 P\ 
 
 Magyarázat: Az első telek a páros oldalon található, 10 méter széles, a kerítés kész és P színnel festették be. A harmadik telek a páratlan oldalon van szintén 10 méter, a kerítés kész, de még nincs befestve. A házszámok a következők sorban: 2,1,3,5,4
 
