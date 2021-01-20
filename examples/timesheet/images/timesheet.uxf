@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>860</x>
+      <y>240</y>
+      <w>180</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;immutable&gt;&gt;
+Employee
+--
+firstname: String
+lastname: String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>860</x>
+      <y>130</y>
+      <w>180</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;immutable&gt;&gt;
+Project
+--
+name: String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>860</x>
+      <y>540</y>
+      <w>180</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>RiportLine
+--
+project: Project
+time: long</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>860</x>
+      <y>350</y>
+      <w>180</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;immutable&gt;&gt;
+TimeSheetItem
+--
+employee: Employee
+project: Project
+beginDate: LocalDateTime
+endDate: LocalDateTime
+--
+hoursBetweenDates(): long</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>110</y>
+      <w>720</w>
+      <h>380</h>
+    </coordinates>
+    <panel_attributes>Company
+--
+--
+Company(employeesFile: InputStream, projectsFile: InputStream)
+addTimeSheetItem(employee: Employee, project: Project , beginDate: LocalDateTime, endDate: LocalDateTime)
+calculateProjectByNameYearMonth(employeeName: String, year: int, month: int): List&lt;ReportLine&gt;
+printToFile(employeeName: String, year: int, month: int, file: Path)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>760</x>
+      <y>360</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=n</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>760</x>
+      <y>250</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=n</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>760</x>
+      <y>140</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=n</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>480</y>
+      <w>490</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>470.0;100.0;10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
