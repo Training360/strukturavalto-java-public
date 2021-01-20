@@ -543,10 +543,11 @@ Határozzuk meg a fájl utolsó sorában szereplő telek házszámát!
 Pl.: (1)KKKKKKKK(3)::::::::::(5)SSSSSSSSS
 Magyarázat: A házszám zárójelben, majd annyi a kerítést leíró jellemző, amilyen hosszú a telek.
 
+# 2021-01-20 (`week12d03`) 
+
+## Junior
 
 
+## Senior
 
-
-
-
-
+Készítsünk egy osztályt `AgeSorter` néven, melynek van egy `int[] sortAges(int[] ages)` metódusa. Az `ages` tömbben emberek életkorai szerepelnek. A feladat az, hogy visszaadjunk egy tömböt, mely az életkorokat tartalmazza sorrendbe rendezve. Ne használjunk beépített sorrendbe rendező algoritmusokat (`Collections.sort`) a feladat megoldásához!
