@@ -547,6 +547,15 @@ Magyarázat: A házszám zárójelben, majd annyi a kerítést leíró jellemző
 
 ## Junior
 
+Készítsd el a week12d03.NumberStat osztályt melyben legyen egy metódus, ami paraméterül vár egy egész számokból álló listát. Add vissza azt a számot amelyik pontosan egyszer szerepel a listában. Ha több ilyen szám van akkor a kisebbet! Ellenőrizd, hogy olyan listát fogadunk el, ami legalább 1 elemű, ha a lista nem ilyen, dobj kivételt!
+pl: {1,1,5,3,4,5,6,5,6,4,1,6,5,4} A megoldás: 3
+Bónusz: Módosítsd az osztályt. Legyen egy egész számokból álló lista attribútuma. A fent megírt metódus ezen a listán dolgozzon. A lista elemeit fájlból töltsük fel. A file úgy néz ki, hogy egy sorban három szám van vesszővel elválasztva. Tehát:
+
+```
+1,1,4
+2,3,5
+2,2,5
+```
 
 ## Senior
 
@@ -563,6 +572,13 @@ Majd egymás után írd ki ezeket a konzolra! Ne használj közöttük sortöré
 
 ## Senior
 
- A `Client` osztály reprezentál egy ügyfelet `name` és `regNumber` attribútummal (`String`). Az második a regisztrációs száma, mely egyedileg azonosít egy ügyfelet.  Írj egy `Clients` osztályt, mely az ügyfeleket tartja nyilván.
- Regisztrációs szám alapján le kell tudni kérdezni egy ügyfelet a `findByRegNumber(String)` metódussal. Dobjon `IllegalArgumentException`-t, ha nincs. Fontos, hogy nagyon gyors legyen a lekérdezés a regisztrációs szám alapján!
- Ezen kívül legyen benne egy `List<Client> findByName(String)` metódus is, ami pedig névtöredék alapján keres! Ez lehet lassabb.
+A `Client` osztály reprezentál egy ügyfelet `name` és `regNumber` attribútummal (`String`). Az második a regisztrációs száma, mely egyedileg azonosít egy ügyfelet.  Írj egy `Clients` osztályt, mely az ügyfeleket tartja nyilván.
+Regisztrációs szám alapján le kell tudni kérdezni egy ügyfelet a `findByRegNumber(String)` metódussal. Dobjon `IllegalArgumentException`-t, ha nincs. Fontos, hogy nagyon gyors legyen a lekérdezés a regisztrációs szám alapján!
+Ezen kívül legyen benne egy `List<Client> findByName(String)` metódus is, ami pedig névtöredék alapján keres! Ez lehet lassabb.
+
+# 2021-01-22 (`week12d05`)
+
+## Senior
+
+Töltsd le az index.hu nyitólapját böngészőből, ez egy html állomány! Másold be a projektedbe (`index.html`) néven! 
+Ez egy szöveges állomány. Olvasd be, és számold meg, hány sorban szerepel a koronavírus szó!
