@@ -578,7 +578,36 @@ Ezen kívül legyen benne egy `List<Client> findByName(String)` metódus is, ami
 
 # 2021-01-22 (`week12d05`)
 
-## Senior
+## Junior
 
 Töltsd le az index.hu nyitólapját böngészőből, ez egy html állomány! Másold be a projektedbe (`index.html`) néven! 
 Ez egy szöveges állomány. Olvasd be, és számold meg, hány sorban szerepel a koronavírus szó!
+
+## Senior
+
+Adott az alábbi osztály:
+
+```java
+public class Employee {
+    private int age;
+    private int skillLevel;
+    private String name;
+    private List<String> skills;
+}
+```
+
+Készítsetek az `EmployeeFilter` osztályba egy `List<Employee> countSeniorDevs(List<Employee> employees)`
+metódust, mely a megadott `employees`-ből kiválogatja a senior (ahol a skill level nagyobb, vagy egyenlő, mint 3) fejlesztőket!
+A fejlesztők rendelkeznek a programming skill-lel!
+
+# 2021-01-25 (`week13d01`)
+
+## Junior
+
+A GitHubon a `examples\week13d01\src\main\resources\iranyitoszamok-varosok-2021.csv` fájl tartalmazza a magyar városok listáját.
+Add vissza a leghosszabb nevű várost!
+
+## Senior
+
+A GitHubon a `examples\week13d01\src\main\resources\iranyitoszamok-varosok-2021.csv` fájl tartalmazza a magyar városok listáját.
+Add vissza az ábécésorrendben első város nevét és irányítószámát!
