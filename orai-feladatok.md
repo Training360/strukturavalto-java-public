@@ -611,3 +611,11 @@ Add vissza a leghosszabb nevű várost!
 
 A GitHubon a `examples\week13d01\src\main\resources\iranyitoszamok-varosok-2021.csv` fájl tartalmazza a magyar városok listáját.
 Add vissza az ábécésorrendben első város nevét és irányítószámát!
+
+# 2021-01-27 (`week13d3`)
+
+## Senior
+
+Legyen egy `Book` osztály, melynek van egy `String author`, `String title` és `int numberOfPages` attribútuma.
+Írj egy másik osztályban egy olyan metódust, mely visszaadja a legtöbb oldalt 
+író szerzőt! Figyelj arra, hogy hatékony legyen az algoritmus!
