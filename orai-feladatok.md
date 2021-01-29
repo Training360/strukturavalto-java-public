@@ -612,10 +612,105 @@ Add vissza a leghosszabb nevű várost!
 A GitHubon a `examples\week13d01\src\main\resources\iranyitoszamok-varosok-2021.csv` fájl tartalmazza a magyar városok listáját.
 Add vissza az ábécésorrendben első város nevét és irányítószámát!
 
-# 2021-01-27 (`week13d3`)
+# 2021-01-27 (`week13d03`)
 
 ## Senior
 
 Legyen egy `Book` osztály, melynek van egy `String author`, `String title` és `int numberOfPages` attribútuma.
 Írj egy másik osztályban egy olyan metódust, mely visszaadja a legtöbb oldalt 
 író szerzőt! Figyelj arra, hogy hatékony legyen az algoritmus!
+
+# 2021-01-28 (`week13d04`)
+
+## Junior
+
+Írj egy a `TemplateMerger` osztályba egy `public String merge(Path file, List<Employee> employees)`
+metódust, ami felolvassa a fájlt, melynek tartalma:
+
+```
+Az alkalmazott neve: {nev}, születési éve: {ev}
+```
+
+Nyugodtan beolvashatod egy utasítással!
+
+Majd a visszatérési értékként add vissza soronként az alkalmazottakat, abban a formátumban,
+mint ahogy a fájlban van, azaz:
+
+```
+Az alkalmazott neve: John Doe, születési éve: 1980
+Az alkalmazott neve: Jack Doe, születési éve: 1990
+```
+
+(Persze ehhez kell egy `Employee` osztály is a megfelelő attribútumokkal.
+
+## Senior
+
+Írj egy sablonkezelő rendszert! Hozz létre egy `TemplateEngine` nevezetű osztályt, benne egy 
+`void merge(BufferedReader reader, Map<String, Object>, BufferedWriter writer)`
+metódussal. Az első paraméter a sablon, a második paraméter pedig az értékek, melyeket ki kell cserélni a sablonban.
+
+Képzeljük el, hogy ez a sablon:
+
+```
+Kedves {nev}!
+
+Megküldjük önnek a következő esedékes számláját {datum} dátummal,
+melynek összege: {osszeg} Ft!
+A fizetési határidő {hatarido}.
+
+Üdvözlettel,
+
+Ügyfélszolgálat
+
+```
+
+A metódus második paraméterként egy `Map`-ben kapja az értékeket:
+
+```
+{"nev" = "John Doe", "datum" = LocalDate}
+```
+
+A feladat, hogy a `writer`-be ki kell írni a levelet, de már 
+kicserélve az értékeket.
+
+# 2021-01-28 (`week13d05`)
+
+## Junior
+
+Írj egy metódust, amely megszámolja, hogy hány különböző betű van
+egy szóban. A kis és nagybetűk közötti különbség nem számít!
+A space-eket, számjegyeket, stb. ne vegye figyelembe! Csak az 
+*angol* ábécé betűit!
+
+## Senior
+
+Legyen egy `BillItem` osztály, mely tartalmazza a `name`, `number`, `unitPrice` attribútumokat.
+Legyen egy `BillWriter` osztály, melynek van egy `writeBills()` metódusa.
+Ennek a számlatételeket egymás alatt szövegesen vissza kell adnia.
+Ennek első paramétere egy `List<BillItem>`, azaz megkapja a számlatételeket.
+A második paraméterét neked kell kitalálni! A lényeg, hogy bármit át tudj adni, hogy egy
+számla tételt, hogy lehet kiírni. Ugyanis van, hogy egymás után kell kiírni a 3 attribútumot,
+van, hogy tabokkal elválasztva, van, hogy mögé kell írni az összes árat is. Szóval változhat,
+gyakorlatilag a sor kiirásának algoritmusát kell paraméterül átadni.
+A visszatérési értéke egy `String`.
+
+Sem a `BillItem`, sem a `BillWriter` metódust nem módosíthatod, és a következő
+kiírási formákat kell megvalósítanod:
+
+```
+3 kenyér, darabja 10 Ft
+5 tej, darabja 20 Ft
+```
+
+```
+Megnevezés (20 karakter) Egységár (Ft) Darab Összeg
+kenyer                              10     3     30
+tej                                 20     5    100
+```
+
+Egységár 13 karakteren jobbra igazítva. Darab 5 karakteren jobbra igazítva. Összeg, 6 karakteren jobbra igazítva.
+
+```
+kenyér 3 * 10 = 30
+tej 5 * 20 = 100
+```
