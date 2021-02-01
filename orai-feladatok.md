@@ -616,26 +616,31 @@ Add vissza az ábécésorrendben első város nevét és irányítószámát!
 # 2021-01-26 (`week13d02` csoportmunka)
 
 ## Junior
+Adott egy fájl melyben egy reptér egy napi munkáját rögzítettük. Adott egy járatszám, az, hogy érkező vagy felszálló gépről van-e szó. A kiinduló/cél város, attól függöen hogy indul vagy érkezik-e a gép és a felszállás/leszállás pontos ideje. 
 
-Adott a következő szerkezetű fájl, beosztas.txt:
+A fájl:
 ```
-Albatrosz Aladin
-biologia
-9.a
-2
-Albatrosz Aladin
-osztalyfonoki
-9.a
-1
-Csincsilla Csilla
-matematika
-9.b
-2
+FC5354 Arrival Dublin 18:16
+KH2442 Departure Berlin 15:54
+ID4963 Departure Amsterdam 15:22
+CX8486 Arrival Brussels 10:37
+EJ9251 Departure  Toronto 11:30
+KJ7245 Departure Bern 6:18
+JN6048 Arrival Moscow 18:39
+MN5047 Arrival Athens 9:35
 ```
-A fájl tantárgyfelosztást tartalmaz. A tanttárgyfelosztást 4-es blokkokban adjuk meg. Első sor a tanár neve, majd a tantárgy, majd az osztály ahol tanítja és végül az, hogy heti hány órában.  Írj egy metódust,ami paraméterül várja egy tanár nevét, és kiírja, hogy hány órája van egy héten. A fájl megtalálható a `examples\week13d02\src\main\resources\beosztas.txt`
+
+Az időpontok szándékosan így szereplnek, nincsenek nullák a számok előtt. Az adatok össze vissza szerepelnek a fájlban.
+Feladatok:
+1. Olvasd be a fájl tartalmát a memóriába.
+2. Határozd meg, hogy induló vagy érkező járatból volt-e több.
+3. Legyen egy metódus ami járatszám alapján ad vissza egy járatot.
+4. Írj egy metódust ami bekér egy várost és azt, hogy az induló vagy érkező járatokat szeretnénk-e. És egy Listába adjuk viassza az összes abba városba induló/érkező repülőt.
+5. Adjuk vissza a legkorábban induló repülőt! Fájl: `examples\week13d02\src\main\resources\cities.txt`
+
 
 ## Senior
-gy internetes kvíz versenyen egy fájlba rögzitettük a versenyzők válaszait. A versenyzők egyszerre kezdtek és egyszerre egy kérdésre válaszoltak meg. A fájlban az egyes versenyzők válaszai sorban szerepelnek, de a fájlban a sorok a beérkezett válaszok sorrendjében találhatók.
+Egy internetes kvíz versenyen egy fájlba rögzitettük a versenyzők válaszait. A versenyzők egyszerre kezdtek és egyszerre egy kérdésre válaszoltak meg. A fájlban az egyes versenyzők válaszai sorban szerepelnek, de a fájlban a sorok a beérkezett válaszok sorrendjében találhatók.
 PL.:
 ```
 ABACD
@@ -654,10 +659,29 @@ Feladatok:
 3. Legyen egy metódus ami visszaadja annak versenyzőnek a kódját, akinek a legtöbb X szerepel a válaszai között.
 4. Adjuk vissza annak a versenyzőnek a kódját, aki a legtöbb pontot szerezte. Pont a helyes válaszért jár méghozzá annyi, ahányadik kérdés volt a sorban. Az első kérdés egy pontos a második kettő stb.
 Bonusz: X az 0 pont, de a rossz válasz -2.
-Fájl elérhető:`examples\week13d02\src\main\resources\cities.txt`
+Fájl elérhető:`examples\week13d02\src\main\resources\results.txt`
 
 
 # 2021-01-27 (`week13d03`)
+
+## Junior
+Adott a következő szerkezetű fájl, beosztas.txt:
+```
+Albatrosz Aladin
+biologia
+9.a
+2
+Albatrosz Aladin
+osztalyfonoki
+9.a
+1
+Csincsilla Csilla
+matematika
+9.b
+2
+```
+A fájl tantárgyfelosztást tartalmaz. A tanttárgyfelosztást 4-es blokkokban adjuk meg. Első sor a tanár neve, majd a tantárgy, majd az osztály ahol tanítja és végül az, hogy heti hány órában.  Írj egy metódust,ami paraméterül várja egy tanár nevét, és kiírja, hogy hány órája van egy héten. A fájl megtalálható a `examples\week13d03\src\main\resources\beosztas.txt`
+
 
 ## Senior
 
