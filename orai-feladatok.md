@@ -714,3 +714,48 @@ Egységár 13 karakteren jobbra igazítva. Darab 5 karakteren jobbra igazítva. 
 kenyér 3 * 10 = 30
 tej 5 * 20 = 100
 ```
+
+# 2021-02-01 (`week13d01`)
+
+## Junior
+
+Készíts egy `Indexer` osztályt, melynek van egy `public Map<Character, List<String>> index(List<String> names)` metódusa. A feladat az, hogy egy indexet készítsünk a megadott nevek kezdőbetűiből (minden kezdőbetűt társítsunk az összes névvel, mely ezzel a betűvel kezdődik).
+Példa:
+
+```
+System.out.println(new Indexer().index(Arrays.asList("Odon", "Lujza", "Abraham", "Magdolna")));
+// {A=[Abraham], L=[Lujza], M=[Magdolna], O=[Odon]}
+```
+
+
+## Senior
+
+Irj egy `Transformers` osztályt, melynek van két metódusa: `public <T, R> List<R> map(List<T> list, Function<T, R> transformer)` és `public <T> T reduce(List<T> list, T identity, BiFunction<T, T, T> combiner)`. A feladat az, hogy a `map` metódus visszaadjon egy új listát, melyben a megadott `list` elemeinek a `transformer` lambdaval transzformált változata található, illetve a `reduce` esetében a megadott lista `combiner` lambdával kombinált értéke található. Használjuk az `identity`-t kezdőértéknek! Irjunk teszteket is!
+
+Példa: 
+
+```
+System.out.println(new Transformers().map(Arrays.asList(1, 2, 3), (value) -> value + 1));
+// [2, 3, 4]
+System.out.println(new Transformers().reduce(Arrays.asList(1, 2, 3), 0, Integer::sum));
+// 6
+```
+
+public class Transformers {
+
+    public <T, R> List<R> map(List<T> list, Function<T, R> fn) {
+        List<R> result = new ArrayList<>();
+        for (T item : list) {
+            result.add(fn.apply(item));
+        }
+        return result;
+    }
+
+    public <T> T reduce(List<T> list, T identity, BiFunction<T, T, T> fn) {
+        T result = identity;
+        for (T item : list) {
+            result = fn.apply(result, item);
+        }
+        return result;
+    }
+}
