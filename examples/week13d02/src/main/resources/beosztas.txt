@@ -1,0 +1,1316 @@
+Albatrosz Aladin
+biologia
+9.a
+2
+Albatrosz Aladin
+kemia
+9.a
+2
+Albatrosz Aladin
+osztalyfonoki
+9.a
+1
+Antilop Anett
+testneveles
+9.a
+5
+Bagoly Barbara
+nemet
+9.a
+3
+Cet Celina
+tortenelem
+9.a
+4
+Csincsilla Csilla
+informatika
+9.a
+2
+Csincsilla Csilla
+matematika
+9.a
+4
+Daru Dalbert
+nemet
+9.a
+3
+Impala Izabella
+foldrajz
+9.a
+2
+Lepke Lenke
+matematika
+9.a
+4
+Maky Marcell
+enek
+9.a
+1
+Medve Melani
+magyar
+9.a
+6
+Oposszum Opika
+vizualis
+9.a
+1
+Panda Patrik
+tortenelem
+9.a
+4
+Sas Samu
+fizika
+9.a
+2
+Tatu Tamara
+angol
+9.a
+4
+Teve Teofil
+informatika
+9.a
+2
+Vadmacska Vadony
+angol
+9.a
+4
+Vadmacska Vadony
+magyar
+9.a
+6
+Zerge Zenina
+testneveles
+9.a
+5
+Albatrosz Aladin
+biologia
+9.b
+3
+Albatrosz Aladin
+kemia
+9.b
+3
+Bivaly Biti
+biologia
+9.b
+3
+Borz Borka
+testneveles
+9.b
+5
+Cet Celina
+tortenelem
+9.b
+2
+Csincsilla Csilla
+informatika
+9.b
+2
+Daru Dalbert
+nemet
+9.b
+3
+Emu Emil
+matematika
+9.b
+4
+Farkas Farkas
+testneveles
+9.b
+5
+Fecske Ferenc
+matematika
+9.b
+4
+Hangya Hanna
+osztalyfonoki
+9.b
+1
+Impala Izabella
+foldrajz
+9.b
+2
+Kaffer Kada
+kemia
+9.b
+3
+Kutya Kuniginda
+angol
+9.b
+4
+Majmocska Maja
+nemet
+9.b
+3
+Maky Marcell
+enek
+9.b
+1
+Nyerst Nyikos
+magyar
+9.b
+4
+Oposszum Opika
+vizualis
+9.b
+1
+Tatu Tamara
+angol
+9.b
+4
+Teve Teofil
+fizika
+9.b
+2
+Teve Teofil
+informatika
+9.b
+2
+Bivaly Biti
+kemia
+9.c
+2
+Csincsilla Csilla
+fizika
+9.c
+4
+Fecske Ferenc
+matematika
+9.c
+6
+Giliszta Gilbert
+tortenelem
+9.c
+2
+Gorilla Gotfrid
+matematika
+9.c
+6
+Impala Izabella
+biologia
+9.c
+2
+Kenguru Kevin
+magyar
+9.c
+4
+Kutya Kuniginda
+angol
+9.c
+4
+Lemming Lea
+foldrajz
+9.c
+2
+Majmocska Maja
+nemet
+9.c
+3
+Mormota Molli
+fizika
+9.c
+4
+Oposszum Opika
+nemet
+9.c
+3
+Pekry Petra
+angol
+9.c
+4
+Poloska Polli
+vizualis
+9.c
+1
+Siketfajd Simon
+testneveles
+9.c
+5
+Szarvas Szamanta
+informatika
+9.c
+2
+Teve Teofil
+informatika
+9.c
+2
+Tobzoska Tobor
+enek
+9.c
+1
+Vidra Viktor
+testneveles
+9.c
+5
+Zerge Zenina
+osztalyfonoki
+9.c
+1
+Csincsilla Csilla
+informatika
+9.d
+2
+Hal Hajnal
+matematika
+9.d
+4
+Hermelin Herman
+testneveles
+9.d
+5
+Impala Izabella
+biologia
+9.d
+2
+Kaffer Kada
+kemia
+9.d
+2
+Krokodil Kreola
+matematika
+9.d
+4
+Lemming Lea
+foldrajz
+9.d
+2
+Medve Melani
+magyar
+9.d
+4
+Medve Melani
+osztalyfonoki
+9.d
+1
+Mormota Molli
+fizika
+9.d
+2
+Oposszum Opika
+nemet
+9.d
+5
+Poloska Polli
+vizualis
+9.d
+1
+Pulyka Pozsinka
+nemet
+9.d
+5
+Szarvas Szamanta
+informatika
+9.d
+2
+Tatu Tamara
+angol
+9.d
+6
+Tatu Tamara
+angol
+9.d
+6
+Tatu Tamara
+tortenelem
+9.d
+2
+Tobzoska Tobor
+enek
+9.d
+1
+Vakondok Valter
+testneveles
+9.d
+5
+Csincsilla Csilla
+matematika
+9.x
+2
+Mormota Molli
+fizika
+9.x
+2
+Antilop Anett
+testneveles
+10.a
+5
+Csincsilla Csilla
+informatika
+10.a
+2
+Daru Dalbert
+nemet
+10.a
+3
+Emu Emil
+matematika
+10.a
+4
+Farkas Farkas
+osztalyfonoki
+10.a
+1
+Giliszta Gilbert
+tortenelem
+10.a
+4
+Hermelin Herman
+testneveles
+10.a
+5
+Impala Izabella
+foldrajz
+10.a
+2
+Kaffer Kada
+biologia
+10.a
+2
+Kaffer Kada
+kemia
+10.a
+2
+Oposszum Opika
+nemet
+10.a
+3
+Oposszum Opika
+vizualis
+10.a
+1
+Panda Patrik
+magyar
+10.a
+6
+Panda Patrik
+tortenelem
+10.a
+4
+Pekry Petra
+angol
+10.a
+4
+Pekry Petra
+angol
+10.a
+4
+Pocok Polett
+magyar
+10.a
+6
+Pulyka Pozsinka
+enek
+10.a
+1
+Puma Pongor
+matematika
+10.a
+4
+Sas Samu
+fizika
+10.a
+2
+Szarvas Szamanta
+informatika
+10.a
+2
+Antilop Anett
+testneveles
+10.b
+5
+Bagoly Barbara
+nemet
+10.b
+3
+Bivaly Biti
+biologia
+10.b
+3
+Bivaly Biti
+osztalyfonoki
+10.b
+1
+Borz Borka
+testneveles
+10.b
+5
+Hangya Hanna
+angol
+10.b
+4
+Impala Izabella
+biologia
+10.b
+3
+Kaffer Kada
+kemia
+10.b
+3
+Kenguru Kevin
+magyar
+10.b
+4
+Krokodil Kreola
+matematika
+10.b
+4
+Kutya Kuniginda
+angol
+10.b
+4
+Lemming Lea
+foldrajz
+10.b
+2
+Lemming Lea
+kemia
+10.b
+3
+Majmocska Maja
+nemet
+10.b
+3
+Oposszum Opika
+vizualis
+10.b
+1
+Pulyka Pozsinka
+enek
+10.b
+1
+Puma Pongor
+matematika
+10.b
+4
+Sas Samu
+fizika
+10.b
+2
+Sas Samu
+informatika
+10.b
+2
+Szarvas Szamanta
+informatika
+10.b
+2
+Zebra Zebulon
+tortenelem
+10.b
+2
+Albatrosz Aladin
+kemia
+10.c
+2
+Borz Borka
+testneveles
+10.c
+5
+Cet Celina
+tortenelem
+10.c
+2
+Csincsilla Csilla
+informatika
+10.c
+2
+Csincsilla Csilla
+informatika
+10.c
+2
+Daru Dalbert
+nemet
+10.c
+3
+Emu Emil
+fizika
+10.c
+4
+Fecske Ferenc
+matematika
+10.c
+6
+Giliszta Gilbert
+osztalyfonoki
+10.c
+1
+Hangya Hanna
+angol
+10.c
+4
+Kaffer Kada
+biologia
+10.c
+2
+Krokodil Kreola
+matematika
+10.c
+6
+Kutya Kuniginda
+angol
+10.c
+4
+Lemming Lea
+foldrajz
+10.c
+2
+Majmocska Maja
+nemet
+10.c
+3
+Medve Melani
+magyar
+10.c
+4
+Poloska Polli
+vizualis
+10.c
+1
+Siketfajd Simon
+testneveles
+10.c
+5
+Teve Teofil
+fizika
+10.c
+4
+Tobzoska Tobor
+enek
+10.c
+1
+Albatrosz Aladin
+biologia
+10.d
+2
+Albatrosz Aladin
+kemia
+10.d
+2
+Antilop Anett
+testneveles
+10.d
+5
+Bagoly Barbara
+nemet
+10.d
+5
+Borz Borka
+osztalyfonoki
+10.d
+1
+Delfin Deniel
+angol
+10.d
+6
+Gibbon Gida
+angol
+10.d
+6
+Giliszta Gilbert
+tortenelem
+10.d
+2
+Gorilla Gotfrid
+matematika
+10.d
+4
+Hal Hajnal
+matematika
+10.d
+4
+Impala Izabella
+foldrajz
+10.d
+2
+Maky Marcell
+nemet
+10.d
+5
+Mormota Molli
+fizika
+10.d
+2
+Nyerst Nyikos
+magyar
+10.d
+4
+Poloska Polli
+vizualis
+10.d
+1
+Sas Samu
+informatika
+10.d
+2
+Sas Samu
+informatika
+10.d
+2
+Tobzoska Tobor
+enek
+10.d
+1
+Vidra Viktor
+testneveles
+10.d
+5
+Fecske Ferenc
+matematika
+10.x
+2
+Hangya Hanna
+angol
+10.x
+2
+Mormota Molli
+fizika
+10.x
+2
+Albatrosz Aladin
+biologia
+11.a
+2
+Bagoly Barbara
+nemet
+11.a
+3
+Cet Celina
+tortenelem
+11.a
+5
+Emu Emil
+fizika
+11.a
+2
+Giliszta Gilbert
+tortenelem
+11.a
+5
+Hermelin Herman
+testneveles
+11.a
+5
+Krokodil Kreola
+matematika
+11.a
+4
+Maky Marcell
+nemet
+11.a
+3
+Mormota Molli
+matematika
+11.a
+4
+Pekry Petra
+osztalyfonoki
+11.a
+1
+Pocok Polett
+magyar
+11.a
+6
+Poloska Polli
+vizualis
+11.a
+2
+Sas Samu
+etika
+11.a
+1
+Vadmacska Vadony
+angol
+11.a
+3
+Vadmacska Vadony
+angol
+11.a
+3
+Vadmacska Vadony
+magyar
+11.a
+6
+Vidra Viktor
+testneveles
+11.a
+5
+Bivaly Biti
+biologia
+11.b
+3
+Bivaly Biti
+kemia
+11.b
+3
+Borz Borka
+testneveles
+11.b
+5
+Delfin Deniel
+angol
+11.b
+3
+Farkas Farkas
+testneveles
+11.b
+5
+Gibbon Gida
+angol
+11.b
+3
+Hal Hajnal
+matematika
+11.b
+4
+Kaffer Kada
+kemia
+11.b
+3
+Kenguru Kevin
+magyar
+11.b
+4
+Lemming Lea
+biologia
+11.b
+3
+Lemming Lea
+osztalyfonoki
+11.b
+1
+Maky Marcell
+nemet
+11.b
+3
+Mormota Molli
+fizika
+11.b
+2
+Panda Patrik
+tortenelem
+11.b
+3
+Pingvin Piroska
+matematika
+11.b
+4
+Poloska Polli
+vizualis
+11.b
+2
+Pulyka Pozsinka
+nemet
+11.b
+3
+Sas Samu
+etika
+11.b
+1
+Antilop Anett
+testneveles
+11.c
+5
+Bagoly Barbara
+nemet
+11.c
+3
+Cet Celina
+osztalyfonoki
+11.c
+1
+Delfin Deniel
+angol
+11.c
+3
+Farkas Farkas
+testneveles
+11.c
+5
+Gibbon Gida
+angol
+11.c
+3
+Giliszta Gilbert
+tortenelem
+11.c
+3
+Kaffer Kada
+biologia
+11.c
+2
+Medve Melani
+magyar
+11.c
+4
+Mormota Molli
+matematika
+11.c
+6
+Pingvin Piroska
+fizika
+11.c
+4
+Poloska Polli
+vizualis
+11.c
+2
+Pulyka Pozsinka
+nemet
+11.c
+3
+Puma Pongor
+matematika
+11.c
+6
+Sas Samu
+etika
+11.c
+1
+Teve Teofil
+fizika
+11.c
+4
+Bagoly Barbara
+nemet
+11.d
+5
+Cet Celina
+tortenelem
+11.d
+3
+Fecske Ferenc
+matematika
+11.d
+4
+Gibbon Gida
+angol
+11.d
+5
+Gorilla Gotfrid
+matematika
+11.d
+4
+Hangya Hanna
+angol
+11.d
+5
+Impala Izabella
+biologia
+11.d
+2
+Maky Marcell
+nemet
+11.d
+5
+Nyerst Nyikos
+magyar
+11.d
+4
+Panda Patrik
+osztalyfonoki
+11.d
+1
+Poloska Polli
+vizualis
+11.d
+2
+Sas Samu
+etika
+11.d
+1
+Szarvas Szamanta
+fizika
+11.d
+2
+Vidra Viktor
+testneveles
+11.d
+5
+Zerge Zenina
+testneveles
+11.d
+5
+Albatrosz Aladin
+kemia
+11.x
+2
+Bivaly Biti
+biologia
+11.x
+2
+Borz Borka
+testneveles
+11.x
+2
+Daru Dalbert
+nemet
+11.x
+2
+Fecske Ferenc
+matematika
+11.x
+2
+Giliszta Gilbert
+tortenelem
+11.x
+2
+Hangya Hanna
+angol
+11.x
+2
+Lemming Lea
+foldrajz
+11.x
+2
+Nyerst Nyikos
+magyar
+11.x
+2
+Pulyka Pozsinka
+enek
+11.x
+2
+Szarvas Szamanta
+informatika
+11.x
+2
+Teve Teofil
+fizika
+11.x
+2
+Zerge Zenina
+testneveles
+11.x
+2
+Bagoly Barbara
+nemet
+12.a
+3
+Bivaly Biti
+biologia
+12.a
+2
+Cet Celina
+angol
+12.a
+3
+Daru Dalbert
+nemet
+12.a
+3
+Delfin Deniel
+angol
+12.a
+3
+Giliszta Gilbert
+tortenelem
+12.a
+5
+Gorilla Gotfrid
+matematika
+12.a
+4
+Hal Hajnal
+matematika
+12.a
+4
+Kaffer Kada
+osztalyfonoki
+12.a
+1
+Kenguru Kevin
+magyar
+12.a
+6
+Panda Patrik
+magyar
+12.a
+6
+Pekry Petra
+tortenelem
+12.a
+5
+Poloska Polli
+vizualis
+12.a
+2
+Sas Samu
+fizika
+12.a
+2
+Siketfajd Simon
+eletvitel
+12.a
+1
+Siketfajd Simon
+filozofia
+12.a
+1
+Vakondok Valter
+testneveles
+12.a
+5
+Vidra Viktor
+testneveles
+12.a
+5
+Albatrosz Aladin
+kemia
+12.b
+3
+Bivaly Biti
+biologia
+12.b
+3
+Cet Celina
+tortenelem
+12.b
+3
+Daru Dalbert
+nemet
+12.b
+3
+Delfin Deniel
+angol
+12.b
+3
+Emu Emil
+fizika
+12.b
+2
+Gibbon Gida
+angol
+12.b
+3
+Hal Hajnal
+matematika
+12.b
+4
+Impala Izabella
+biologia
+12.b
+3
+Kaffer Kada
+kemia
+12.b
+3
+Krokodil Kreola
+matematika
+12.b
+4
+Majmocska Maja
+nemet
+12.b
+3
+Pocok Polett
+magyar
+12.b
+4
+Poloska Polli
+vizualis
+12.b
+2
+Pulyka Pozsinka
+osztalyfonoki
+12.b
+1
+Siketfajd Simon
+eletvitel
+12.b
+1
+Siketfajd Simon
+filozofia
+12.b
+1
+Vakondok Valter
+testneveles
+12.b
+5
+Zerge Zenina
+testneveles
+12.b
+5
+Gibbon Gida
+angol
+12.c
+3
+Gorilla Gotfrid
+matematika
+12.c
+6
+Hermelin Herman
+testneveles
+12.c
+5
+Kutya Kuniginda
+angol
+12.c
+3
+Lemming Lea
+biologia
+12.c
+2
+Majmocska Maja
+nemet
+12.c
+3
+Nyerst Nyikos
+magyar
+12.c
+4
+Oposszum Opika
+nemet
+12.c
+3
+Oposszum Opika
+vizualis
+12.c
+2
+Pingvin Piroska
+matematika
+12.c
+6
+Puma Pongor
+fizika
+12.c
+4
+Siketfajd Simon
+eletvitel
+12.c
+1
+Siketfajd Simon
+filozofia
+12.c
+1
+Szarvas Szamanta
+fizika
+12.c
+4
+Vakondok Valter
+testneveles
+12.c
+5
+Vidra Viktor
+osztalyfonoki
+12.c
+1
+Zebra Zebulon
+tortenelem
+12.c
+3
+Daru Dalbert
+nemet
+12.d
+5
+Hal Hajnal
+matematika
+12.d
+4
+Hermelin Herman
+testneveles
+12.d
+5
+Kutya Kuniginda
+angol
+12.d
+5
+Lemming Lea
+biologia
+12.d
+2
+Medve Melani
+magyar
+12.d
+4
+Oposszum Opika
+vizualis
+12.d
+2
+Pekry Petra
+angol
+12.d
+5
+Pingvin Piroska
+matematika
+12.d
+4
+Poloska Polli
+nemet
+12.d
+5
+Puma Pongor
+fizika
+12.d
+2
+Puma Pongor
+osztalyfonoki
+12.d
+1
+Siketfajd Simon
+eletvitel
+12.d
+1
+Siketfajd Simon
+filozofia
+12.d
+1
+Tatu Tamara
+tortenelem
+12.d
+3
+Vakondok Valter
+testneveles
+12.d
+5
+Bivaly Biti
+biologia
+12.x
+2
+Cet Celina
+tortenelem
+12.x
+2
+Emu Emil
+matematika
+12.x
+2
+Farkas Farkas
+testneveles
+12.x
+2
+Gibbon Gida
+angol
+12.x
+2
+Impala Izabella
+foldrajz
+12.x
+2
+Lemming Lea
+kemia
+12.x
+2
+Oposszum Opika
+nemet
+12.x
+2
+Pocok Polett
+magyar
+12.x
+2
+Poloska Polli
+vizualis
+12.x
+2
+Pulyka Pozsinka
+enek
+12.x
+2
+Puma Pongor
+fizika
+12.x
+2
+Szarvas Szamanta
+informatika
+12.x
+2
