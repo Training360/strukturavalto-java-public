@@ -612,6 +612,51 @@ Add vissza a leghosszabb nevű várost!
 A GitHubon a `examples\week13d01\src\main\resources\iranyitoszamok-varosok-2021.csv` fájl tartalmazza a magyar városok listáját.
 Add vissza az ábécésorrendben első város nevét és irányítószámát!
 
+
+# 2021-01-26 (`week13d02` csoportmunka)
+
+## Junior
+
+Adott a következő szerkezetű fájl, beosztas.txt:
+```
+Albatrosz Aladin
+biologia
+9.a
+2
+Albatrosz Aladin
+osztalyfonoki
+9.a
+1
+Csincsilla Csilla
+matematika
+9.b
+2
+```
+A fájl tantárgyfelosztást tartalmaz. A tanttárgyfelosztást 4-es blokkokban adjuk meg. Első sor a tanár neve, majd a tantárgy, majd az osztály ahol tanítja és végül az, hogy heti hány órában.  Írj egy metódust,ami paraméterül várja egy tanár nevét, és kiírja, hogy hány órája van egy héten. A fájl megtalálható a `examples\week13d02\src\main\resources\beosztas.txt`
+
+## Senior
+gy internetes kvíz versenyen egy fájlba rögzitettük a versenyzők válaszait. A versenyzők egyszerre kezdtek és egyszerre egy kérdésre válaszoltak meg. A fájlban az egyes versenyzők válaszai sorban szerepelnek, de a fájlban a sorok a beérkezett válaszok sorrendjében találhatók.
+PL.:
+```
+ABACD
+AB123 A
+AH2 B
+BD452 A
+AB123 B
+GH1234 C
+AB123 D
+```
+Magyarázat:A fájl első sora a helyes válaszokat tartalmazza egy sorban. (5 kérdés volt az elsőre a helyes válasz A a másodikra B stb.) Ezek után a sor első eleme egy azonosító a második pedig egy a válasz betűjele. Minden kérdésnél négy válaszlehetőség volt (A,B,C,D) és lehetett ugrani egy kérdést ekkor X szerepel a fájlban. 
+Tehát az AB123 azonosítóval rendelkező játékos első válasza A a második B. A többieknek csak az első kérdésre adott válaszuk szerepel a példában. \
+Feladatok:
+1. Olvasd be a fájl tartalmát a memóriába.
+2. Legyen egy lekérdező metódus ami paraméterül vár egy kódot és egy számot és megmondja hogy az ileltő az adott kérdésre helyesen vagy helytelenül válaszolt-e.
+3. Legyen egy metódus ami visszaadja annak versenyzőnek a kódját, akinek a legtöbb X szerepel a válaszai között.
+4. Adjuk vissza annak a versenyzőnek a kódját, aki a legtöbb pontot szerezte. Pont a helyes válaszért jár méghozzá annyi, ahányadik kérdés volt a sorban. Az első kérdés egy pontos a második kettő stb.
+Bonusz: X az 0 pont, de a rossz válasz -2.
+Fájl elérhető:`examples\week13d02\src\main\resources\cities.txt`
+
+
 # 2021-01-27 (`week13d03`)
 
 ## Senior
