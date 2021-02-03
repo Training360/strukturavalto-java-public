@@ -810,21 +810,77 @@ System.out.println(new Transformers().reduce(Arrays.asList(1, 2, 3), 0, Integer:
 // 6
 ```
 
-public class Transformers {
+# 2021-02-02 (`week13d02`)
 
-    public <T, R> List<R> map(List<T> list, Function<T, R> fn) {
-        List<R> result = new ArrayList<>();
-        for (T item : list) {
-            result.add(fn.apply(item));
-        }
-        return result;
-    }
+## Junior
 
-    public <T> T reduce(List<T> list, T identity, BiFunction<T, T, T> fn) {
-        T result = identity;
-        for (T item : list) {
-            result = fn.apply(result, item);
-        }
-        return result;
+
+
+## Senior
+
+
+# 2021-02-03 (`week13d03`)
+
+## Junior
+
+
+
+## Senior
+
+Adott egy `User` osztály:
+
+```java
+public class User {
+    
+    private String name;
+    private String age;
+    private String address;
+
+}
+```
+
+és egy `UserFilter` interfész:
+
+```java
+@FunctionalInterface
+public interface UserFilter {
+
+    List<User> filter(List<User> users);
+}
+```
+
+Készíts hozzá egy `UserFilters` osztályt, mely filter objektumokat képes gyártani az alábbi módon lambdak felhasznalasaval:
+
+```java
+public class UserFilters {
+
+    public UserFilter createFilter(List<Predicate<User>> predicates) {
+        // TODO
     }
 }
+```
+
+Példa:
+
+```java
+public class Main {
+
+    public static void main(String[] args) {
+        final UserFilter filter = new UserFilters().createFilter(Arrays.asList(
+                (user) -> user.getAge() > 18,
+                (user) -> user.getName().startsWith("A")
+        ));
+
+        System.out.println(filter.filter(new ArrayList<>(Arrays.asList(
+                new User("Marton", 16, "Racz Aladar utca 99/b"),
+                new User("Attila", 19, "Kazmer utca 4")
+        ))));
+    }
+}
+```
+
+
+
+
+
+
