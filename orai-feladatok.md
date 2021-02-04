@@ -916,8 +916,34 @@ public class Main {
 }
 ```
 
+# 2021-02-04 (`week14d04`)
 
+## Junior
 
+Legyen egy szerződés (`Contract`) osztály, melynek van egy `String client` és egy `List<Integer> monthlyPrices` attribútuma. 
+Az előbbi a szerződő neve, a második pedig a havonta fizetendő összeg.
+Legyen egy `ContractCreator` osztály, melynek van egy `ContractCreator(String client, List<Integer> monthlyPrices)` konstruktora, 
+mely létrehoz egy szerződéssablont, a paraméterként
+megadott adatokkal, melyet összesen EGY `Contract template` attribútumban tárolj!
 
+Majd írj egy `Contract create(String name)` metódust, mely a sablon alapján létrehoz egy
+új szerződést, de a nevet kicseréli a paraméterként megadott névre!
 
+Próbáld ki, hogy a visszaadott szerződésben módosítod a 12. havi értéket! Ha létrehozol
+egy új szerződést a sablon alapján, akkor a 12 havi érték az eredeti sablon alapján van
+kitöltve?
 
+## Senior
+
+Írd meg a következő metódust stream használatával!
+
+```java
+public class EmployeeTransformOperations {
+	public List<Employee> transformToUppercased(List<Employee> employees) {
+		return ????;
+	}
+}
+```
+
+A metódus visszaad egy listát, amiben az alkalmazottak neve nagybetűsítve van.
+Azonban a paraméterként átadott lista ne módosuljon!
