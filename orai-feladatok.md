@@ -947,3 +947,21 @@ public class EmployeeTransformOperations {
 
 A metódus visszaad egy listát, amiben az alkalmazottak neve nagybetűsítve van.
 Azonban a paraméterként átadott lista ne módosuljon!
+
+# 2021-02-05 (`week14d05`)
+
+## Junior
+
+A `examples/week14d05/hachiko.srt` van a Hachiko film felirata. Írj egy
+`countWords()` metódust, mely paraméterül várja a fájlt, varargsban
+szavakat. Megszámolja, hogy melyik szó hány sorban szerepel a
+szövegben. Legyenek mondjuk a beadott szavak: "Hachiko", "haza",
+"pályaudvar", "jó"
+
+
+## Senior
+
+A `examples/week14d05/hachiko.srt` van a Hachiko film felirata. Csak streamek
+használatával számold ki, hogy hányszor hangzik el a kutya neve a filmben!
+
+Segítség: a `Files.lines()` adja vissza a fájl sorait streamben.
