@@ -965,3 +965,71 @@ A `examples/week14d05/hachiko.srt` van a Hachiko film felirata. Csak streamek
 használatával számold ki, hogy hányszor hangzik el a kutya neve a filmben!
 
 Segítség: a `Files.lines()` adja vissza a fájl sorait streamben.
+
+
+# 2021-02-08 (`week15d01`)
+
+## Junior
+Adott egy függvénygrafikon a koordináta rendszerben. A grafikon néhány pontját megkapjuk egy Map-ben. A map kulcsa az x koordináta értéke pedig az y koordináta. Döntsük el, hogy a kapott pontok küzül, hol van a függvénynek maximum helye és ott mennyi az értéke.
+
+## Senior
+Egy befektető cég szeretné megnézni, hogy az elmúlt időszakban mikor lett volna érdemes venni, illetve eladni Bitcoint. Készíts egy metódust, ami paraméterül várja a Bitcoin, valahány napi árfolyamát időrendi sorrendben egy listában, dollárban. (Egész számok listája) A metódus visszatérési értéke két szám legyen, az első hogy hányadik napon lett volna érdemes venni, a második pedig, hogy melyik napon lett volna érdemes eladni. Mindezt úgy, hogy a legnagyobb nyereségünk legyen.
+
+
+# 2021-02-09 (`week15d02`)
+
+## Junior
+Adott egy vetélkedő kérdésbankja egy fájlban.(`examples/week15d02/kerdesek.txt`) A fájlban az egy kérdéshez tartozó adatok két sorban helyezkednek el. Első sorban a kérdés, a második sorban a válasz a pontszám és a téma, szóközzel elválasztava. Olvasd be a fájl tartalmát a memóriába, majd oldjátok meg a lenti feladatokat.
+
+```
+Mikor volt a mohacsi vesz?
+1526 1 tortenelem
+Melyik evben bomlott fel a Nyugat-Romai Birodalom?
+476 1 tortenelem
+Melyik a legkisebb primszam?
+2 1 matematika
+Mennyi 64 kobgyoke?
+4 2 matematika
+Hany atloja van a szabalyos nyolcszognek?
+24 2 matematika
+Melyik evben kezdodott a Honfoglalas?
+895 1 tortenelem
+Mikor adtak ki az Aranybullat?
+1222 1 tortenelem
+Melyik evben adtak ki Angliaban a Magna Chartat?
+1215 3 tortenelem
+```
+
+1. Írj egy metódust, melynek paramétere a téma és add vissza, az összes kérdést abban a témában. (Csak a kérdéseket)
+2. Írj egy metódust, ami random sorsol ki egy kérdést, és adja vissza annak összes adatát.
+3. Készíts egy metódust ami rendszerezi a kérdéseket témakörönként. Visszatér egy adatszerkezetben amelyben témánként megtalálható az összes kérdés, összes adata. 
+4. Az előző feladat segítségével határozd meg, hogy melyik téma kérdései érik a legtöbb pontot (összpontszám)!
+
+
+## Senior
+Adott egy fájl(`examples/week15d02/orders.txt`) melyben pizza rendeléseket tárolunk. A fájl blokkokra van osztva, egy blokk egy napot jelöl, és minden ilyen blokk egy dátummal kezdődik. Ezután egy rendelés adatai két sorban találhatók. Az első sor a futár azonosítója, a második sorban irányítószám, utcanév, házszám és a szállítás pontos ideje található.
+
+```
+2020.12.01
+FUT_1
+1113 Petőfi 12 12:30
+FUT_2
+1114 Kossuth 9 11:20
+FUT_2
+1211 Jókai 10 19:30
+FUT_3
+1191 Kossuth 9 18:12
+FUT_1
+1144 Tököly 11 16:33
+2020.12.02
+FUT_1
+1123 Ady 12 12:30
+....
+```
+
+A fájl beolvasása után oldjátok meg a következő feladatokat!
+1. Melyik napon volt a legkevesebb rendelés?
+2. Egy metódus várjon paraméterül egy dátumot, pontos időponttal és adjuk vissza a hozzá tartozó rendelést. Ha nincs ilyen akkor dobjunk kivételt. (Vagy Optional)
+3. Készíts statisztikát a futárok szállításiból, futáronként add vissza, hogy mennyi rendelést teljesítettek. 
+4. Melyik címre szállították a legtöbb pizzát? 
+
