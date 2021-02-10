@@ -1033,3 +1033,49 @@ A fájl beolvasása után oldjátok meg a következő feladatokat!
 3. Készíts statisztikát a futárok szállításiból, futáronként add vissza, hogy mennyi rendelést teljesítettek. 
 4. Melyik címre szállították a legtöbb pizzát? 
 
+# 2021-02-10 (`week15d03`)
+
+## Junior
+
+Adott az alábbi osztály:
+
+```java
+public class Post {
+    private String title;
+    private LocalDate publishedAt;
+    private String content;
+    private String owner;
+}
+```
+
+Implementáljunk a `PostFinder` osztályban egy `public List<Post> findPostsFor(String user) ` metódust az alábbi módon:
+
+- Csak olyan `Post`-ot adjunk vissza, amelynek az `owner`-e megegyezik a megadott `user`-rel
+- A `Post` `publishedAt` dátuma korábbi kell, hogy legyen, mint a `LocalDate.now()`
+- A `content` és a `title` nem lehet üres
+
+Tároljunk egy `List<Post>` objektumot a `PostFinder` osztályban, melyet konstruktor paraméterként kap meg és ezt használjuk!
+
+## Senior
+
+Adott az alábbi osztály:
+
+```java
+public class Post {
+    private String title;
+    private LocalDate publishedAt;
+    private LocalDate deletedAt;
+    private String content;
+    private String owner;
+}
+```
+
+Implementáljunk a `PostFinder` osztályban egy `public List<Post> findPosts(String user) ` metódust az alábbi módon:
+
+- A `Post` `publishedAt` dátuma korábbi kell, hogy legyen, mint a `LocalDate.now()`
+- Ha a `Post` `publishedAt` dátuma későbbi, mint a `LocalDate.now()`, akkor csak azokat a `Post`-okat adjuk vissza, melyek `owner`-e megegyezik a megadott `user`-rel.
+- A `content` és a `title` nem lehet üres
+- A `deletedAt` értéke `null` kell, hogy legyen, vagy későbbi, mint a `LocalDate.now()`.
+- Használjunk stream-eket az implementációhoz!
+
+Tároljunk egy `List<Post>` objektumot a `PostFinder` osztályban, melyet konstruktor paraméterként kap meg és ezt használjuk!
