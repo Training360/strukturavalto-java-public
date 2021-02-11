@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>20</y>
+      <w>190</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Employee
+--
+name: String
+--
+getName(): String
+setName(name: String)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>280</x>
+      <y>20</y>
+      <w>190</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Skill
+--
+name: String
+--
++getName(): String
++setName(name: String)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>200</x>
+      <y>60</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>90</x>
+      <y>150</y>
+      <w>300</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Composition, szoros kapcsolat - tartalmazás</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
