@@ -1079,3 +1079,15 @@ Implementáljunk a `PostFinder` osztályban egy `public List<Post> findPosts(Str
 - Használjunk stream-eket az implementációhoz!
 
 Tároljunk egy `List<Post>` objektumot a `PostFinder` osztályban, melyet konstruktor paraméterként kap meg és ezt használjuk!
+
+# 2021-02-11 (`week15d04`)
+
+## Junior
+
+Letölthetőek a koronavírus adatok innen: https://opendata.ecdc.europa.eu/covid19/casedistribution/csv/data.csv 
+Melyik három héten volt Magyarországon a legtöbb esetszám?
+
+## Senior
+
+Számoljuk össze, hogy egy fájlban hány mássalhangzó, hány magánhangzó és hány egyéb karakter van. 
+A space-eket ne vegyük figyelembe! A kis- és nagybetű különbség nem számít!
