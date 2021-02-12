@@ -1091,3 +1091,19 @@ Melyik három héten volt Magyarországon a legtöbb esetszám?
 
 Számoljuk össze, hogy egy fájlban hány mássalhangzó, hány magánhangzó és hány egyéb karakter van. 
 A space-eket ne vegyük figyelembe! A kis- és nagybetű különbség nem számít!
+
+# 2021-02-11 (`week15d05`)
+
+## Junior
+
+Adott egy fájl a következő címen:
+https://raw.githubusercontent.com/TheMLGuy/Game-of-Thrones-Dataset/master/battles.csv
+Melyik ház vett részt a legtöbb csatában?
+
+## Senior
+
+Letölthetőek a COVID adatok a
+https://opendata.ecdc.europa.eu/covid19/casedistribution/csv/data.csv
+címről.
+Összegezd országonként az esetszámokat, és add vissza azt a három
+országot, ahol az összes esetszám populációra arányosítva a legnagyobb.
