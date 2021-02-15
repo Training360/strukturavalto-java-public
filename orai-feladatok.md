@@ -1147,7 +1147,7 @@ A `CanoeType` egy enum, mely értékei: `RED`, `GREEN` és `BLUE`.
 Publikus metódusok:
 
 ```java
-public CanoeRental(String name, CanoeType canoeType, String dateTimeString) 
+public CanoeRental(String name, CanoeType canoeType, LocalDateTime startTime) 
 public void setEndTime(LocalDateTime endTime)
 public double calculateRentalSum() 
 ```
@@ -1155,15 +1155,21 @@ public double calculateRentalSum()
 Minden kölcsönzés aktív, amíg vissza nem hozták a kenut, azaz ki nem töltötték
 az `endTime` értékét.
 
-Írj egy `CanoeOffice` osztályt, mely tárolja, hogy milyen kölcsönzések történtek (`List<CanoeOffice>`).
+Írj egy `CanoeOffice` osztályt, mely tárolja, hogy milyen kölcsönzések történtek (`List<CanoeRental>`).
 
 A következő metódusokat implementáld:
 
-* `createRental(CanoeRental)` - létrehoz egy kölcsönzést
+* `addRental(CanoeRental)` - hozzáad egy kölcsönzést
 * `findRentalByName(String name)` - megkeres egy AKTÍV kölcsönzést név alapján
 * `closeRentalByName(String name, LocalDateTime endTime)` - megkeres egy AKTÍV kölcsönzést név alapján, beállítja az `endTime` értékét
 * `double getRentalPriceByName(String name, LocalDateTime endTime)` - kikeresi az AKTÍV kölcsönzést név alapján, és kiszámolja, hogy
-a megadott kölcsönzés mennyibe kerülne. A számolás úgy történik, hogy 5000 Ft-ot a szín alapján megszoroz egy értékkel, piros,
-zöld és kék esetén rendre 1, 1,2 és 1,5 értékkel.
+a megadott kölcsönzés mennyibe kerülne. A számolás úgy történik, hogy óránként 5000 Ft-ot a szín alapján megszoroz egy értékkel, piros,
+zöld és kék esetén rendre 1, 1,2 és 1,5 értékkel. Minden megkezdett óra számít.
 * `List<CanoeRental> listClosedRentals()` - Add vissza a lezárt kölcsönzéseket a `startTime` alapján sorbarendezve!
 * `Map<CanoeType, Integer> countRentals()` - Számold meg, hány kölcsönzés volt színenként!
+
+Két dátum között eltelt órák számát a következőképp lehet kiszámítani:
+
+```java
+Duration.between(beginDate, endDate).toHours()
+```
