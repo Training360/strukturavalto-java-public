@@ -1112,7 +1112,7 @@ országot, ahol az összes esetszám populációra arányosítva a legnagyobb.
 
 ## Magánhangzók
 
-Írj egy `VowelFilter.filterFowels(BufferedReader reader)` metódust, mely beolvas egy 
+Írj egy `VowelFilter.filterVowels(BufferedReader reader)` metódust, mely beolvas egy 
 fájlt soronként, kiszűri belőle a magánhangzókat, és visszaadja egy String-ként.
 
 Tehát a bemeneti fájl tartalma:
