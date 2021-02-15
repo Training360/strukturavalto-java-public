@@ -43,6 +43,8 @@ A létrehozott String:
 
 Figyelj, hogy az algoritmusod lehetőleg hatékony legyen!
 
+A `Histogram` osztályba dolgozz, tesztje `HistogramTest`. Minden sor után legyen sortörés, az utolsó után is.
+
 ## Travel agency
 
 Utazási iroda hajóutakat szervez. Minden hajóút egy adott hajóval történik, amelynek neve és befogadóképessége a egy `Boat` osztályban van tárolva.
