@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>10</y>
+      <w>250</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Boat
+--
+-name: String
+-maxPassengers: int
+--
+/ / konstruktorok, getterek</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>120</y>
+      <w>250</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Passenger
+--
+-name: String
+-cruiseClass: CruiseClass
+--
+/ / konstruktorok, getterek</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>310</y>
+      <w>250</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enum&gt;&gt;
+CruiseClass
+--
+LUXURY
+FIRST
+SECOND</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>130</x>
+      <y>230</y>
+      <w>30</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>410</x>
+      <y>10</y>
+      <w>420</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>Cruise
+--
+-boat: Boat
+-sailing: LocalDate
+-basicPrice: double
+-passengers: List&lt;Passenger&gt;
+--
++Cruise(boat: Boat, sailing: LocalDate, basicPrice: double)
++bookPassenger(passenger: Passenger)
++getPriceForPassenger(passenger: Passenger): double
++findPassengerByName(name: String): Passenger
++getPassengerNamesOrdered(): List&lt;String&gt;
++sumAllBookingsCharged():double
++countPassengerByClass:Map&lt;CruiseClass, Integer&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>260</x>
+      <y>40</y>
+      <w>170</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=*
+m2=*</panel_attributes>
+    <additional_attributes>150.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>260</x>
+      <y>160</y>
+      <w>170</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=*</panel_attributes>
+    <additional_attributes>150.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
