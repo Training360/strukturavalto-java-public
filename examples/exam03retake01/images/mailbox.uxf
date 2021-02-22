@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>340</x>
+      <y>120</y>
+      <w>160</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Mail
+--
+from: Contact
+to: List&lt;Contact&gt;
+subject: String
+message: String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>610</x>
+      <y>120</y>
+      <w>300</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>MailBox
+--
+mails: List&lt;Mail&gt;
+--
+findByCriteria(criteria: String): List&lt;Mail&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>120</y>
+      <w>180</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Contact
+--
+name: String
+email: String
+--
+/ / konstruktor és getterek</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>220</x>
+      <y>150</y>
+      <w>140</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>220</x>
+      <y>190</y>
+      <w>140</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=*</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>490</x>
+      <y>160</y>
+      <w>140</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=*</panel_attributes>
+    <additional_attributes>120.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
