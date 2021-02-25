@@ -215,6 +215,19 @@ public enum Coin {
 
 # JUnit
 
+## Függőségek
+
+```xml
+<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter-engine</artifactId>
+    <version>5.7.1</version>
+    <scope>test</scope>
+</dependency>
+```
+
+## Teszt osztály
+
 ```java
 public class TestCalculator {
 
@@ -473,4 +486,144 @@ Collections.sort(employees, new Comparator<Employee>() {
         return o1.getName().compareTo(o2.getName());
     }
 });
+```
+
+# JDBC
+
+## Függőségek
+
+```xml
+<dependency>
+    <groupId>org.mariadb.jdbc</groupId>
+    <artifactId>mariadb-java-client</artifactId>
+    <version>2.7.2</version>
+</dependency>
+<dependency>
+    <groupId>org.flywaydb</groupId>
+    <artifactId>flyway-core</artifactId>
+    <version>7.5.3</version>
+</dependency>
+```
+
+## DataSource létrehozása
+
+```java
+MariaDbDataSource dataSource;
+try {
+    dataSource = new MariaDbDataSource();
+    dataSource.setUrl("jdbc:mariadb://localhost:3306/employees?useUnicode=true");
+    dataSource.setUser("employees");
+    dataSource.setPassword("employees");
+}
+catch (SQLException se) {
+    throw new IllegalStateException("Can not create data source", se);
+}
+```
+
+## Flyway
+
+```java
+Flyway flyway = Flyway.configure().dataSource(dataSource).load();
+
+flyway.clean();
+flyway.migrate();
+```
+
+## Paraméterezett insert, update, delete
+
+```java
+try (
+        Connection conn = dataSource.getConnection();
+        PreparedStatement stmt =
+                conn.prepareStatement("insert into employees(emp_name) values (?)")) {
+    stmt.setString(1, name);
+    stmt.executeUpdate();
+}
+catch (SQLException se) {
+    throw new IllegalStateException("Cannot insert", se);
+}
+```
+
+## Lekérdezés
+
+```java
+public List<String> listEmployeeNames() {
+    try (
+            Connection conn = dataSource.getConnection();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("select emp_name from employees order by emp_name")
+    ) {
+        List<String> names = new ArrayList<>();
+        while (rs.next()) {
+            String name = rs.getString("emp_name");
+            names.add(name);
+        }
+        return names;
+    }
+    catch (SQLException se) {
+        throw new IllegalStateException("Cannot select employees", se);
+    }
+}
+```
+
+## Paraméterezett lekérdezés
+
+```java
+try (
+        Connection conn = dataSource.getConnection();
+        PreparedStatement stmt =
+          conn.prepareStatement("select emp_name from employees where id = ?");
+) {
+    stmt.setLong(1, id);
+
+    // ...
+} catch (SQLException sqle) {
+    throw new IllegalArgumentException("Error by insert", sqle);
+}
+```
+
+```java
+try (
+        ResultSet rs = stmt.executeQuery();
+) {
+    if (rs.next()) {
+        String name = rs.getString("emp_name");
+        return name;
+    }
+    throw new IllegalArgumentException("No result");
+} catch (SQLException sqle) {
+    throw new IllegalArgumentException("Error by insert", sqle);
+}
+```
+
+## Generált azonosító lekérdezése
+
+```java
+try (Connection conn = dataSource.getConnection();
+     PreparedStatement stmt = conn.prepareStatement("insert into employees(emp_name) values (?)",
+             Statement.RETURN_GENERATED_KEYS)
+) {
+
+    stmt.setString(1, name);
+    stmt.executeUpdate();
+    return executeAndGetGeneratedKey(stmt);
+} catch (SQLException sqle) {
+    throw new IllegalArgumentException("Error by insert", sqle);
+}
+```
+
+```java
+private long executeAndGetGeneratedKey(PreparedStatement stmt) {
+    try (
+            ResultSet rs = stmt.getGeneratedKeys();
+    ) {
+        if (rs.next()) {
+            return rs.getLong(1);
+        } else {
+            throw new SQLException("No key has generated");
+        }
+    } catch (SQLException sqle) {
+        throw new IllegalArgumentException("Error by insert", sqle);
+    }
+}
 ```
