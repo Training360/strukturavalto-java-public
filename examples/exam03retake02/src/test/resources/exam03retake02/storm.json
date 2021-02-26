@@ -1,0 +1,452 @@
+[
+  {
+    "id": 5,
+    "allomas": "Siófok (OMSZ)",
+    "lat": "46.910647",
+    "lng": "18.040237",
+    "description": "A közforgalmú MAHART kikötőtől délnyugatra kb. 200 méterre",
+    "level": 0,
+    "groupId": "BE",
+    "stationType": "LED"
+  },
+  {
+    "id": 6,
+    "allomas": "Siófok-H. Erzsébet",
+    "lat": "46.91567",
+    "lng": "18.06600000000003",
+    "description": "Hotel Erzsébet szálló tetején.",
+    "level": 0,
+    "groupId": "BE",
+    "stationType": "LED"
+  },
+  {
+    "id": 7,
+    "allomas": "Szabadi-sóstó",
+    "lat": "46.9405805",
+    "lng": "18.1282833",
+    "description": "Önkormányzati strand jobboldalán",
+    "level": 0,
+    "groupId": "BE",
+    "stationType": "LED"
+  },
+  {
+    "id": 8,
+    "allomas": "Balatonaliga",
+    "lat": "46.9870754238105",
+    "lng": "18.161186597553296",
+    "description": "Közforgalmú Club Aliga Rt. kikötő",
+    "level": 0,
+    "groupId": "BE",
+    "stationType": "LED"
+  },
+  {
+    "id": 9,
+    "allomas": "Balatonkenese",
+    "lat": "47.022019705538646",
+    "lng": "18.133271789965875",
+    "description": "A közforgalmú Kenese Marina-Port Rt. kikötőtől délkeletre kb. 1500 méterre",
+    "level": 0,
+    "groupId": "BE",
+    "stationType": "LED"
+  },
+  {
+    "id": 10,
+    "allomas": "Balatonfüzfö",
+    "lat": "47.03452817192037",
+    "lng": "18.031344250331813",
+    "description": "A Bocskai tér mellett, Budatava utca",
+    "level": 0,
+    "groupId": "BE",
+    "stationType": "LED"
+  },
+  {
+    "id": 11,
+    "allomas": "Balatonalmádi",
+    "lat": "47.028848",
+    "lng": "18.02582899999993",
+    "description": "A közforgalmú MAHART kikötőtől északra kb. 800 méterre",
+    "level": 0,
+    "groupId": "BE",
+    "stationType": "LED"
+  },
+  {
+    "id": 12,
+    "allomas": "Alsóörs",
+    "lat": "46.9828014",
+    "lng": "17.979648699999984",
+    "description": "A közforgalmú MAHART kikötő",
+    "level": 0,
+    "groupId": "BE",
+    "stationType": "LED"
+  },
+  {
+    "id": 13,
+    "allomas": "Balatonfüred",
+    "lat": "46.94764050406317",
+    "lng": "17.881204308845554",
+    "description": "A közforgalmú MAHART kikötőtől délnyugatra kb. 1300 méterre (Hotel Marina)",
+    "level": 3,
+    "groupId": "BE",
+    "stationType": "LED"
+  },
+  {
+    "id": 14,
+    "allomas": "Zamárdi",
+    "lat": "46.88485299605091",
+    "lng": "17.929333830688506",
+    "description": "A szántódrévi MAHART kompkikötőtől keletre kb. 2300 méterre",
+    "level": 0,
+    "groupId": "BE",
+    "stationType": "LED"
+  },
+  {
+    "id": 23,
+    "allomas": "Balatonfüred - meteoszonda",
+    "lat": "46.951871081863885",
+    "lng": "17.893856690807297",
+    "description": "Csak meteorológia. Balatonfüred BYC kikötő bejárata",
+    "level": 0,
+    "groupId": "BE",
+    "stationType": "OM"
+  },
+  {
+    "id": 26,
+    "allomas": "Tihany - kikötő",
+    "lat": "46.91699731364009",
+    "lng": "17.895420888916078",
+    "description": "Tihany - BAHART kikötő",
+    "level": 0,
+    "groupId": "BE",
+    "stationType": "LED"
+  },
+  {
+    "id": 33,
+    "allomas": "Balatonboglár",
+    "lat": "46.779756",
+    "lng": "17.64445599999999",
+    "description": "A közforgalmú MAHART kikötőtől nyugatra kb. 200 méterre",
+    "level": 0,
+    "groupId": "BC",
+    "stationType": "LED"
+  },
+  {
+    "id": 34,
+    "allomas": "Balatonlelle",
+    "lat": "46.787679",
+    "lng": "17.68468299999995",
+    "description": "A közforgalmú MAHART kikötőtől nyugatra kb. 800 méterre",
+    "level": 0,
+    "groupId": "BC",
+    "stationType": "LED"
+  },
+  {
+    "id": 35,
+    "allomas": "Balatonöszöd",
+    "lat": "46.818847",
+    "lng": "17.789349",
+    "description": "A balatonszemesi közforgalmú MAHART kikötőtől ÉK-re kb. 2000 méterre",
+    "level": 0,
+    "groupId": "BC",
+    "stationType": "LED"
+  },
+  {
+    "id": 36,
+    "allomas": "Balatonföldvár",
+    "lat": "46.85305289999999",
+    "lng": "17.8769499",
+    "description": "A Fesztivál-térnél a parton",
+    "level": 0,
+    "groupId": "BC",
+    "stationType": "LED"
+  },
+  {
+    "id": 37,
+    "allomas": "Tihany",
+    "lat": "46.889234",
+    "lng": "17.886118",
+    "description": "A MAHART kompkikötőtől nyugatra kb. 300 méterre (Club Tihany Hotel)",
+    "level": 0,
+    "groupId": "BC",
+    "stationType": "LED"
+  },
+  {
+    "id": 38,
+    "allomas": "Örvényes",
+    "lat": "46.910533",
+    "lng": "17.82661380000002",
+    "description": "Örvényes szabadstrand területén",
+    "level": 0,
+    "groupId": "BC",
+    "stationType": "LED"
+  },
+  {
+    "id": 40,
+    "allomas": "Balatonakali",
+    "lat": "46.880134",
+    "lng": "17.752308",
+    "description": "A közforgalmű MAHART kikötől keletre kb. 400 méterre",
+    "level": 0,
+    "groupId": "BC",
+    "stationType": "LED"
+  },
+  {
+    "id": 42,
+    "allomas": "Révfülöp",
+    "lat": "46.829209",
+    "lng": "17.645566",
+    "description": "A közforgalmű MAHART kikötől keletre kb. 1200 méterre",
+    "level": 0,
+    "groupId": "BC",
+    "stationType": "LED"
+  },
+  {
+    "id": 43,
+    "allomas": "Ábrahámhegy",
+    "lat": "46.811339",
+    "lng": "17.571387",
+    "description": "A badacsonyi közforgalmű MAHART kikötől ÉK-re kb. 5000 méterre",
+    "level": 3,
+    "groupId": "BC",
+    "stationType": "LED"
+  },
+  {
+    "id": 64,
+    "allomas": "Fonyód ismétlő",
+    "lat": "46.7384564641992",
+    "lng": "17.542860304061833",
+    "description": "",
+    "level": 0,
+    "groupId": "BW",
+    "stationType": "AA"
+  },
+  {
+    "id": 66,
+    "allomas": "Balatonberény",
+    "lat": "46.715786",
+    "lng": "17.3225218",
+    "description": "Az önkormányzati strand jobboldalán a parton",
+    "level": 0,
+    "groupId": "BW",
+    "stationType": "LED"
+  },
+  {
+    "id": 67,
+    "allomas": "Balatonmáriafürdő",
+    "lat": "46.708419",
+    "lng": "17.371037",
+    "description": "A közforgalmú MAHART kikötőtől nyugatra kb. 500 méterre",
+    "level": 0,
+    "groupId": "BW",
+    "stationType": "LED"
+  },
+  {
+    "id": 68,
+    "allomas": "Balatonfenyves",
+    "lat": "46.71806627876211",
+    "lng": "17.473430993640136",
+    "description": "Yacht kikötőbejáratnál",
+    "level": 0,
+    "groupId": "BW",
+    "stationType": "LED"
+  },
+  {
+    "id": 69,
+    "allomas": "Fonyód",
+    "lat": "46.751668",
+    "lng": "17.556174",
+    "description": "A közforgalmú MAHART kikötőtől keletre kb. 100 méterre",
+    "level": 0,
+    "groupId": "BC",
+    "stationType": "LED"
+  },
+  {
+    "id": 70,
+    "allomas": "Badacsony",
+    "lat": "46.789703",
+    "lng": "17.50959",
+    "description": "A közforgalmű MAHART kikötő",
+    "level": 0,
+    "groupId": "BC",
+    "stationType": "LED"
+  },
+  {
+    "id": 71,
+    "allomas": "Szigliget",
+    "lat": "46.785222",
+    "lng": "17.436934",
+    "description": "A közforgalmű MAHART kikötől nyugatra kb. 700 méterre",
+    "level": 0,
+    "groupId": "BW",
+    "stationType": "LED"
+  },
+  {
+    "id": 72,
+    "allomas": "Balatongyörök",
+    "lat": "46.754696",
+    "lng": "17.357647",
+    "description": "A községi strand keleti végén",
+    "level": 0,
+    "groupId": "BW",
+    "stationType": "LED"
+  },
+  {
+    "id": 73,
+    "allomas": "Keszthely",
+    "lat": "46.761502",
+    "lng": "17.255057999999963",
+    "description": "A közforgalmú MAHART kikötől északra kb. 400 méterre (Hotel Helikon)",
+    "level": 0,
+    "groupId": "BW",
+    "stationType": "LED"
+  },
+  {
+    "id": 74,
+    "allomas": "Badacsonylábdihegy",
+    "lat": "46.78941365943009",
+    "lng": "17.472770778751396",
+    "description": "Parton",
+    "level": 0,
+    "groupId": "BW",
+    "stationType": "LED"
+  },
+  {
+    "id": 75,
+    "allomas": "Fonyód -Bélatelep",
+    "lat": "46.73487564189452",
+    "lng": "17.531590593917826",
+    "description": "Parton",
+    "level": 0,
+    "groupId": "BW",
+    "stationType": "LED"
+  },
+  {
+    "id": 76,
+    "allomas": "Balatonszárszó",
+    "lat": "46.83348672238832",
+    "lng": "17.829567132402076",
+    "description": "Balatonszárszó Tóparti park jobb oldalán a parton.",
+    "level": 3,
+    "groupId": "BC",
+    "stationType": "LED"
+  },
+  {
+    "id": 77,
+    "allomas": "Balatonszepezd",
+    "lat": "46.857738710066876",
+    "lng": "17.67019223315731",
+    "description": "Balatonszepezd észak-keleti részén, a Viriuszi strand területén",
+    "level": 0,
+    "groupId": "BC",
+    "stationType": "LED"
+  },
+  {
+    "id": 78,
+    "allomas": "Balatonederics",
+    "lat": "46.787501527908596",
+    "lng": "17.38623394011995",
+    "description": "Balatonederics Községi strand területén",
+    "level": 0,
+    "groupId": "BW",
+    "stationType": "LED"
+  },
+  {
+    "id": 79,
+    "allomas": "Keszthely EON sporttelep",
+    "lat": "46.73740879690187",
+    "lng": "17.24570473956453",
+    "description": "Keszthely Déli szabadstrandtól 100 méterre északra",
+    "level": 0,
+    "groupId": "BW",
+    "stationType": "LED"
+  },
+  {
+    "id": 97,
+    "allomas": "Velence",
+    "lat": "47.236500",
+    "lng": "18.652511",
+    "description": "Az ÁSZ üdülő tetőszerkezetén",
+    "level": 0,
+    "groupId": "VA",
+    "stationType": "LED"
+  },
+  {
+    "id": 98,
+    "allomas": "Agárd",
+    "lat": "47.195618",
+    "lng": "18.596098",
+    "description": "A Velence-tavi Vízi Sportiskola főépületének tetőszerkezetén",
+    "level": 0,
+    "groupId": "VA",
+    "stationType": "LED"
+  },
+  {
+    "id": 99,
+    "allomas": "Pákozd",
+    "lat": "47.210522",
+    "lng": "18.579056",
+    "description": "Szúnyog sziget",
+    "level": 0,
+    "groupId": "VA",
+    "stationType": "LED"
+  },
+  {
+    "id": 112,
+    "allomas": "Velence - Resort",
+    "lat": "47.226691",
+    "lng": "18.660770",
+    "description": "HOTEL Velence Resort & Spa",
+    "level": 0,
+    "groupId": "VA",
+    "stationType": "VCS"
+  },
+  {
+    "id": 132,
+    "allomas": "Poroszló",
+    "lat": "47.6407249",
+    "lng": "20.65351080000005",
+    "description": "Delfin-kikötőnél a gáton",
+    "level": 0,
+    "groupId": "TA",
+    "stationType": "FL"
+  },
+  {
+    "id": 133,
+    "allomas": "Kunsági főcsatorna",
+    "lat": "47.4754772",
+    "lng": "20.560657900000024",
+    "description": "Kunsági főcstorna zsilip műtárgy baloldalán",
+    "level": 0,
+    "groupId": "TA",
+    "stationType": "FL"
+  },
+  {
+    "id": 134,
+    "allomas": "Újlőrincfalva Magyarad",
+    "lat": "47.59357079999999",
+    "lng": "20.624863199999936",
+    "description": "Parton",
+    "level": 0,
+    "groupId": "TA",
+    "stationType": "FL"
+  },
+  {
+    "id": 135,
+    "allomas": "Abádszalók Strand",
+    "lat": "47.48206260000001",
+    "lng": "20.584979400000066",
+    "description": "Strandon",
+    "level": 0,
+    "groupId": "TA",
+    "stationType": "FL"
+  },
+  {
+    "id": 136,
+    "allomas": "Sarud",
+    "lat": "47.572487",
+    "lng": "20.609911600000032",
+    "description": "Parton",
+    "level": 0,
+    "groupId": "TA",
+    "stationType": "FL"
+  }
+]
