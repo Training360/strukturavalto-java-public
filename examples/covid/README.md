@@ -107,6 +107,7 @@ Először legyen egy menü:
 3. Generálás
 4. Oltás
 5. Oltás meghiúsulás
+6. Riport
 ```
 
 A menüpontok rendre:
