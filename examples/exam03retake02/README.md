@@ -8,7 +8,7 @@ https://github.com/Training360/strukturavalto-java-public/blob/master/cheet-shee
 
 Először másold át magadhoz a teszteseteket, majd commitolj azonnal!
 
-A három feladatra 1,5 órád van összesen!
+A két feladatra 1,5 órád van összesen!
 
 Oldd meg a feladatokat, minden feladat megoldását egy külön commitban
 add be!
