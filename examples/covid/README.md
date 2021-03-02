@@ -65,7 +65,7 @@ A fájl formátuma:
 ```
 Időpont;Név;Irányítószám;Életkor;E-mail cím;TAJ szám
 8:00;John Doe;2061;60;john.doe@example.com;1234567890
-8:30;Jane Doe;2091;40;jane.doe@example.com;1234567881
+8:30;Jack Doe;2061;40;jack.doe@example.com;1234567881
 ```
 
 Látható, hogy az időpontot is bele kell generálni. (8:00-tól 16:00-ig, félórás időközökkel)
