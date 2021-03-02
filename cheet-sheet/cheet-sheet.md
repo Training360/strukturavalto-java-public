@@ -184,6 +184,8 @@ List<String> moreNumbers = new ArrayList<>(); // Módosítható lista, diamond o
 
 List<String> copy = new ArrayList<>(numbers); // Módosítható másolat
 
+List<String> namesToModify = new ArrayList<>(List.of("John", "Jack")); // Módosítható lista egy utasításban
+
 copy.add("Jane"); // ["John", "Jack", "Jane"] - hozzáadás
 copy.remove("John"); // ["Jack", "Jane"] - eltávolítás
 
@@ -197,6 +199,33 @@ for(String name: names){
     System.out.println(name);
 }
 ```
+
+Eltávolítás listából, miközben bejárjuk:
+
+```java
+List<String> names = new ArrayList<>(List.of("John Doe", "Jack Doe", "John Smith"));
+
+List<String> johns = new ArrayList<>();
+for (String name: names) {
+    if (name.startsWith("John")) {
+        johns.add(name);
+    }
+}
+names.removeAll(johns);
+```
+Iterátorral:
+
+```java
+List<String> names = new ArrayList<>(List.of("John Doe", "Jack Doe", "John Smith"));
+Iterator<String> it = names.iterator();
+while (it.hasNext()) {
+    String name = it.next();
+    if (name.startsWith("John")) {
+        it.remove();
+    }
+}
+```
+
 
 # Véletlenszám
 
@@ -474,9 +503,9 @@ Collections.sort(numbers);
 List<String> names = new ArrayList<>(List.of("Benjámin", "Áron", "József", "Arnold"));
 Collections.sort(names, Collator.getInstance(new Locale("hu", "HU")));
 
-List<Employee> employees = List.of(
+List<Employee> employees = new ArrayList<>(List.of(
         new Employee("John Doe", 1980),
-        new Employee("Jack Doe", 1970));
+        new Employee("Jack Doe", 1970)));
 
 // Év vagy név szeretnénk rendezni
 Collections.sort(employees, new Comparator<Employee>() {
