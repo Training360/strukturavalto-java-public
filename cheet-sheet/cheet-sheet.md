@@ -384,7 +384,7 @@ public List<String> getNames(List<Employee> employees) {
 ```java
 public class FileReader {
 
-    public List<String> readLines(BufferedReader reader) throws IOException {
+    public void readLines(BufferedReader reader) throws IOException {
         String line;
         while ((line = reader.readLine())  != null) {
             System.out.println(line);
