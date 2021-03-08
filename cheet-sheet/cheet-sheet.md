@@ -1,3 +1,16 @@
+# Beállítások a `pom.xml`-ben
+
+Beállítja, hogy a forrásfájlok karakterkódolása `UTF-8` legyen,
+és 15-ös Javat használjon.
+
+```xml
+<properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>15</maven.compiler.source>
+    <maven.compiler.target>15</maven.compiler.target>
+</properties>
+```
+
 # Main
 
 ```java
@@ -260,6 +273,7 @@ public enum Coin {
 ```java
 public class TestCalculator {
 
+    @Test
     void testAdd() {
         // Given
         Calculator calculator = new Calculator();
