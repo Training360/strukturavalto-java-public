@@ -11,6 +11,14 @@ Beállítja, hogy a forrásfájlok karakterkódolása `UTF-8` legyen,
 </properties>
 ```
 
+# A `.gitignore` fájl
+
+```plain
+target
+.idea
+*.iml
+```
+
 # Main
 
 ```java
@@ -260,12 +268,24 @@ public enum Coin {
 ## Függőségek
 
 ```xml
-<dependency>
-    <groupId>org.junit.jupiter</groupId>
-    <artifactId>junit-jupiter-engine</artifactId>
-    <version>5.7.1</version>
-    <scope>test</scope>
-</dependency>
+<dependencies>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-engine</artifactId>
+        <version>5.7.1</version>
+        <scope>test</scope>
+    </dependency>
+
+</dependencies>
+
+<build>
+    <plugins>
+        <plugin>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>2.22.2</version>
+        </plugin>
+    </plugins>
+</build>
 ```
 
 ## Teszt osztály
