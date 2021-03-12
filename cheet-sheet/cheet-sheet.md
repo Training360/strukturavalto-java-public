@@ -461,8 +461,9 @@ public class FileWriter {
     }
 
     public static void main(String[] args) {
+        List<Employee> employees = List.of(new Employee("John Doe", 1970), new Employee("Jack Doe", 1980));
         try (BufferedWriter writer = Files.newBufferedWriter(Path.of("data.csv"))) {
-            new FileWriter().writeLines(writer);
+            new FileWriter().writeLines(employees, writer);
         } catch (IOException ioe) {
             throw new IllegalStateException("Can not write file", ioe);
         }
