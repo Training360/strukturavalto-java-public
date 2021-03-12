@@ -450,7 +450,7 @@ try (BufferedReader reader = new BufferedReader(new InputStreamReader(FileReader
 ```java
 public class FileWriter {
 
-    public void writeLines(List<String> employees, BufferedWriter writer) {
+    public void writeLines(List<Employee> employees, BufferedWriter writer) {
         try {
             for (String employee : employees) {
                 writer.write(employee.getName() + "," + employee.getYearOfBirth());
