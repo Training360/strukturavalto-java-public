@@ -504,7 +504,7 @@ System.out.println(words.get("apple")); // Apfel
 Set<String> keys = words.keySet(); // Kulcsok
 Collection<String> values = words.values(); // Értékek
 
-for (Map.Entry entry: words.entrySet()) {
+for (Map.Entry<String, String> entry: words.entrySet()) {
     System.out.println(entry.getKey() + " - " + entry.getValue());
 }
 ```
