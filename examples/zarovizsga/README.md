@@ -13,7 +13,7 @@ https://github.com/Training360/strukturavalto-java-public/blob/master/cheet-shee
 
 Először másold át magadhoz a teszteseteket, majd commitolj azonnal!
 
-Az öt feladatra 3 órád van összesen!
+Az öt feladatra (ebből kettő a Kutyák feladat) 3 órád van összesen!
 
 Old meg a feladatokat, minden feladat megoldását egy külön commitban
 add be!
@@ -52,6 +52,10 @@ Legyen egy `Kennel` osztály, mely nyilvántartja a kutyákat. A következő met
     metódusát az átadott `hours` paraméterrel
 * `List<String> getHappyDogNames(int minHappiness)` - visszaadja azon kutyák neveit, melyeknek
     boldogsága nagyobb, mint a paraméterként átadott érték
+
+Ez két feladatnak számít, első a `Dog`, `Husky` `Beagle` és `Kennel` osztályok
+létrehozása, és a `Kennel` osztály első két metódusa egy feladat. A másik három metódus
+még egy feladatnak számít.
     
 ## Munkaórák
 
