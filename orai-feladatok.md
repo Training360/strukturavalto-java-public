@@ -90,6 +90,12 @@ hogy a szám, kisebb, nagyobb vagy egyenlő-e mint a gondolt szám.
 
 Bónusz feladat: max 6-szor lehet kérdezni!
 
+# 2020-11-20 (`week04d05`)
+
+Írj egy `CharOperations` osztályt, abban egy `List<Integer> getPositionOfChars(String base, String part)`
+metódust! A metódus visszaadja, hogy az első stringben a második string
+mely pozíciókon helyezkedik el.
+
 # 2020-11-24 (`week05d02`)
 
 A `ChangeLetter` osztályban írj meg egy `String changeVowels(String)`
