@@ -61,7 +61,7 @@ attribútumba dolgozz!
 # 2020-11-16 (`week04d01`)
 
 Készítsd el a `NameChanger` osztályt, melynek privát attribútuma
-legyen a `String fillName`, mely egy ember teljes nevét reprezentálja!
+legyen a `String fullName`, mely egy ember teljes nevét reprezentálja!
 A `fullName` attribútum `[vezetéknév][szóköz][keresztnév]` formátumban épül fel.
 A konstruktor állítsa be a paraméterül kapott értékre az adattagot,
 de ha az érték `null`, vagy üres String, akkor dobjon egy
@@ -1108,7 +1108,7 @@ címről.
 Összegezd országonként az esetszámokat, és add vissza azt a három
 országot, ahol az összes esetszám populációra arányosítva a legnagyobb.
 
-# 20201-02-15 (`week1601`) - opcionális vizsgafelkészítő
+# 2021-02-15 (`week1601`) - opcionális vizsgafelkészítő
 
 ## Magánhangzók
 
